@@ -410,9 +410,9 @@
         "size": 67526
     },
     {
-        "crc": 308789539,
+        "crc": 2062074056,
         "filename": "CustomSAA2\\HANDLING.CFG",
-        "size": 50537
+        "size": 50529
     },
     {
         "crc": 2710078502,
@@ -500,7 +500,7 @@
         "size": 5285928
     },
     {
-        "crc": 1076018381,
+        "crc": 1232087443,
         "filename": "CustomSAA2\\VEHICLES.IDE",
         "size": 34531
     },
@@ -12005,9 +12005,9 @@
         "size": 1700
     },
     {
-        "crc": 1158260272,
+        "crc": 189733243,
         "filename": "vehiclespecialabilities.asi",
-        "size": 145920
+        "size": 55808
     },
     {
         "crc": 2404762158,
@@ -12035,9 +12035,9 @@
         "size": 65536
     },
     {
-        "crc": 400664653,
+        "crc": 3025783825,
         "filename": "vsaconfig.ini",
-        "size": 1213
+        "size": 832
     },
     {
         "crc": 4258323955,
