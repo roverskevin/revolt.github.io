@@ -410,9 +410,9 @@
         "size": 67526
     },
     {
-        "crc": 2167279486,
+        "crc": 308789539,
         "filename": "CustomSAA2\\HANDLING.CFG",
-        "size": 50215
+        "size": 50537
     },
     {
         "crc": 2710078502,
@@ -500,9 +500,9 @@
         "size": 5285928
     },
     {
-        "crc": 4085553759,
+        "crc": 1076018381,
         "filename": "CustomSAA2\\VEHICLES.IDE",
-        "size": 33109
+        "size": 34531
     },
     {
         "crc": 3624961,
@@ -825,9 +825,9 @@
         "size": 667
     },
     {
-        "crc": 3336055684,
+        "crc": 2083295201,
         "filename": "data\\gtasa_vehicleAudioSettings.cfg",
-        "size": 77770
+        "size": 80991
     },
     {
         "crc": 3951425822,
@@ -930,9 +930,9 @@
         "size": 33835
     },
     {
-        "crc": 3915896346,
+        "crc": 4195339756,
         "filename": "data\\maps\\country\\countryW.ide",
-        "size": 19704
+        "size": 19700
     },
     {
         "crc": 3497913575,
@@ -1230,7 +1230,7 @@
         "size": 165
     },
     {
-        "crc": 3787078127,
+        "crc": 1898680844,
         "filename": "data\\maps\\leveldes\\levelmap.ide",
         "size": 3194
     },
@@ -2495,9 +2495,9 @@
         "size": 66738176
     },
     {
-        "crc": 899596003,
+        "crc": 42693495,
         "filename": "models\\rgaccess.img",
-        "size": 18847744
+        "size": 24776704
     },
     {
         "crc": 3251408944,
@@ -2763,6 +2763,16 @@
         "crc": 1216985599,
         "filename": "models\\txd\\splash3.txd",
         "size": 40
+    },
+    {
+        "crc": 3144617226,
+        "filename": "models\\txd\\splash4.txd",
+        "size": 12391772
+    },
+    {
+        "crc": 1523272582,
+        "filename": "models\\txd\\splash5.txd",
+        "size": 12118080
     },
     {
         "crc": 4079775885,
@@ -3495,11 +3505,6 @@
         "size": 67744
     },
     {
-        "crc": 2964560674,
-        "filename": "modloader\\noweap\\buddy.ifp",
-        "size": 19032
-    },
-    {
         "crc": 2615812161,
         "filename": "modloader\\noweap\\chnsaw.dff",
         "size": 26624
@@ -3508,16 +3513,6 @@
         "crc": 3520077790,
         "filename": "modloader\\noweap\\chnsaw.txd",
         "size": 8192
-    },
-    {
-        "crc": 267130250,
-        "filename": "modloader\\noweap\\colt45.ifp",
-        "size": 26624
-    },
-    {
-        "crc": 3584419954,
-        "filename": "modloader\\noweap\\cover_45.ifp",
-        "size": 1416434
     },
     {
         "crc": 2980463531,
@@ -3600,6 +3595,11 @@
         "size": 17594
     },
     {
+        "crc": 2089936913,
+        "filename": "modloader\\noweap\\quad.ifp",
+        "size": 69632
+    },
+    {
         "crc": 395388752,
         "filename": "modloader\\noweap\\rob_bank.ifp",
         "size": 22528
@@ -3618,11 +3618,6 @@
         "crc": 2532335667,
         "filename": "modloader\\noweap\\shotgspa.txd",
         "size": 5640904
-    },
-    {
-        "crc": 2679750804,
-        "filename": "modloader\\noweap\\silenced.ifp",
-        "size": 16384
     },
     {
         "crc": 2074404431,
@@ -3990,9 +3985,19 @@
         "size": 186100
     },
     {
+        "crc": 3546407760,
+        "filename": "modloader\\Part\\J2_wheels.txd",
+        "size": 2496040
+    },
+    {
         "crc": 2234969985,
         "filename": "modloader\\Part\\nos.txd",
         "size": 10240
+    },
+    {
+        "crc": 3724910371,
+        "filename": "modloader\\Part\\veh_mods.ide",
+        "size": 7357
     },
     {
         "crc": 743574076,
@@ -4000,9 +4005,9 @@
         "size": 434856
     },
     {
-        "crc": 426538575,
+        "crc": 1457815726,
         "filename": "modloader\\Part\\wheel_gn1.dff",
-        "size": 161792
+        "size": 190464
     },
     {
         "crc": 433458667,
@@ -4010,9 +4015,9 @@
         "size": 303656
     },
     {
-        "crc": 4132221129,
+        "crc": 1341359570,
         "filename": "modloader\\Part\\wheel_gn2.dff",
-        "size": 202752
+        "size": 180224
     },
     {
         "crc": 2042882707,
@@ -4020,9 +4025,9 @@
         "size": 406312
     },
     {
-        "crc": 4087579641,
+        "crc": 2167506713,
         "filename": "modloader\\Part\\wheel_gn3.dff",
-        "size": 169984
+        "size": 194560
     },
     {
         "crc": 614958574,
@@ -4030,9 +4035,9 @@
         "size": 304296
     },
     {
-        "crc": 2640197551,
+        "crc": 1700350284,
         "filename": "modloader\\Part\\wheel_gn4.dff",
-        "size": 186368
+        "size": 192512
     },
     {
         "crc": 3535909900,
@@ -4040,9 +4045,9 @@
         "size": 279080
     },
     {
-        "crc": 2102398739,
+        "crc": 1996852798,
         "filename": "modloader\\Part\\wheel_gn5.dff",
-        "size": 178176
+        "size": 190464
     },
     {
         "crc": 4031333644,
@@ -4050,9 +4055,9 @@
         "size": 533032
     },
     {
-        "crc": 3096399341,
+        "crc": 3603469751,
         "filename": "modloader\\Part\\wheel_lr1.dff",
-        "size": 143360
+        "size": 182272
     },
     {
         "crc": 649926938,
@@ -4060,9 +4065,9 @@
         "size": 270760
     },
     {
-        "crc": 1666703621,
+        "crc": 3593787012,
         "filename": "modloader\\Part\\wheel_lr2.dff",
-        "size": 229376
+        "size": 198656
     },
     {
         "crc": 3023710896,
@@ -4070,9 +4075,9 @@
         "size": 164392
     },
     {
-        "crc": 1978526248,
+        "crc": 24017488,
         "filename": "modloader\\Part\\wheel_lr3.dff",
-        "size": 143360
+        "size": 200704
     },
     {
         "crc": 30993008,
@@ -4080,9 +4085,9 @@
         "size": 156072
     },
     {
-        "crc": 3804116258,
+        "crc": 2576499848,
         "filename": "modloader\\Part\\wheel_lr4.dff",
-        "size": 143360
+        "size": 200704
     },
     {
         "crc": 2770703754,
@@ -4090,9 +4095,9 @@
         "size": 156072
     },
     {
-        "crc": 2091303087,
+        "crc": 1895252617,
         "filename": "modloader\\Part\\wheel_lr5.dff",
-        "size": 126976
+        "size": 180224
     },
     {
         "crc": 267130762,
@@ -4100,9 +4105,9 @@
         "size": 156072
     },
     {
-        "crc": 3107029974,
+        "crc": 3824020255,
         "filename": "modloader\\Part\\wheel_or1.dff",
-        "size": 118784
+        "size": 190464
     },
     {
         "crc": 338773352,
@@ -4110,9 +4115,9 @@
         "size": 139560
     },
     {
-        "crc": 897233942,
+        "crc": 3898383101,
         "filename": "modloader\\Part\\wheel_sr1.dff",
-        "size": 268288
+        "size": 180224
     },
     {
         "crc": 682850509,
@@ -4120,9 +4125,9 @@
         "size": 205352
     },
     {
-        "crc": 535557650,
+        "crc": 224753011,
         "filename": "modloader\\Part\\wheel_sr2.dff",
-        "size": 233472
+        "size": 198656
     },
     {
         "crc": 3258106488,
@@ -4130,9 +4135,9 @@
         "size": 205352
     },
     {
-        "crc": 1176681406,
+        "crc": 2563320429,
         "filename": "modloader\\Part\\wheel_sr3.dff",
-        "size": 200704
+        "size": 198656
     },
     {
         "crc": 1823851120,
@@ -4140,9 +4145,9 @@
         "size": 205352
     },
     {
-        "crc": 696423422,
+        "crc": 1070556635,
         "filename": "modloader\\Part\\wheel_sr4.dff",
-        "size": 233472
+        "size": 184320
     },
     {
         "crc": 260354158,
@@ -4150,9 +4155,9 @@
         "size": 205352
     },
     {
-        "crc": 1927755768,
+        "crc": 442152874,
         "filename": "modloader\\Part\\wheel_sr5.dff",
-        "size": 200704
+        "size": 167936
     },
     {
         "crc": 3325798061,
@@ -4160,9 +4165,9 @@
         "size": 213672
     },
     {
-        "crc": 986426943,
+        "crc": 1192701941,
         "filename": "modloader\\Part\\wheel_sr6.dff",
-        "size": 227328
+        "size": 196608
     },
     {
         "crc": 1653978550,
@@ -9695,7 +9700,7 @@
         "size": 997416
     },
     {
-        "crc": 2889019395,
+        "crc": 231912860,
         "filename": "modloader\\Vehicles\\bmw7e66.dff",
         "size": 3862528
     },
@@ -9775,7 +9780,7 @@
         "size": 1361128
     },
     {
-        "crc": 3239439639,
+        "crc": 76188993,
         "filename": "modloader\\Vehicles\\btlctnt.dff",
         "size": 4292608
     },
@@ -9830,7 +9835,7 @@
         "size": 1521664
     },
     {
-        "crc": 2878403183,
+        "crc": 140702388,
         "filename": "modloader\\Vehicles\\cadilacescd.dff",
         "size": 5314560
     },
@@ -10305,14 +10310,14 @@
         "size": 1063652
     },
     {
-        "crc": 1739494008,
+        "crc": 1273635949,
         "filename": "modloader\\Vehicles\\kelvintvram.dff",
-        "size": 10072540
+        "size": 12277760
     },
     {
-        "crc": 3825985469,
+        "crc": 1451034284,
         "filename": "modloader\\Vehicles\\kelvintvram.txd",
-        "size": 2540576
+        "size": 2781224
     },
     {
         "crc": 2585592188,
@@ -10323,6 +10328,16 @@
         "crc": 2080509880,
         "filename": "modloader\\Vehicles\\kingtampa.txd",
         "size": 764968
+    },
+    {
+        "crc": 1238492142,
+        "filename": "modloader\\Vehicles\\lamborlimit.dff",
+        "size": 8306688
+    },
+    {
+        "crc": 2382985406,
+        "filename": "modloader\\Vehicles\\lamborlimit.txd",
+        "size": 1613448
     },
     {
         "crc": 4217326824,
@@ -10465,14 +10480,14 @@
         "size": 869296
     },
     {
-        "crc": 2750318844,
+        "crc": 3704446808,
         "filename": "modloader\\Vehicles\\Lc500lbt\\lc500lbt.dff",
-        "size": 11769856
+        "size": 8706048
     },
     {
-        "crc": 915769725,
+        "crc": 2307448293,
         "filename": "modloader\\Vehicles\\Lc500lbt\\lc500lbt.txd",
-        "size": 351256
+        "size": 2574504
     },
     {
         "crc": 112901320,
@@ -10760,6 +10775,26 @@
         "size": 909312
     },
     {
+        "crc": 199253089,
+        "filename": "modloader\\Vehicles\\mhero917.dff",
+        "size": 8185856
+    },
+    {
+        "crc": 254231471,
+        "filename": "modloader\\Vehicles\\mhero917.txd",
+        "size": 1529720
+    },
+    {
+        "crc": 2054681929,
+        "filename": "modloader\\Vehicles\\monstervip.dff",
+        "size": 2091008
+    },
+    {
+        "crc": 87530004,
+        "filename": "modloader\\Vehicles\\monstervip.txd",
+        "size": 1114152
+    },
+    {
         "crc": 1496421193,
         "filename": "modloader\\Vehicles\\mxjack.dff",
         "size": 9418752
@@ -10815,14 +10850,14 @@
         "size": 848368
     },
     {
-        "crc": 504154676,
+        "crc": 4281382582,
         "filename": "modloader\\Vehicles\\nrg500cls.dff",
-        "size": 433722
+        "size": 371211
     },
     {
-        "crc": 1202190373,
+        "crc": 379585982,
         "filename": "modloader\\Vehicles\\nrg500cls.txd",
-        "size": 29480
+        "size": 104344
     },
     {
         "crc": 1992024805,
@@ -10993,6 +11028,21 @@
         "crc": 1575086190,
         "filename": "modloader\\Vehicles\\qadrocypu.txd",
         "size": 217088
+    },
+    {
+        "crc": 3074056454,
+        "filename": "modloader\\Vehicles\\quadpro.bak",
+        "size": 1693696
+    },
+    {
+        "crc": 630160652,
+        "filename": "modloader\\Vehicles\\quadpro.dff",
+        "size": 1695744
+    },
+    {
+        "crc": 3174445305,
+        "filename": "modloader\\Vehicles\\quadpro.txd",
+        "size": 648872
     },
     {
         "crc": 318550214,
@@ -11250,6 +11300,16 @@
         "size": 306803
     },
     {
+        "crc": 2763167672,
+        "filename": "modloader\\Vehicles\\swatvanvip.dff",
+        "size": 7002363
+    },
+    {
+        "crc": 2283027701,
+        "filename": "modloader\\Vehicles\\swatvanvip.txd",
+        "size": 1327912
+    },
+    {
         "crc": 2711230327,
         "filename": "modloader\\Vehicles\\tahoe.dff",
         "size": 5558272
@@ -11258,6 +11318,26 @@
         "crc": 2940429520,
         "filename": "modloader\\Vehicles\\tahoe.txd",
         "size": 1067008
+    },
+    {
+        "crc": 1155183486,
+        "filename": "modloader\\Vehicles\\tankvip.dff",
+        "size": 155648
+    },
+    {
+        "crc": 3499389439,
+        "filename": "modloader\\Vehicles\\tankvip.txd",
+        "size": 46080
+    },
+    {
+        "crc": 2286550460,
+        "filename": "modloader\\Vehicles\\teslacbt.dff",
+        "size": 1253376
+    },
+    {
+        "crc": 1223794551,
+        "filename": "modloader\\Vehicles\\teslacbt.txd",
+        "size": 859000
     },
     {
         "crc": 3230552660,
@@ -11473,6 +11553,26 @@
         "crc": 3390679495,
         "filename": "modloader\\Vehicles\\xadv.txd",
         "size": 1458544
+    },
+    {
+        "crc": 129027005,
+        "filename": "modloader\\Vehicles\\xedapbmxvip.dff",
+        "size": 593920
+    },
+    {
+        "crc": 3905854442,
+        "filename": "modloader\\Vehicles\\xedapbmxvip.txd",
+        "size": 697640
+    },
+    {
+        "crc": 768126478,
+        "filename": "modloader\\Vehicles\\xedapvip.dff",
+        "size": 1216512
+    },
+    {
+        "crc": 740528559,
+        "filename": "modloader\\Vehicles\\xedapvip.txd",
+        "size": 430632
     },
     {
         "crc": 1533302527,
@@ -11905,9 +12005,9 @@
         "size": 1700
     },
     {
-        "crc": 189733243,
+        "crc": 1158260272,
         "filename": "vehiclespecialabilities.asi",
-        "size": 55808
+        "size": 145920
     },
     {
         "crc": 2404762158,
@@ -11935,9 +12035,9 @@
         "size": 65536
     },
     {
-        "crc": 3025783825,
+        "crc": 400664653,
         "filename": "vsaconfig.ini",
-        "size": 832
+        "size": 1213
     },
     {
         "crc": 4258323955,
