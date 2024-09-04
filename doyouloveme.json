@@ -410,9 +410,9 @@
         "size": 67526
     },
     {
-        "crc": 2062074056,
+        "crc": 308789539,
         "filename": "CustomSAA2\\HANDLING.CFG",
-        "size": 50529
+        "size": 50537
     },
     {
         "crc": 2710078502,
@@ -500,9 +500,9 @@
         "size": 5285928
     },
     {
-        "crc": 174674909,
+        "crc": 1076018381,
         "filename": "CustomSAA2\\VEHICLES.IDE",
-        "size": 34530
+        "size": 34531
     },
     {
         "crc": 3624961,
@@ -1375,14 +1375,14 @@
         "size": 323
     },
     {
-        "crc": 2510081398,
+        "crc": 632136245,
         "filename": "data\\maps\\vegas\\vegasE.ide",
-        "size": 35537
+        "size": 35542
     },
     {
-        "crc": 4243578517,
+        "crc": 1843721942,
         "filename": "data\\maps\\vegas\\vegasE.ipl",
-        "size": 61081
+        "size": 61084
     },
     {
         "crc": 3471525613,
@@ -2495,9 +2495,9 @@
         "size": 66738176
     },
     {
-        "crc": 3187192382,
+        "crc": 42693495,
         "filename": "models\\rgaccess.img",
-        "size": 35117056
+        "size": 24776704
     },
     {
         "crc": 3251408944,
