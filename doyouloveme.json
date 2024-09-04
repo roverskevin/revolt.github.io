@@ -500,9 +500,9 @@
         "size": 5285928
     },
     {
-        "crc": 1232087443,
+        "crc": 174674909,
         "filename": "CustomSAA2\\VEHICLES.IDE",
-        "size": 34531
+        "size": 34530
     },
     {
         "crc": 3624961,
@@ -1375,14 +1375,14 @@
         "size": 323
     },
     {
-        "crc": 632136245,
+        "crc": 2510081398,
         "filename": "data\\maps\\vegas\\vegasE.ide",
-        "size": 35542
+        "size": 35537
     },
     {
-        "crc": 1843721942,
+        "crc": 4243578517,
         "filename": "data\\maps\\vegas\\vegasE.ipl",
-        "size": 61084
+        "size": 61081
     },
     {
         "crc": 3471525613,
@@ -2495,9 +2495,9 @@
         "size": 66738176
     },
     {
-        "crc": 42693495,
+        "crc": 3187192382,
         "filename": "models\\rgaccess.img",
-        "size": 24776704
+        "size": 35117056
     },
     {
         "crc": 3251408944,
@@ -11595,14 +11595,14 @@
         "size": 7664620
     },
     {
-        "crc": 2067570759,
+        "crc": 4134004433,
         "filename": "modloader\\Vehicles\\xejeepduahau.dff",
-        "size": 4784128
+        "size": 9619456
     },
     {
-        "crc": 1760101928,
+        "crc": 194190254,
         "filename": "modloader\\Vehicles\\xejeepduahau.txd",
-        "size": 1417640
+        "size": 4424664
     },
     {
         "crc": 1587519206,
@@ -11725,9 +11725,14 @@
         "size": 53
     },
     {
-        "crc": 1523824223,
+        "crc": 474814696,
         "filename": "RG_AntiCheat.asi",
-        "size": 9970752
+        "size": 13014016
+    },
+    {
+        "crc": 291571765,
+        "filename": "RG_AntiCheat.lib",
+        "size": 6772
     },
     {
         "crc": 2801744435,
