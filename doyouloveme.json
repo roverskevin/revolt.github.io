@@ -1375,14 +1375,14 @@
         "size": 323
     },
     {
-        "crc": 632136245,
+        "crc": 562183953,
         "filename": "data\\maps\\vegas\\vegasE.ide",
-        "size": 35542
+        "size": 35532
     },
     {
-        "crc": 1843721942,
+        "crc": 3802905440,
         "filename": "data\\maps\\vegas\\vegasE.ipl",
-        "size": 61084
+        "size": 61083
     },
     {
         "crc": 3471525613,
@@ -2495,9 +2495,9 @@
         "size": 66738176
     },
     {
-        "crc": 42693495,
+        "crc": 2468188612,
         "filename": "models\\rgaccess.img",
-        "size": 24776704
+        "size": 36661248
     },
     {
         "crc": 3251408944,
