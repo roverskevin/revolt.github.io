@@ -410,9 +410,9 @@
         "size": 67526
     },
     {
-        "crc": 1225849774,
+        "crc": 763088249,
         "filename": "CustomSAA2\\HANDLING.CFG",
-        "size": 50865
+        "size": 51034
     },
     {
         "crc": 2710078502,
@@ -500,9 +500,9 @@
         "size": 5285928
     },
     {
-        "crc": 3704719753,
+        "crc": 991264127,
         "filename": "CustomSAA2\\VEHICLES.IDE",
-        "size": 34540
+        "size": 34544
     },
     {
         "crc": 3624961,
@@ -825,9 +825,9 @@
         "size": 667
     },
     {
-        "crc": 2083295201,
+        "crc": 3093271674,
         "filename": "data\\gtasa_vehicleAudioSettings.cfg",
-        "size": 80991
+        "size": 80990
     },
     {
         "crc": 3951425822,
@@ -1395,14 +1395,14 @@
         "size": 36651
     },
     {
-        "crc": 2049518815,
+        "crc": 2073801456,
         "filename": "data\\maps\\vegas\\VegasS.ide",
-        "size": 18656
+        "size": 18648
     },
     {
-        "crc": 1489680066,
+        "crc": 1396834758,
         "filename": "data\\maps\\vegas\\vegasS.ipl",
-        "size": 30343
+        "size": 30338
     },
     {
         "crc": 1490956790,
@@ -2495,9 +2495,9 @@
         "size": 66738176
     },
     {
-        "crc": 2468188612,
+        "crc": 4247890225,
         "filename": "models\\rgaccess.img",
-        "size": 36661248
+        "size": 46262272
     },
     {
         "crc": 3251408944,
@@ -2953,6 +2953,16 @@
         "crc": 4232333989,
         "filename": "modloader\\lowh\\LOWLIFE.ifp",
         "size": 1304
+    },
+    {
+        "crc": 3949178202,
+        "filename": "modloader\\Mapping\\alley\\libertyhi5.txd",
+        "size": 6569384
+    },
+    {
+        "crc": 573266453,
+        "filename": "modloader\\Mapping\\alley\\lib_street01.dff",
+        "size": 2038851
     },
     {
         "crc": 3989178269,
@@ -10310,14 +10320,14 @@
         "size": 1063652
     },
     {
-        "crc": 1273635949,
+        "crc": 191637784,
         "filename": "modloader\\Vehicles\\kelvintvram.dff",
-        "size": 12277760
+        "size": 9818718
     },
     {
-        "crc": 1451034284,
+        "crc": 2743225480,
         "filename": "modloader\\Vehicles\\kelvintvram.txd",
-        "size": 2781224
+        "size": 7229608
     },
     {
         "crc": 2585592188,
@@ -10620,9 +10630,9 @@
         "size": 334604
     },
     {
-        "crc": 27254966,
+        "crc": 3958399126,
         "filename": "modloader\\Vehicles\\LPWTrade\\prcS.dff",
-        "size": 902750
+        "size": 3981312
     },
     {
         "crc": 14681658,
