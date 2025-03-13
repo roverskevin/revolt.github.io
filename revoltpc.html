@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rvpc-dpcs</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li>
+<ul>
+<li><a href="#revoltpc-2.0---technical-guidelines">RevoltPC 2.0 - Technical Guidelines</a></li>
+<li><a href="#video-stream">Video Stream</a></li>
+<li><a href="#hiển-thị">Hiển Thị</a></li>
+<li><a href="#điều-khiển">Điều khiển</a></li>
+<li><a href="#tay-cầm">Tay Cầm</a></li>
+<li><a href="#chuyển-tiếp-microphone">Chuyển tiếp Microphone</a></li>
+<li><a href="#revolt-tunnel">Revolt Tunnel</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h2 id="revoltpc-2.0---technical-guidelines">RevoltPC 2.0 - Technical Guidelines</h2>
+<h2 id="video-stream">Video Stream</h2>
+<h3 id="decoder">Decoder</h3>
+<p>Decoder (bộ giải mã) hỗ trợ giải mã video stream thành từng khung hình trước khi được hiển thị lên màn hình ứng dụng. Có 2 loại decoder: phần mềm (software) và phần cứng (hardware).</p>
+<p>Decoder phần mềm gồm:</p>
+<ul>
+<li><strong>CPU</strong>: sử dụng decoder mặc định của HĐH và xử lý trên CPU.</li>
+<li><strong>FFMPEG</strong>: sử dụng thư viện FFmpeg, tương tự như CPU nhưng dược tối ưu cho các độ phân giải nhỏ và hỗ trợ nhiều codec mà không phụ thuộc vào phần cứng.</li>
+</ul>
+<p>Decoder phần cứng gồm:</p>
+<ul>
+<li><strong>GPU - AMD</strong>: client sử dụng card đồ họa AMD.</li>
+<li><strong>GPU - INTEL</strong>: client sử dụng card đồ họa Intel.</li>
+<li><strong>GPU - NVIDIA</strong>: client sử dụng card đồ họa Nvidia.</li>
+</ul>
+<p>2 tùy chọn CPU và FFmpeg luôn khả dụng đối với mọi client. Trong trường hợp có cả card tích hợp và card rời, phần cài đặt sẽ xuất hiện cả 2 lựa chọn GPU.</p>
+<h3 id="video-codec">Video Codec</h3>
+<p>Codec để chỉ một chuẩn mã hóa video được sử dụng thống nhất cho cả encoder và decoder, RevoltPC hỗ trợ 2 loại sau:</p>
+<ul>
+<li><strong>H.264</strong> (AVC): codec tiêu chuẩn, tất cả deocder đều hỗ trợ và cho độ trễ khung hình thấp (nhanh).</li>
+<li><strong>H.265</strong> (HEVC): codec hỗ trợ nén video, giảm mức băng thông truyền tải đến 50%, nhưng yêu cầu decoder có hỗ trợ (chỉ GPU và FFmpeg).</li>
+</ul>
+<h3 id="chất-lượng-hình-ảnh">Chất lượng hình ảnh</h3>
+<p>RevoltPC sử dụng hệ màu YUV, đây cũng là tiêu chuẩn cho video streaming và TV. Nó giúp giảm một phần băng thông truyền tải, bù lại chroma subsampling trên YUV 4:2:0 làm giảm chất lượng hình ảnh.</p>
+<p>Có 3 tùy chỉnh chất lượng:</p>
+<ul>
+<li><strong>Limited</strong> (YUV 4:2:0): tiêu chuẩn, màu có chút nhạt và mờ hơn khi render font chữ, sử dụng ít băng thông và cho độ trễ khung hình thấp.</li>
+<li><strong>Limited 10-bit</strong> (YUV 4:2:0): tương tự Limited nhưng là 10-bit depth, cải thiện về màu sắc và mở rộng phạm vi màu, nên dùng với màn hình hỗ trợ output 10-bit.</li>
+<li><strong>True Color</strong> (YUV 4:4:4, không cần chroma subsampling): màu sắc chính xác tuyệt đối như RGB, bù lại cần rất nhiều băng thông mạng và GPU phải đủ khỏe để giảm tối đa độ trễ khung hình.</li>
+</ul>
+<p>Limited 10-bit và True Color yêu cầu lượng băng thông lớn hơn nên yêu cầu <strong>decoder phải hỗ trợ H.265</strong>. Vì vậy để đảm bảo sử dụng được 2 tùy chọn này, chỉ cần đảm bảo GPU của bạn có hỗ trợ, hoặc dùng FFmpeg nhưng độ trễ khá cao.</p>
+<p>Đối với card Nvidia có thể kiểm tra decoder tại đây: <a href="https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new">https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new</a>. Lưu ý: Limited 10-bit tương ứng với “<em>H.265 4:2:0 (10-bit)</em>” và True Color tương ứng với “<em>H.265 4:4:4 (8-bit)</em>”.</p>
+<p>Tổng hợp các thông tin trên, ta có bảng matrix sau:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">H.264 (AVC)</th>
+<th align="center">H.265 (HEVC)</th>
+<th align="center">Limited</th>
+<th align="center">Limited 10-bit</th>
+<th align="center">True Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td align="center">✅</td>
+<td align="center"></td>
+<td align="center">✅</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>GPU</td>
+<td align="center">✅</td>
+<td align="center">(?)</td>
+<td align="center">✅</td>
+<td align="center">(?) + HEVC</td>
+<td align="center">(?) + HEVC</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+</tbody>
+</table><p>(?): phục thuộc vào phần cứng có hỗ trợ hay không, H.265 khả dụng trên mọi GPU tích hợp của Intel từ thế hệ 3th, còn Nvidia từ các dòng GTX đầu 10.</p>
+<h3 id="độ-phân-giải-video">Độ phân giải video</h3>
+<p>Độ phân giải cho video stream, cũng chính là độ phân giải màn hình của Cloud PC. Chỉ nên thiết lập bằng hoặc thấp hơn độ phân giải của máy bạn để tránh lãng phí băng thông và tăng độ trễ khung hình.</p>
+<h3 id="giới-hạn-khung-hình">Giới hạn khung hình</h3>
+<p>Giới hạn ở đây là múc FPS tối đa của video stream từ Cloud PC. Khi thay đổi giá trị này, tần số quét của màn hình Cloud PC cũng được giới hạn ở mức Hz tương ứng, ví dụ 120 FPS &lt;-&gt; 120 Hz.</p>
+<p>Con số FPS thực mà phía bạn (cảm) nhận có thể thấp hơn tùy thuộc vào nhiều yếu tố. Chẳng hạn khi không có khung hình mới nào xuất hiện, hoặc game đang load shader nên tạm dừng render, hoặc game bị khóa FPS ở mức thấp hơn con số mà bạn đã giới hạn.</p>
+<p>Nên nhớ RevoltPC chỉ render các khung hình mới, vì vậy khi đo FPS trong app sẽ không cho kết quả chính xác. Chỉ số decode (hình chữ “v” bên góc phải cửa sổ) rất cao đồng nghĩa decoder của bạn là một phần nguyên nhân gây giảm FPS (nhận).</p>
+<h2 id="hiển-thị">Hiển Thị</h2>
+<h3 id="renderer">Renderer</h3>
+<p>Render hay kết xuất là quá trình hiển thị hình ảnh lên màn hình sau khi một khung hình của video được giải mã bởi decoder. Quá trình này chiếm 5-15% độ trễ khung hình, tuy nhỏ nhưng cũng ảnh hưởng đến mức tiêu thụ điện năng trên PC của bạn.</p>
+<p>Có 3 tùy chọn renderer (trình kết xuất) khả dụng:</p>
+<ul>
+<li><strong>DirectX 11</strong> (mặc định): cho hiệu suất ổn định và tương thích tốt trên mọi dòng GPU.</li>
+<li><strong>DirectX 12</strong>: cho hiệu suất cao hơn, sử dụng tài nguyên hợp lý hơn trên các dòng GPU mới, nhưng có thể không xuất được hình ảnh nếu dùng GPU hoặc driver đồ họa cũ.</li>
+<li><strong>DirectX 9</strong>: chỉ chọn khi 2 tùy chọn trên không hiển thị được hình ảnh.</li>
+</ul>
+<h3 id="vsync">Vsync</h3>
+<p>VSync hay đồng bộ dọc dùng để đồng bộ khung hình và tần số quét của màn hình, nói dễ hiểu là nó giới hạn khung hình tối đa (FPS) bằng với tần số quét của màn hình, làm giảm tình trạng khung hình bị xé toạc hoặc lệch dọc trong các chuyển động liên tục.</p>
+<p>Lưu ý VSync ở đây là phía app RevoltPC hiển thị trên máy của bạn, mặc định Cloud PC đã giới hạn khung hình tối đa trong phần cài đặt Video.</p>
+<h3 id="view-mode">View mode</h3>
+<p>Tùy chọn Cố định view giúp giới hạn kích thước view (shrink) khi thay đổi kích thước cửa sổ RevoltPC to hơn độ phân giải video. Ví dụ video có độ phân giải 1600x900 nhưng màn hình của bạn là FHD 1920x1080, khi đó nếu phóng to (maximize) cửa sổ app thì view vẫn giữ ở mức 1600x900 và hiển thị ở trung tâm cửa sổ. Điều này giúp cho hình ảnh luôn rõ nét mà không phải căn chỉnh chính xác đến từng pixel.</p>
+<p>Khi tùy chọn trên được bật, ta có thể sử dụng tổ hợp phím <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>+/-</kbd> để zoom trong trường hợp Display Scaling ở máy bạn vượt 100%. Nhấn <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>0</kbd> để reset zoom về 100%.</p>
+<p>Tùy chọn Fullscreen giúp hiển thị app toàn màn hình, giúp cho trải nghiệm chân thực như đang sử dụng máy thật. Kết hợp với độ phân giải video trùng với độ phân giải màn hình (có thể thêm True Color nữa) thì mọi thứ phải nói là tuyệt vời.</p>
+<h2 id="điều-khiển">Điều khiển</h2>
+<h3 id="clipboard">Clipboard</h3>
+<p>Tính năng đồng bộ Clipboard cho phép copy-paste 2 chiều văn bản và file giữa máy bạn và Cloud PC. Cách sử dụng hoàn toàn giống như Anydesk.</p>
+<p>*Lưu ý chỉ hỗ trợ tối đa 10 file cùng lúc và tổng dung lượng đến 0.5GB.</p>
+<h3 id="relative-mouse">Relative mouse</h3>
+<p>Chế độ chuột tương đối là khi chuột bị ẩn theo game, thường là các game FPS hoặc thế giới 3D như GTA5. Lúc này chuột sẽ không chạy đi đâu mà bị ẩn và ở yên 1 chỗ.</p>
+<p>*Vô hiệu tạm thời bằng cách tab qua cửa sổ khác hoặc nhấn đúp <kbd>Ctrl</kbd> (bên phải).</p>
+<h3 id="khóa-chuột">Khóa chuột</h3>
+<p>Khóa chuột giới hạn con trỏ chuột, không cho nó trượt khỏi cửa sổ app, giúp cho các thao tác kéo chuột xa dễ dàng hơn và không bị click nhầm ra ngoài cửa sổ khác. Không nên dùng cho relative mosue và nên dùng khi fullscreen và có nhiều màn hình.</p>
+<p>*Phím tắt: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd><br>
+*Vô hiệu tạm thời bằng cách tab qua cửa sổ khác hoặc nhấn đúp <kbd>Ctrl</kbd> (bên phải).</p>
+<h3 id="khóa-phím">Khóa phím</h3>
+<p>Mặc định bàn phím sẽ không chuyển được các phím hệ thống như <kbd>Alt Tab</kbd> và <kbd>Win</kbd>. Vì vậy khóa phím sẽ bắt toàn bộ các phím này, và bạn sẽ không thể dùng được nếu muốn tab qua của sổ khác trên máy mình.</p>
+<p>*Phím tắt: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>K</kbd><br>
+*Vô hiệu tạm thời bằng cách click ra cửa sổ khác hoặc nhấn đúp <kbd>Ctrl</kbd> (bên phải).</p>
+<h3 id="lấy-lại-điều-khiển">Lấy lại điều khiển</h3>
+<p>Khi chuột bị khóa hoặc khóa phím, hoặc chuột bị ẩn theo game, để tạm thời vô hiệu hóa nhanh mà không cần tắt chúng, hãy nhấn phím <kbd>Ctrl</kbd> bên phải 2 lần (tương tự click đúp chuột), lúc này chuột và phím sẽ trở lại bình thường.</p>
+<p>Chỉ cần click chuột vào màn hình là có thể trở lại trạng thái trước đó.</p>
+<h2 id="tay-cầm">Tay Cầm</h2>
+<p>RevoltPC hỗ trợ các kiểu tay cầm gồm: Xbox (series), PS4, PS5, Google Stadia và Nintendo Switch. Các tay cầm dạng này đều sử dụng USB HID nên <strong>không cần bất kỳ driver</strong> nào. Chỉ cần kết nối tay cầm bằng USB (có dây) hoặc kết nối Bluetooth (không dây), sau đó nhấn nút bất kỳ là app sẽ nhận tín hiệu.</p>
+<p><strong>Tín hiệu của tất cả tay cầm đều được chuyển đổi sang Xbox layout</strong>, sau đó Cloud PC nhận vào là tay cầm Xbox thông qua driver ảo được thiết lập sẵn.</p>
+<p>Nếu bạn muốn chuyển tiếp tay cầm hay các thiết bị joystick/haptic có kết nối USB, hãy sử dụng Tunnel và VirtualHere.</p>
+<h2 id="chuyển-tiếp-microphone">Chuyển tiếp Microphone</h2>
+<p>RevoltPC hỗ trợ chuyển tiếp microphone trên máy bạn qua Cloud PC. Khi host cần sử dụng mic (biểu tượng mic xuất hiện ở dưới taskbar), app sẽ thu mic bạn đã chọn trong cài đặt và chuyển nó sang host. Hỗ trợ tất cả các loại mic, bao gồm headphone/headset hoặc mic rời, các loại cổng USB/Jack 3.5mm hoặc mic tích hợp, miễn là máy bạn đã nhận nó và hiển thị trong phần cài đặt chọn thiết bị đầu vào.</p>
+<p>Tính năng “Giảm tiếng ồn” giúp khử tiếng ồn môi trường (bằng AI) khi sử dụng voice chat. Chỉ dùng nó khi mic của bạn không tích hợp sẵn giảm tiếng ồn, ngoài ra nó còn tăng nhẹ độ trễ âm và lọc cả âm giọng nếu bạn nói quá nhỏ.</p>
+<h2 id="revolt-tunnel">Revolt Tunnel</h2>
+<p>Đây là một mạng riêng ảo sử dụng giao thức của WireGuard để kết nối giữa Client và Cloud PC, tạo ra mạng cục bộ (LAN) giúp truyền tải nhanh dữ liệu và kết nối các thiết bị được hỗ trợ.</p>
+<h3 id="vượt-tường-nat">Vượt tường NAT</h3>
+<p>Các modem và router mặc định do nhà mạng cung cấp sẽ có tường NAT (dạng symmetric), điều này gây cản trở kết nối ngang hàng (peer-to-peer) đến Cloud PC.</p>
+<p>Sử dụng Tunnel có thể giúp vượt qua NAT và có thể làm thay đổi mức ping tùy thuộc vào tuyến kết nối của mạng. Ví dụ kết nối trực tiếp (nếu thành công) ở mức ping 20ms thì khi kết nối thông qua Tunnel có thể dao động từ 15ms, đến 30ms hoặc cao hơn nếu ở tuyến mạng xa nhất.</p>
+<p>Ngoài việc dùng Tunnel để vượt tường NAT, còn một số cách khác như sử dụng VPN, bật IPv6 hoặc yêu cầu nhà mạng mở NAT. Lưu ý khi mở NAT ở mức cao nhất rất dễ bị tấn công mạng, chỉ cần mở <strong>port-restricted cone</strong> (<a href="https://github.com/P2PSP/core/blob/master/doc/NTS/NAT_traversal.md">xem thêm</a>).</p>
+<h3 id="chuyển-tiếp-usb">Chuyển tiếp USB</h3>
+<p>Ngoài ra Tunnel còn hỗ trợ chuyển tiếp cổng USB bằng cách sử dụng <strong>VirtualHere Server</strong> (vhusbdwin64), ở phía Cloud PC chỉ cần bật <strong>VirtualHere Client</strong> để tiếp nhận các cổng USB. Nếu chỉ muốn sử dụng VirtualHere mà không muốn toàn bộ lưu lượng RevoltPC đi qua Tunnel,  hãy bỏ chọn “<strong>Kết nối qua Tunnel</strong>” trong Menu &gt; Kết Nối.</p>
+<p>Các loại USB thông dụng:</p>
+<ul>
+<li>Hard drive: sao chép dữ liệu</li>
+<li>Mouse/keyboard: bypass anti-cheat nếu nó yêu cầu input từ phần cứng</li>
+<li>Controller (tay cầm): chuyển tiếp toàn bộ tay cầm nếu không muốn sử dụng Xbox layout mặc định của RevoltPC</li>
+<li>Microphone</li>
+</ul>
+<h3 id="cài-đặt">Cài đặt</h3>
+<p>Khi cài đặt Tunnel, nó sẽ cài <strong>WireSock VPN Client</strong>. Quá trình cài đặt có thể làm mất mạng trong vài giây, vì vậy phải đăng xuất app trước khi cài. <strong>Một lưu ý đối với máy tính Windows Arm64</strong> là tính năng Tunnel không được hỗ trợ, và khi cài đặt thủ công WireSock, nếu dùng file dành cho CPU x86 sẽ gây ra lỗi card mạng và mất mạng vĩnh viễn.</p>
+<h3 id="faq">FAQ</h3>
+<p>Q: <strong>Không dùng được VirtualHere?</strong><br>
+A: Hãy đảm bảo Tunnel đã được kết nối và file chạy của VirtualHere Server có tên là <code>vhusbdwin64</code>.</p>
+<p>Q: <strong>Tunnel không thể vượt NAT?</strong><br>
+A: Hãy đảm bảo tích chọn “Kết nối qua Tunnel”, nếu không được nữa thì chọn cách khác trong lưu ý ở trên.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
