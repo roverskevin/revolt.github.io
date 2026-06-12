@@ -1,0 +1,16 @@
+{
+  "version": "2.3.6",
+  "updated": "11/06/2026",
+  "platforms": {
+    "windows":   { "url": "https://dl.revolt.vn/RevoltG.Installer.exe", "status": "stable" },
+    "linux":     { "url": "https://dl.revolt.vn/beta/revoltpc-2.3.6-linux-test.zip", "status": "beta" },
+    "macos-x64": { "url": "https://dl.revolt.vn/beta/revoltpc-2.3.6-macos-x64-test.zip", "status": "beta" },
+    "macos-arm": { "url": "https://dl.revolt.vn/beta/revoltpc-2.3.6-macos-arm64-test.zip", "status": "beta" },
+    "web":       { "url": "", "status": "soon" },
+    "ios":       { "url": "", "status": "soon" },
+    "android":   { "url": "", "status": "soon" }
+  },
+  "revoltg": {
+    "windows":   { "url": "https://dl.revolt.vn/RevoltG.Installer.exe", "status": "stable" }
+  }
+}
