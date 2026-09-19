@@ -175,8 +175,9 @@
         letter-spacing: -0.02em; margin-bottom: 32px; white-space: nowrap;
       }
       .hero h1 .hl { color: var(--accent); }
-      .tabs { display: inline-flex; gap: 4px; padding: 5px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 999px; margin-bottom: 16px; }
-      .tab { font-family: inherit; font-size: 15px; font-weight: 600; padding: 8px 26px; border-radius: 999px; border: none; background: transparent; color: var(--dim); cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; }
+      .tabs { display: inline-flex; gap: 4px; padding: 5px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 999px; margin-bottom: 24px; }
+      .tab { position: relative; font-family: inherit; font-size: 15px; font-weight: 600; padding: 8px 26px; border-radius: 999px; border: none; background: transparent; color: var(--dim); cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; }
+      .tab .tab-tag { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 5px; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #f0b429; background: rgba(240, 180, 41, .12); border: 1px solid rgba(240, 180, 41, .4); padding: 1px 6px; border-radius: 999px; white-space: nowrap; line-height: 1.5; pointer-events: none; }
       .tab.active { background: var(--accent); color: var(--on-accent); box-shadow: 0 6px 18px -6px rgba(var(--accent-rgb), .7); }
       .tab:not(.active):hover { color: var(--text); }
       .tab-sub { font-size: clamp(17px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-bottom: 30px; }
@@ -437,7 +438,7 @@
             <button class="tab active" data-tab="g" type="button">RevoltG</button>
             <button class="tab" data-tab="pc" type="button">RevoltPC</button>
             <button class="tab" data-tab="vh" type="button">RevoltVH</button>
-            <button class="tab" data-tab="ps" type="button">RevoltPS5</button>
+            <button class="tab" data-tab="ps" type="button">RevoltPS5<span class="tab-tag">Coming soon</span></button>
           </div>
           <p class="tab-sub" id="tabSub">Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.</p>
         </div>
