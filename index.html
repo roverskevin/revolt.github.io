@@ -178,6 +178,7 @@
       .tabs { display: inline-flex; gap: 4px; padding: 5px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 999px; margin-bottom: 24px; }
       .tab { position: relative; font-family: inherit; font-size: 15px; font-weight: 600; padding: 8px 26px; border-radius: 999px; border: none; background: transparent; color: var(--dim); cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; }
       .tab .tab-tag { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 5px; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #f0b429; background: rgba(240, 180, 41, .12); border: 1px solid rgba(240, 180, 41, .4); padding: 1px 6px; border-radius: 999px; white-space: nowrap; line-height: 1.5; pointer-events: none; }
+      .tab .tab-tag.tag-free { color: #3ecf8e; background: rgba(62, 207, 142, .12); border-color: rgba(62, 207, 142, .4); }
       .tab.active { background: var(--accent); color: var(--on-accent); box-shadow: 0 6px 18px -6px rgba(var(--accent-rgb), .7); }
       .tab:not(.active):hover { color: var(--text); }
       .tab-sub { font-size: clamp(17px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-bottom: 30px; }
@@ -437,7 +438,7 @@
           <div class="tabs" role="tablist">
             <button class="tab active" data-tab="g" type="button">RevoltG</button>
             <button class="tab" data-tab="pc" type="button">RevoltPC</button>
-            <button class="tab" data-tab="vh" type="button">RevoltVH</button>
+            <button class="tab" data-tab="vh" type="button">RevoltVH<span class="tab-tag tag-free">Miễn phí</span></button>
             <button class="tab" data-tab="ps" type="button">RevoltPS5<span class="tab-tag">Coming soon</span></button>
           </div>
           <p class="tab-sub" id="tabSub">Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.</p>
@@ -563,7 +564,7 @@
               <div class="downloads dl-vh" hidden>
                 <a class="dl-win" data-app="revoltvh" href="https://vh.revolt.vn/updates/RevoltVH.exe" aria-label="Tải RevoltVH cho Windows">
                   <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
-                  <span class="os"><span class="name">Tải RevoltVH cho Windows</span><span class="stat">Chỉ hỗ trợ Windows 10/11 · .exe</span></span>
+                  <span class="os"><span class="name">Tải RevoltVH cho Windows</span><span class="stat">Miễn phí hoàn toàn · Windows 10/11</span></span>
                   <iconify-icon icon="mdi:tray-arrow-down" class="dl-arrow"></iconify-icon>
                 </a>
                 <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
@@ -683,7 +684,8 @@
 
       <div id="vhContent" hidden>
         <section class="wrap specs-strip" aria-label="Tính năng RevoltVH">
-          <span class="chip feat"><iconify-icon icon="mdi:translate"></iconify-icon>Việt hóa<span class="tagx">bởi AI</span></span>
+          <span class="chip feat"><iconify-icon icon="mdi:gift-outline"></iconify-icon>Miễn phí<span class="tagx">100%</span></span>
+          <span class="chip"><iconify-icon icon="mdi:translate"></iconify-icon>Việt hóa bởi AI</span>
           <span class="chip"><iconify-icon icon="mdi:sync"></iconify-icon>Cập nhật liên tục</span>
           <span class="chip"><iconify-icon icon="mdi:puzzle-outline"></iconify-icon>Không cần mod thủ công</span>
           <span class="chip"><iconify-icon icon="mdi:link-variant"></iconify-icon>Tương thích RevoltG</span>
