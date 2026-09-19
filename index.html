@@ -55,6 +55,16 @@
         --on-accent: #ffffff;
       }
       body.theme-vh .boot-logo { display: none; }
+      body.theme-ps {
+        --accent: #1f7ae5;
+        --accent-hover: #4a97f2;
+        --accent-deep: #0b4a9c;
+        --accent-rgb: 31, 122, 229;
+        --accent-soft: rgba(31, 122, 229, 0.14);
+        --accent-line: rgba(31, 122, 229, 0.4);
+        --on-accent: #ffffff;
+      }
+      body.theme-ps .boot-logo { display: none; }
       .vh-app { display: flex; width: 100%; max-width: 640px; margin: 0 auto; text-align: left; border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; background: rgba(0, 0, 0, .22); }
       .vh-app .vh-side { width: 152px; flex: none; padding: 12px 10px; border-right: 1px solid var(--line); }
       .vh-app .sh { display: flex; align-items: center; gap: 8px; padding: 2px 4px 8px; }
@@ -88,6 +98,16 @@
       body.theme-vh .vh-app .vh-main { padding: 16px 18px 74px; }
       body.theme-vh .vh-app .vh-grid { gap: 12px; }
       body.theme-vh .dl-vh { position: absolute; left: 16px; right: 16px; bottom: 16px; width: auto; margin: 0; z-index: 4; }
+      /* RevoltPS5: showcase "đang triển khai" */
+      .ps-soon { width: 100%; max-width: 460px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+      .ps-soon .ps-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 5px 13px; border-radius: 999px; }
+      .ps-soon .ps-badge iconify-icon { font-size: 14px; }
+      .ps-soon .ps-logo { font-size: 64px; color: var(--accent); filter: drop-shadow(0 6px 20px rgba(var(--accent-rgb), .45)); }
+      .ps-soon .ps-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+      .ps-soon .ps-desc { font-size: 14px; color: var(--dim); line-height: 1.55; max-width: 400px; }
+      .ps-soon .ps-feats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 4px; }
+      .ps-soon .ps-feats span { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--text); background: rgba(255, 255, 255, .05); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+      .ps-soon .ps-feats span iconify-icon { font-size: 15px; color: var(--accent); }
       body { transition: none; }
       .tabs, .tab, .chip, .btn, .dl, .dl-win, .cover, .conn .box, .g-card, .tab-sub .hl, .hl { transition: background .35s, border-color .35s, color .35s, box-shadow .35s; }
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -417,6 +437,7 @@
             <button class="tab active" data-tab="g" type="button">RevoltG</button>
             <button class="tab" data-tab="pc" type="button">RevoltPC</button>
             <button class="tab" data-tab="vh" type="button">RevoltVH</button>
+            <button class="tab" data-tab="ps" type="button">RevoltPS5</button>
           </div>
           <p class="tab-sub" id="tabSub">Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.</p>
         </div>
@@ -485,6 +506,19 @@
                     </div>
                   </div>
                 </div>
+                <div class="view view-ps" hidden>
+                  <div class="ps-soon">
+                    <span class="ps-badge"><iconify-icon icon="mdi:progress-clock"></iconify-icon>Đang triển khai</span>
+                    <iconify-icon class="ps-logo" icon="mdi:sony-playstation"></iconify-icon>
+                    <div class="ps-title">Cloud PS5</div>
+                    <p class="ps-desc">Chơi PS5 4K trên mọi thiết bị — không cần mua console. Dịch vụ đang được triển khai, mở thử nghiệm sớm cho người dùng.</p>
+                    <div class="ps-feats">
+                      <span><iconify-icon icon="mdi:video-4k-box"></iconify-icon>4K HDR · 60FPS</span>
+                      <span><iconify-icon icon="mdi:vibrate"></iconify-icon>DualSense haptic</span>
+                      <span><iconify-icon icon="mdi:gamepad-variant"></iconify-icon>Thư viện PS5</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="downloads dl-multi" hidden>
                 <a class="dl primary" data-platform="windows" href="https://dl.revolt.vn/RevoltG.Installer.exe" aria-label="Tải RevoltPC cho Windows">
@@ -530,6 +564,14 @@
                   <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
                   <span class="os"><span class="name">Tải RevoltVH cho Windows</span><span class="stat">Chỉ hỗ trợ Windows 10/11 · .exe</span></span>
                   <iconify-icon icon="mdi:tray-arrow-down" class="dl-arrow"></iconify-icon>
+                </a>
+                <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
+              </div>
+              <div class="downloads dl-ps" hidden>
+                <a class="dl-win" href="https://discord.revolt.vn/" target="_blank" rel="noopener" aria-label="Đăng ký xem trước RevoltPS5">
+                  <span class="ic"><iconify-icon icon="mdi:playlist-star"></iconify-icon></span>
+                  <span class="os"><span class="name">Đăng ký xem trước</span><span class="stat">Cloud PS5 · thử nghiệm sớm</span></span>
+                  <iconify-icon icon="mdi:arrow-right" class="dl-arrow"></iconify-icon>
                 </a>
                 <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
               </div>
@@ -663,6 +705,37 @@
                 <div class="gi"><iconify-icon icon="mdi:flash"></iconify-icon></div>
                 <h3>Tự động áp dụng</h3>
                 <p>Mở game qua RevoltVH là có tiếng Việt ngay — không cần cài mod thủ công.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="psContent" hidden>
+        <section class="wrap specs-strip" aria-label="Tính năng RevoltPS5">
+          <span class="chip feat"><iconify-icon icon="mdi:progress-clock"></iconify-icon>Trạng thái<span class="tagx">Đang triển khai</span></span>
+          <span class="chip"><iconify-icon icon="mdi:video-4k-box"></iconify-icon>4K HDR 60FPS</span>
+          <span class="chip"><iconify-icon icon="mdi:vibrate"></iconify-icon>DualSense haptic</span>
+          <span class="chip"><iconify-icon icon="mdi:devices"></iconify-icon>Chơi mọi thiết bị</span>
+          <span class="chip"><iconify-icon icon="mdi:cloud-outline"></iconify-icon>Không cần console</span>
+        </section>
+        <section class="section" style="padding-top: 6px">
+          <div class="wrap">
+            <div class="g-cards">
+              <div class="g-card">
+                <div class="gi"><iconify-icon icon="mdi:sony-playstation"></iconify-icon></div>
+                <h3>PS5 trên đám mây</h3>
+                <p>Trải nghiệm game PS5 chạy trên máy chủ mạnh, stream về mọi thiết bị — không cần bỏ tiền mua console.</p>
+              </div>
+              <div class="g-card">
+                <div class="gi"><iconify-icon icon="mdi:vibrate"></iconify-icon></div>
+                <h3>Cảm giác nguyên bản</h3>
+                <p>4K HDR, phản hồi DualSense và độ trễ thấp — giữ trọn trải nghiệm như chơi trên máy thật.</p>
+              </div>
+              <div class="g-card">
+                <div class="gi"><iconify-icon icon="mdi:rocket-launch-outline"></iconify-icon></div>
+                <h3>Đang triển khai</h3>
+                <p>Dịch vụ sắp ra mắt. Đăng ký sớm qua Discord để nhận suất trải nghiệm thử nghiệm đầu tiên.</p>
               </div>
             </div>
           </div>
@@ -887,13 +960,14 @@
         var subs = {
           g:  'Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.',
           pc: '<span class="hl">PC của bạn</span> — mạnh mẽ, mọi lúc mọi nơi.',
-          vh: 'Chơi game <span class="hl">bằng tiếng Việt</span> — dịch bởi AI.'
+          vh: 'Chơi game <span class="hl">bằng tiếng Việt</span> — dịch bởi AI.',
+          ps: 'Chơi <span class="hl">PS5 trên đám mây</span> — không cần console.'
         };
-        var LOGO  = { g: './revoltglogo.png', pc: './revoltpclogo.png', vh: './revoltvhlogo.png' };
-        var THEME = { g: 'theme-g', pc: '', vh: 'theme-vh' };
-        var VIEW  = { g: '.view-g', pc: '.view-pc', vh: '.view-vh' };
-        var CONT  = { g: '#gContent', pc: '#pcContent', vh: '#vhContent' };
-        var DL    = { g: '.dl-single', pc: '.dl-multi', vh: '.dl-vh' };
+        var LOGO  = { g: './revoltglogo.png', pc: './revoltpclogo.png', vh: './revoltvhlogo.png', ps: './revoltpclogo.png' };
+        var THEME = { g: 'theme-g', pc: '', vh: 'theme-vh', ps: 'theme-ps' };
+        var VIEW  = { g: '.view-g', pc: '.view-pc', vh: '.view-vh', ps: '.view-ps' };
+        var CONT  = { g: '#gContent', pc: '#pcContent', vh: '#vhContent', ps: '#psContent' };
+        var DL    = { g: '.dl-single', pc: '.dl-multi', vh: '.dl-vh', ps: '.dl-ps' };
         var tabs = document.querySelectorAll('.tab');
         var sub = document.getElementById('tabSub');
         var bootLogo = document.querySelector('.boot-logo');
@@ -910,7 +984,7 @@
           tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-tab') === k); });
           if (subs[k]) sub.innerHTML = subs[k];
           only(VIEW, k); only(CONT, k); only(DL, k);
-          document.body.classList.remove('theme-g', 'theme-vh');
+          document.body.classList.remove('theme-g', 'theme-vh', 'theme-ps');
           if (THEME[k]) document.body.classList.add(THEME[k]);
           if (LOGO[k]) bootLogo.src = LOGO[k];
         }
