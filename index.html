@@ -45,6 +45,49 @@
         --on-accent: #06241f;
       }
       body.theme-g .bar .home .tag { display: none; }
+      body.theme-vh {
+        --accent: #e5484d;
+        --accent-hover: #f26569;
+        --accent-deep: #a11e22;
+        --accent-rgb: 229, 72, 77;
+        --accent-soft: rgba(229, 72, 77, 0.14);
+        --accent-line: rgba(229, 72, 77, 0.4);
+        --on-accent: #ffffff;
+      }
+      body.theme-vh .boot-logo { display: none; }
+      .vh-app { display: flex; width: 100%; max-width: 640px; margin: 0 auto; text-align: left; border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; background: rgba(0, 0, 0, .22); }
+      .vh-app .vh-side { width: 152px; flex: none; padding: 12px 10px; border-right: 1px solid var(--line); }
+      .vh-app .sh { display: flex; align-items: center; gap: 8px; padding: 2px 4px 8px; }
+      .vh-app .sh .dot { width: 24px; height: 24px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent-line); display: grid; place-items: center; flex: none; }
+      .vh-app .sh .dot iconify-icon { font-size: 15px; color: var(--accent); }
+      .vh-app .sh b { font-size: 11.5px; font-weight: 700; line-height: 1.15; }
+      .vh-app .lbl { font-size: 9px; letter-spacing: .12em; color: var(--dim); text-transform: uppercase; padding: 10px 6px 5px; }
+      .vh-app .vh-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 6px 9px; border-radius: 7px; font-size: 12px; color: var(--dim); margin-bottom: 2px; }
+      .vh-app .vh-row .l { display: inline-flex; align-items: center; gap: 7px; }
+      .vh-app .vh-row .l iconify-icon { font-size: 14px; }
+      .vh-app .vh-row .n { font-size: 10px; opacity: .8; }
+      .vh-app .vh-row.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+      .vh-app .vh-main { flex: 1; min-width: 0; padding: 11px 12px; }
+      .vh-app .mh { display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; color: var(--text); margin-bottom: 9px; }
+      .vh-app .mh .bdg { font-size: 10px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 2px 9px; border-radius: 999px; }
+      .vh-app .vh-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+      .vh-app .vh-tile { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: #0e0f13; }
+      .vh-app .vh-tile .art { position: relative; aspect-ratio: 16 / 9; display: grid; place-items: center; background: linear-gradient(150deg, var(--c1, #24252b), var(--c2, #141519)); }
+      .vh-app .vh-tile .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .vh-app .vh-tile .art iconify-icon { font-size: 20px; color: rgba(255, 255, 255, .4); }
+      .vh-app .vh-tile .tl { padding: 5px 7px 7px; }
+      .vh-app .vh-tile .tl .name { font-size: 9px; font-weight: 600; color: var(--text); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+      .vh-app .vh-tile .tl .bar { height: 5px; width: 72%; border-radius: 3px; background: rgba(255, 255, 255, .15); margin-bottom: 5px; }
+      .vh-app .vh-tile .tl .pill { display: inline-block; font-size: 8px; font-weight: 600; color: var(--accent); border: 1px solid var(--accent-line); border-radius: 999px; padding: 1px 6px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      @media (max-width: 640px) { .vh-app .vh-side { display: none; } .vh-app .vh-grid { grid-template-columns: repeat(2, 1fr); } }
+      /* RevoltVH: launcher chiếm trọn màn hình review, thanh tải nổi docked ở đáy */
+      body.theme-vh .screen { padding: 0; }
+      body.theme-vh .boot { padding: 0; }
+      body.theme-vh .vh-app { position: absolute; inset: 9px; max-width: none; width: auto; height: auto; border-radius: 11px; background: rgba(0, 0, 0, .3); }
+      body.theme-vh .vh-app .vh-side { width: 190px; padding: 16px 12px; }
+      body.theme-vh .vh-app .vh-main { padding: 16px 18px 74px; }
+      body.theme-vh .vh-app .vh-grid { gap: 12px; }
+      body.theme-vh .dl-vh { position: absolute; left: 16px; right: 16px; bottom: 16px; width: auto; margin: 0; z-index: 4; }
       body { transition: none; }
       .tabs, .tab, .chip, .btn, .dl, .dl-win, .cover, .conn .box, .g-card, .tab-sub .hl, .hl { transition: background .35s, border-color .35s, color .35s, box-shadow .35s; }
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -373,6 +416,7 @@
           <div class="tabs" role="tablist">
             <button class="tab active" data-tab="g" type="button">RevoltG</button>
             <button class="tab" data-tab="pc" type="button">RevoltPC</button>
+            <button class="tab" data-tab="vh" type="button">RevoltVH</button>
           </div>
           <p class="tab-sub" id="tabSub">Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.</p>
         </div>
@@ -418,6 +462,29 @@
                     <span class="cover" style="--c1:#232a32;--c2:#13171c"><iconify-icon icon="mdi:run-fast"></iconify-icon></span>
                   </div>
                 </div>
+                <div class="view view-vh" hidden>
+                  <div class="vh-app">
+                    <aside class="vh-side">
+                      <div class="sh"><span class="dot"><iconify-icon icon="mdi:translate"></iconify-icon></span><b>RevoltVH<br />Việt Hóa</b></div>
+                      <div class="vh-row active"><span class="l"><iconify-icon icon="mdi:home"></iconify-icon>Trang chủ</span></div>
+                      <div class="vh-row"><span class="l"><iconify-icon icon="mdi:folder-download-outline"></iconify-icon>Đã cài đặt</span></div>
+                      <div class="lbl">Nhóm dịch</div>
+                      <div class="vh-row"><span class="l">Revolt</span></div>
+                      <div class="vh-row"><span class="l">Sưu tầm</span></div>
+                    </aside>
+                    <div class="vh-main">
+                      <div class="mh">Mới cập nhật<span class="bdg">Việt hóa</span></div>
+                      <div class="vh-grid" id="vhGrid">
+                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Elden Ring</div><span class="pill">Revolt</span></div></div>
+                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1285190/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Borderlands 4</div><span class="pill">Revolt</span></div></div>
+                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/3274580/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Anno 117: Pax Romana</div><span class="pill">Revolt</span></div></div>
+                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2417610/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Metal Gear Solid Δ</div><span class="pill">Revolt</span></div></div>
+                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/532790/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Vampire: Bloodlines 2</div><span class="pill">Revolt</span></div></div>
+                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2893820/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Of Ash and Steel</div><span class="pill">Revolt</span></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="downloads dl-multi" hidden>
                 <a class="dl primary" data-platform="windows" href="https://dl.revolt.vn/RevoltG.Installer.exe" aria-label="Tải RevoltPC cho Windows">
@@ -454,6 +521,14 @@
                 <a class="dl-win" href="https://dl.revolt.vn/RevoltG.Installer.exe" aria-label="Tải RevoltG cho Windows">
                   <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
                   <span class="os"><span class="name">Tải RevoltG cho Windows</span><span class="stat">Chỉ hỗ trợ Windows 10/11 · .exe</span></span>
+                  <iconify-icon icon="mdi:tray-arrow-down" class="dl-arrow"></iconify-icon>
+                </a>
+                <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
+              </div>
+              <div class="downloads dl-vh" hidden>
+                <a class="dl-win" data-app="revoltvh" href="https://vh.revolt.vn/updates/RevoltVH.exe" aria-label="Tải RevoltVH cho Windows">
+                  <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
+                  <span class="os"><span class="name">Tải RevoltVH cho Windows</span><span class="stat">Chỉ hỗ trợ Windows 10/11 · .exe</span></span>
                   <iconify-icon icon="mdi:tray-arrow-down" class="dl-arrow"></iconify-icon>
                 </a>
                 <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
@@ -557,6 +632,37 @@
                 <div class="gi"><iconify-icon icon="mdi:cloud-upload"></iconify-icon></div>
                 <h3>RevoltG Cloud Save</h3>
                 <p>Lưu tiến trình &amp; dữ liệu game lên đám mây — chơi tiếp ở bất kỳ đâu, kể cả quán net, không lo mất save.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="vhContent" hidden>
+        <section class="wrap specs-strip" aria-label="Tính năng RevoltVH">
+          <span class="chip feat"><iconify-icon icon="mdi:translate"></iconify-icon>Việt hóa<span class="tagx">bởi AI</span></span>
+          <span class="chip"><iconify-icon icon="mdi:sync"></iconify-icon>Cập nhật liên tục</span>
+          <span class="chip"><iconify-icon icon="mdi:puzzle-outline"></iconify-icon>Không cần mod thủ công</span>
+          <span class="chip"><iconify-icon icon="mdi:link-variant"></iconify-icon>Tương thích RevoltG</span>
+          <span class="chip"><iconify-icon icon="mdi:shape-outline"></iconify-icon>Đa dạng thể loại</span>
+        </section>
+        <section class="section" style="padding-top: 6px">
+          <div class="wrap">
+            <div class="g-cards">
+              <div class="g-card">
+                <div class="gi"><iconify-icon icon="mdi:translate-variant"></iconify-icon></div>
+                <h3>Kho việt hóa đồ sộ</h3>
+                <p>Kho game việt hóa phong phú, cập nhật liên tục mỗi tuần.</p>
+              </div>
+              <div class="g-card">
+                <div class="gi"><iconify-icon icon="mdi:robot-happy-outline"></iconify-icon></div>
+                <h3>Dịch bằng AI</h3>
+                <p>Bản dịch tiếng Việt tự nhiên, mượt mà nhờ AI và ngày càng hoàn thiện.</p>
+              </div>
+              <div class="g-card">
+                <div class="gi"><iconify-icon icon="mdi:flash"></iconify-icon></div>
+                <h3>Tự động áp dụng</h3>
+                <p>Mở game qua RevoltVH là có tiếng Việt ngay — không cần cài mod thủ công.</p>
               </div>
             </div>
           </div>
@@ -779,34 +885,37 @@
     <script>
       (function () {
         var subs = {
+          g:  'Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.',
           pc: '<span class="hl">PC của bạn</span> — mạnh mẽ, mọi lúc mọi nơi.',
-          g: 'Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.'
+          vh: 'Chơi game <span class="hl">bằng tiếng Việt</span> — dịch bởi AI.'
         };
+        var LOGO  = { g: './revoltglogo.png', pc: './revoltpclogo.png', vh: './revoltvhlogo.png' };
+        var THEME = { g: 'theme-g', pc: '', vh: 'theme-vh' };
+        var VIEW  = { g: '.view-g', pc: '.view-pc', vh: '.view-vh' };
+        var CONT  = { g: '#gContent', pc: '#pcContent', vh: '#vhContent' };
+        var DL    = { g: '.dl-single', pc: '.dl-multi', vh: '.dl-vh' };
         var tabs = document.querySelectorAll('.tab');
         var sub = document.getElementById('tabSub');
-        var vpc = document.querySelector('.view-pc');
-        var vg = document.querySelector('.view-g');
-        var pcC = document.getElementById('pcContent');
-        var gC = document.getElementById('gContent');
-        var dlMulti = document.querySelector('.dl-multi');
-        var dlSingle = document.querySelector('.dl-single');
         var bootLogo = document.querySelector('.boot-logo');
-        tabs.forEach(function (t) {
-          t.addEventListener('click', function () {
-            tabs.forEach(function (x) { x.classList.remove('active'); });
-            t.classList.add('active');
-            var k = t.getAttribute('data-tab');
-            sub.innerHTML = subs[k];
-            var isG = k === 'g';
-            vpc.hidden = isG;
-            vg.hidden = !isG;
-            pcC.hidden = isG;
-            gC.hidden = !isG;
-            dlMulti.hidden = isG;
-            dlSingle.hidden = !isG;
-            document.body.classList.toggle('theme-g', isG);
-            bootLogo.src = isG ? './revoltglogo.png' : './revoltpclogo.png';
+        bootLogo.addEventListener('error', function () {
+          if ((this.getAttribute('src') || '').indexOf('revoltvhlogo') > -1) this.src = './revoltglogo.png';
+        });
+        function only(map, keep) {
+          Object.keys(map).forEach(function (key) {
+            var el = document.querySelector(map[key]);
+            if (el) el.hidden = (key !== keep);
           });
+        }
+        function setTab(k) {
+          tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-tab') === k); });
+          if (subs[k]) sub.innerHTML = subs[k];
+          only(VIEW, k); only(CONT, k); only(DL, k);
+          document.body.classList.remove('theme-g', 'theme-vh');
+          if (THEME[k]) document.body.classList.add(THEME[k]);
+          if (LOGO[k]) bootLogo.src = LOGO[k];
+        }
+        tabs.forEach(function (t) {
+          t.addEventListener('click', function () { setTab(t.getAttribute('data-tab')); });
         });
       })();
     </script>
@@ -871,6 +980,9 @@
           var g = data && data.revoltg && data.revoltg.windows;
           var winBtn = document.querySelector('.dl-single .dl-win');
           if (winBtn && g && g.url) winBtn.setAttribute('href', g.url);
+          var vh = data && data.revoltvh && data.revoltvh.windows;
+          var vhBtn = document.querySelector('.dl-vh .dl-win');
+          if (vhBtn && vh && vh.url) vhBtn.setAttribute('href', vh.url);
           var bi = document.getElementById('buildInfo');
           if (bi && data && data.version) {
             bi.textContent = 'RevoltPC v' + data.version + (data.updated ? ' · cập nhật ' + data.updated : '');

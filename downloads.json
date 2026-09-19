@@ -12,5 +12,8 @@
   },
   "revoltg": {
     "windows":   { "url": "https://dl.revolt.vn/RevoltG.Installer.exe", "status": "stable" }
+  },
+  "revoltvh": {
+    "windows":   { "url": "https://vh.revolt.vn/updates/RevoltVH.exe", "status": "stable" }
   }
 }
