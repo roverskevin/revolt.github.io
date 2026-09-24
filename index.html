@@ -155,12 +155,14 @@
       .rg-hero .rg-hinfo p { font-size: 12px; color: rgba(255, 255, 255, .8); margin-bottom: 13px; }
       .rg-play { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--on-accent); background: var(--accent); padding: 8px 18px; border-radius: 3px; box-shadow: 0 8px 22px -8px rgba(var(--accent-rgb), .8); }
       .rg-play iconify-icon { font-size: 18px; }
-      .rg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex: none; }
-      .rg-cover { position: relative; aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 18px -12px rgba(0, 0, 0, .9); transition: transform .18s, border-color .18s; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; padding: 11px 12px; background: #12161d; }
-      .rg-cover .ic { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 3px; background: var(--accent-soft); border: 1px solid var(--accent-line); font-size: 19px; color: var(--accent); }
-      .rg-cover .lb { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 4px; font-size: 10.5px; font-weight: 700; color: #fff; }
-      .rg-cover .lb i { font-style: normal; font-size: 7.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
-      .rg-cover:hover { transform: translateY(-4px); border-color: var(--accent-line); }
+      .rg-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; flex: none; }
+      .rg-cover { position: relative; aspect-ratio: 16 / 10; border-radius: 3px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 18px -12px rgba(0, 0, 0, .9); transition: transform .18s, border-color .18s, box-shadow .18s; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 7px; padding: 8px; background: #12161d; }
+      .rg-cover .ic { font-size: 23px; color: rgba(255, 255, 255, .82); transition: color .18s; }
+      .rg-cover .lb { font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: rgba(255, 255, 255, .68); text-align: center; }
+      .rg-cover:hover { transform: translateY(-3px); border-color: var(--accent-line); }
+      .rg-cover:hover .ic { color: var(--accent); }
+      .rg-cover.on { border-color: var(--accent); background: rgba(var(--accent-rgb), .08); box-shadow: 0 0 16px -2px rgba(var(--accent-rgb), .45), inset 0 0 14px rgba(var(--accent-rgb), .08); }
+      .rg-cover.on .ic, .rg-cover.on .lb { color: var(--accent); }
       @media (max-width: 640px) { .rg-grid { grid-template-columns: repeat(3, 1fr); } .rg-grid .rg-cover:nth-child(n+4) { display: none; } .rg-hero .rg-hinfo { max-width: 82%; } }
       body { transition: none; }
       .tabs, .tab, .chip, .btn, .dl, .dl-win, .cover, .conn .box, .g-card, .tab-sub .hl, .hl { transition: background .35s, border-color .35s, color .35s, box-shadow .35s; }
@@ -545,10 +547,11 @@
                       </div>
                     </div>
                     <div class="rg-grid">
-                      <span class="rg-cover" style="--c1:#0e4d48;--c2:#06211f"><iconify-icon class="ic" icon="mdi:sword-cross"></iconify-icon><span class="lb">Hành động<i>Bản quyền</i></span></span>
-                      <span class="rg-cover" style="--c1:#123a5e;--c2:#0a1b2e"><iconify-icon class="ic" icon="mdi:shield-sword"></iconify-icon><span class="lb">Nhập vai<i>Bản quyền</i></span></span>
-                      <span class="rg-cover" style="--c1:#26305e;--c2:#12142e"><iconify-icon class="ic" icon="mdi:car-sports"></iconify-icon><span class="lb">Đua xe<i>Bản quyền</i></span></span>
-                      <span class="rg-cover" style="--c1:#0d4a3e;--c2:#071f1a"><iconify-icon class="ic" icon="mdi:soccer"></iconify-icon><span class="lb">Thể thao<i>Bản quyền</i></span></span>
+                      <span class="rg-cover on"><iconify-icon class="ic" icon="mdi:view-grid"></iconify-icon><span class="lb">Tất cả</span></span>
+                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:fire"></iconify-icon><span class="lb">Hành động</span></span>
+                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:ghost"></iconify-icon><span class="lb">Kinh dị</span></span>
+                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:earth"></iconify-icon><span class="lb">Thế giới mở</span></span>
+                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:sword-cross"></iconify-icon><span class="lb">Nhập vai</span></span>
                     </div>
                   </div>
                 </div>
