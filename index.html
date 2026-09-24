@@ -135,19 +135,15 @@
       body.theme-g .boot-logo { display: none; }
       body.theme-g .view-g { position: absolute; inset: 9px; width: auto; }
       body.theme-g .dl-single { position: absolute; left: 16px; right: 16px; bottom: 16px; width: auto; margin: 0; z-index: 4; }
-      .rg-app { position: absolute; inset: 0; border-radius: 3px; overflow: hidden; padding: 13px 15px 78px; display: flex; flex-direction: column; gap: 10px; text-align: left;
-        background: radial-gradient(130% 90% at 50% -5%, #0d3b3a 0%, #071f1e 52%, #04100f 100%); border: 1px solid var(--accent-line); }
+      .rg-app { position: absolute; inset: 0; border-radius: 3px; overflow: hidden; padding: 14px 16px 78px; display: flex; flex-direction: column; gap: 11px; text-align: left;
+        background: linear-gradient(180deg, #121419 0%, #0a0b0e 100%); border: 1px solid var(--line-2); }
       .rg-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
       .rg-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 14px; color: #fff; }
       .rg-brand iconify-icon { font-size: 20px; color: var(--accent); }
       .rg-nav { display: inline-flex; gap: 14px; }
       .rg-nav b { font-size: 11px; font-weight: 600; color: var(--dim); }
       .rg-nav b.on { color: var(--accent); }
-      .rg-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; flex: none; }
-      .rg-stat { background: rgba(255, 255, 255, .04); border: 1px solid var(--line); border-radius: 3px; padding: 6px 10px; }
-      .rg-stat .n { display: block; font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1.15; }
-      .rg-stat .l { font-size: 8.5px; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: .05em; }
-      .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07), 0 18px 40px -22px rgba(var(--accent-rgb), .7); }
+      .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 16px 34px -20px rgba(0, 0, 0, .85); }
       .rg-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       .rg-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3, 14, 13, .94) 0%, rgba(3, 14, 13, .5) 45%, transparent 78%); }
       .rg-hero .rg-ribbon { position: absolute; top: 11px; left: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; }
@@ -538,12 +534,6 @@
                     <div class="rg-top">
                       <span class="rg-brand"><iconify-icon icon="mdi:controller-classic"></iconify-icon>RevoltG</span>
                       <span class="rg-nav"><b class="on">Trang chủ</b><b>Trò chơi</b><b>Thuê máy</b></span>
-                    </div>
-                    <div class="rg-stats">
-                      <div class="rg-stat"><span class="n">3.272</span><span class="l">Trò chơi</span></div>
-                      <div class="rg-stat"><span class="n">~1.000+</span><span class="l">Đã việt hóa</span></div>
-                      <div class="rg-stat"><span class="n">2.594</span><span class="l">Trực tuyến</span></div>
-                      <div class="rg-stat"><span class="n">1.830</span><span class="l">Đang chơi</span></div>
                     </div>
                     <div class="rg-hero">
                       <img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/header.jpg" alt="" onerror="this.remove()" />
