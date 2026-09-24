@@ -238,7 +238,7 @@
       .view-pc { display: flex; justify-content: center; }
       .lib-img { max-width: 100%; max-height: 188px; border-radius: 10px; border: 1px solid var(--line-2); display: block; box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .85); }
       [hidden] { display: none !important; }
-      .btn-discord { display: inline-flex; align-items: center; gap: 9px; font-family: inherit; font-weight: 600; font-size: 14.5px; padding: 9px 18px; border-radius: 10px; background: #5865f2; color: #fff; box-shadow: 0 8px 22px -10px rgba(88, 101, 242, .8); transition: transform .15s, background .18s; }
+      .btn-discord { display: inline-flex; align-items: center; gap: 9px; font-family: inherit; font-weight: 600; font-size: 14.5px; padding: 9px 18px; border-radius: 3px; background: #5865f2; color: #fff; box-shadow: 0 8px 22px -10px rgba(88, 101, 242, .8); transition: transform .15s, background .18s; }
       .btn-discord:hover { transform: translateY(-1px); background: #6b77f5; }
       .btn-discord iconify-icon { font-size: 20px; }
 
@@ -283,7 +283,7 @@
       .downloads { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
       .dl {
         display: flex; align-items: center; gap: 12px; text-align: left;
-        padding: 12px 20px; border-radius: 13px; min-width: 168px;
+        padding: 12px 20px; border-radius: 3px; min-width: 168px;
         border: 1px solid var(--line-2); background: var(--surface); color: var(--text);
         transition: transform .15s, background .18s, border-color .18s, box-shadow .25s;
       }
@@ -298,7 +298,7 @@
       a.dl.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
       .dl.soon { opacity: .48; cursor: default; }
       .dl.soon .os .stat { color: var(--accent); }
-      .dl-win { display: inline-flex; align-items: center; gap: 13px; background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); border-radius: 13px; padding: 13px 22px; box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), .85); transition: transform .15s, background .18s; }
+      .dl-win { display: inline-flex; align-items: center; gap: 13px; background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); border-radius: 3px; padding: 13px 22px; box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), .85); transition: transform .15s, background .18s; }
       .dl-win:hover { transform: translateY(-2px); background: var(--accent-hover); }
       .dl-win .ic { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: rgba(255, 255, 255, .18); border: 1px solid rgba(255, 255, 255, .28); flex: none; }
       .dl-win .ic iconify-icon { font-size: 23px; }
@@ -324,8 +324,13 @@
         padding: 30px; overflow: hidden;
       }
       .boot { flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
-      .screen .downloads { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%; margin: 0; }
-      .screen .dl { flex: 0 1 145px; min-width: 0; gap: 9px; padding: 11px 12px; border-radius: 12px; }
+      .screen .downloads { display: flex; flex-wrap: nowrap; align-items: stretch; justify-content: center; gap: 10px; width: 100%; margin: 0; }
+      /* Docked bar (RevoltG/VH/PS5): nút tải giãn fit, Discord bám phải */
+      .screen .dl-single, .screen .dl-vh, .screen .dl-ps { align-items: stretch; }
+      .screen .dl-single .dl-win, .screen .dl-vh .dl-win, .screen .dl-ps .dl-win { flex: 1; min-width: 0; }
+      .screen .dl-single .dl-win .dl-arrow, .screen .dl-vh .dl-win .dl-arrow, .screen .dl-ps .dl-win .dl-arrow { margin-left: auto; }
+      .screen .dl-single .btn-discord, .screen .dl-vh .btn-discord, .screen .dl-ps .btn-discord { flex: none; }
+      .screen .dl { flex: 0 1 145px; min-width: 0; gap: 9px; padding: 11px 12px; border-radius: 3px; }
       .dl .ic { flex: none; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(255, 255, 255, .06); border: 1px solid var(--line-2); }
       .dl .ic iconify-icon { font-size: 21px; }
       .dl.primary .ic { background: rgba(255, 255, 255, .2); border-color: rgba(255, 255, 255, .28); }
