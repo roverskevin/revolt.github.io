@@ -143,21 +143,27 @@
       .rg-cats { display: inline-flex; gap: 6px; }
       .rg-cats span { font-size: 10px; font-weight: 700; color: var(--dim); padding: 4px 11px; border-radius: 3px; border: 1px solid var(--line); white-space: nowrap; }
       .rg-cats span.on { color: var(--on-accent); background: var(--accent); border-color: transparent; }
-      .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 16px 34px -20px rgba(0, 0, 0, .85); }
-      .rg-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-      .rg-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3, 14, 13, .94) 0%, rgba(3, 14, 13, .55) 42%, transparent 72%); }
+      .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; border: 1px solid rgba(var(--accent-rgb), .22);
+        background: linear-gradient(120deg, #073430 0%, #0a4a52 46%, #0d3f6e 100%); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), 0 16px 34px -20px rgba(0, 0, 0, .85); }
+      .rg-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(70% 130% at 84% -20%, rgba(var(--accent-rgb), .5), transparent 60%); }
+      .rg-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3, 12, 14, .82) 0%, rgba(3, 12, 14, .3) 46%, transparent 74%); }
+      .rg-hero .rg-emblem { position: absolute; right: -6px; top: 50%; transform: translateY(-50%); font-size: 156px; color: rgba(255, 255, 255, .09); z-index: 1; pointer-events: none; }
       .rg-hero .rg-ribbon { position: absolute; top: 12px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; }
       .rg-hero .rg-ribbon iconify-icon { font-size: 12px; }
-      .rg-hero .rg-hinfo { position: relative; z-index: 2; padding: 16px 18px; max-width: 64%; }
+      .rg-hero .rg-hinfo { position: relative; z-index: 2; padding: 16px 18px; max-width: 66%; }
       .rg-hero .rg-hinfo .eyebrow { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
       .rg-hero .rg-hinfo h4 { font-size: 23px; font-weight: 800; color: #fff; margin: 5px 0 4px; letter-spacing: -0.01em; }
       .rg-hero .rg-hinfo p { font-size: 12px; color: rgba(255, 255, 255, .8); margin-bottom: 13px; }
       .rg-play { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--on-accent); background: var(--accent); padding: 8px 18px; border-radius: 3px; box-shadow: 0 8px 22px -8px rgba(var(--accent-rgb), .8); }
       .rg-play iconify-icon { font-size: 18px; }
       .rg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex: none; }
-      .rg-cover { position: relative; aspect-ratio: 460 / 215; border-radius: 3px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .08); box-shadow: 0 8px 18px -12px rgba(0, 0, 0, .9); transition: transform .18s, box-shadow .18s; background: #0c1a19; }
+      .rg-cover { position: relative; aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .08); box-shadow: 0 8px 18px -12px rgba(0, 0, 0, .9); transition: transform .18s, box-shadow .18s; display: flex; align-items: flex-end;
+        background: linear-gradient(150deg, var(--c1, #123a3a), var(--c2, #08181f)); }
+      .rg-cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(80% 90% at 50% 0%, rgba(255, 255, 255, .12), transparent 60%); }
+      .rg-cover .ic { position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%); font-size: 32px; color: rgba(255, 255, 255, .9); z-index: 1; }
+      .rg-cover .lb { position: relative; z-index: 1; width: 100%; padding: 14px 8px 6px; display: flex; align-items: center; justify-content: space-between; gap: 4px; font-size: 9px; font-weight: 700; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, .55)); }
+      .rg-cover .lb i { font-style: normal; font-size: 7.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
       .rg-cover:hover { transform: translateY(-4px); box-shadow: 0 14px 24px -12px rgba(var(--accent-rgb), .6); }
-      .rg-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
       @media (max-width: 640px) { .rg-grid { grid-template-columns: repeat(3, 1fr); } .rg-grid .rg-cover:nth-child(n+4) { display: none; } .rg-hero .rg-hinfo { max-width: 82%; } }
       body { transition: none; }
       .tabs, .tab, .chip, .btn, .dl, .dl-win, .cover, .conn .box, .g-card, .tab-sub .hl, .hl { transition: background .35s, border-color .35s, color .35s, box-shadow .35s; }
@@ -532,7 +538,7 @@
                       <span class="rg-cats"><span class="on">Nổi bật</span><span>Mới</span><span>Bom tấn</span></span>
                     </div>
                     <div class="rg-hero">
-                      <img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="" onerror="this.remove()" />
+                      <iconify-icon class="rg-emblem" icon="mdi:controller-classic"></iconify-icon>
                       <span class="rg-ribbon"><iconify-icon icon="mdi:license"></iconify-icon>Bản quyền</span>
                       <div class="rg-hinfo">
                         <span class="eyebrow">Bom tấn nổi bật</span>
@@ -542,10 +548,10 @@
                       </div>
                     </div>
                     <div class="rg-grid">
-                      <span class="rg-cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="" onerror="this.closest('.rg-cover').remove()" /></span>
-                      <span class="rg-cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="" onerror="this.closest('.rg-cover').remove()" /></span>
-                      <span class="rg-cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg" alt="" onerror="this.closest('.rg-cover').remove()" /></span>
-                      <span class="rg-cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg" alt="" onerror="this.closest('.rg-cover').remove()" /></span>
+                      <span class="rg-cover" style="--c1:#0e4d48;--c2:#06211f"><iconify-icon class="ic" icon="mdi:sword-cross"></iconify-icon><span class="lb">Hành động<i>Bản quyền</i></span></span>
+                      <span class="rg-cover" style="--c1:#123a5e;--c2:#0a1b2e"><iconify-icon class="ic" icon="mdi:shield-sword"></iconify-icon><span class="lb">Nhập vai<i>Bản quyền</i></span></span>
+                      <span class="rg-cover" style="--c1:#26305e;--c2:#12142e"><iconify-icon class="ic" icon="mdi:car-sports"></iconify-icon><span class="lb">Đua xe<i>Bản quyền</i></span></span>
+                      <span class="rg-cover" style="--c1:#0d4a3e;--c2:#071f1a"><iconify-icon class="ic" icon="mdi:soccer"></iconify-icon><span class="lb">Thể thao<i>Bản quyền</i></span></span>
                     </div>
                   </div>
                 </div>
