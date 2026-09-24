@@ -148,11 +148,11 @@
       .rg-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(58% 120% at 88% 4%, rgba(var(--accent-rgb), .16), transparent 55%); }
       .rg-fx { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); width: 150px; height: 150px; display: grid; place-items: center; z-index: 0; pointer-events: none; }
       .rg-fx .rg-emblem { position: static; font-size: 108px; color: #00e5ff; animation: rgFloat 4.5s ease-in-out infinite, rgRGB 6s linear infinite; }
-      .rg-fx i { position: absolute; inset: 0; margin: auto; width: 116px; height: 116px; border: 1.5px solid rgba(255, 255, 255, .22); border-radius: 50%; opacity: 0; animation: rgSonar 3s ease-out infinite; }
-      .rg-fx i:nth-child(2) { animation-delay: 1s; }
-      .rg-fx i:nth-child(3) { animation-delay: 2s; }
+      .rg-fx i { position: absolute; inset: 0; margin: auto; width: 118px; height: 118px; border: 2px solid rgba(var(--accent-rgb), .55); border-radius: 50%; opacity: 0; box-shadow: 0 0 12px rgba(var(--accent-rgb), .3); animation: rgSonar 2.6s ease-out infinite; }
+      .rg-fx i:nth-child(2) { animation-delay: .87s; }
+      .rg-fx i:nth-child(3) { animation-delay: 1.73s; }
       @keyframes rgFloat { 0%, 100% { transform: translateY(-5px); } 50% { transform: translateY(5px); } }
-      @keyframes rgSonar { 0% { transform: scale(.5); opacity: .55; } 100% { transform: scale(1.35); opacity: 0; } }
+      @keyframes rgSonar { 0% { transform: scale(.45); opacity: .8; } 100% { transform: scale(1.55); opacity: 0; } }
       @keyframes rgRGB { from { filter: drop-shadow(0 0 16px currentColor) hue-rotate(0deg); } to { filter: drop-shadow(0 0 16px currentColor) hue-rotate(360deg); } }
       @media (prefers-reduced-motion: reduce) { .rg-fx .rg-emblem { animation: rgRGB 8s linear infinite; } .rg-fx i { display: none; } }
       .rg-hero .rg-ribbon { position: absolute; top: 12px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; }
