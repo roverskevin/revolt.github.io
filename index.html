@@ -146,7 +146,14 @@
       .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; border: 1px solid var(--line-2);
         background: #0e1218; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03); }
       .rg-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(58% 120% at 88% 4%, rgba(var(--accent-rgb), .16), transparent 55%); }
-      .rg-hero .rg-emblem { position: absolute; right: 2px; top: 50%; transform: translateY(-50%); font-size: 150px; color: rgba(var(--accent-rgb), .11); z-index: 0; pointer-events: none; }
+      .rg-fx { position: absolute; right: 46px; top: 50%; transform: translateY(-50%); width: 130px; height: 130px; display: grid; place-items: center; z-index: 0; pointer-events: none; }
+      .rg-fx .rg-emblem { position: static; transform: none; font-size: 82px; color: rgba(var(--accent-rgb), .3); filter: drop-shadow(0 0 14px rgba(var(--accent-rgb), .45)); animation: rgFloat 4.5s ease-in-out infinite; }
+      .rg-fx i { position: absolute; inset: 0; margin: auto; width: 92px; height: 92px; border: 1.5px solid rgba(var(--accent-rgb), .45); border-radius: 50%; opacity: 0; animation: rgSonar 3s ease-out infinite; }
+      .rg-fx i:nth-child(2) { animation-delay: 1s; }
+      .rg-fx i:nth-child(3) { animation-delay: 2s; }
+      @keyframes rgFloat { 0%, 100% { transform: translateY(-5px); } 50% { transform: translateY(5px); } }
+      @keyframes rgSonar { 0% { transform: scale(.55); opacity: .7; } 100% { transform: scale(1.45); opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .rg-fx .rg-emblem, .rg-fx i { animation: none; } .rg-fx i { display: none; } }
       .rg-hero .rg-ribbon { position: absolute; top: 12px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; }
       .rg-hero .rg-ribbon iconify-icon { font-size: 12px; }
       .rg-hero .rg-hinfo { position: relative; z-index: 2; padding: 16px 18px; max-width: 66%; }
@@ -537,7 +544,7 @@
                       <span class="rg-cats"><span class="on">Nổi bật</span><span>Mới</span><span>Bom tấn</span></span>
                     </div>
                     <div class="rg-hero">
-                      <iconify-icon class="rg-emblem" icon="mdi:controller-classic"></iconify-icon>
+                      <span class="rg-fx"><i></i><i></i><i></i><iconify-icon class="rg-emblem" icon="mdi:controller-classic"></iconify-icon></span>
                       <span class="rg-ribbon"><iconify-icon icon="mdi:license"></iconify-icon>Bản quyền</span>
                       <div class="rg-hinfo">
                         <span class="eyebrow">Bom tấn nổi bật</span>
