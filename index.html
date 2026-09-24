@@ -241,6 +241,7 @@
       .tab { position: relative; font-family: inherit; font-size: 15px; font-weight: 600; padding: 8px 26px; border-radius: 999px; border: none; background: transparent; color: var(--dim); cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; }
       .tab .tab-tag { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #f0b429; background: rgba(240, 180, 41, .12); border: 1px solid rgba(240, 180, 41, .4); padding: 1px 6px; border-radius: 999px; white-space: nowrap; line-height: 1.5; pointer-events: none; }
       .tab .tab-tag.tag-free { color: #3ecf8e; background: rgba(62, 207, 142, .12); border-color: rgba(62, 207, 142, .4); }
+      .tab .tab-tag.tag-pc { color: #e5806f; background: rgba(207, 91, 78, .16); border-color: rgba(207, 91, 78, .45); }
       .tab.active { background: var(--accent); color: var(--on-accent); box-shadow: 0 6px 18px -6px rgba(var(--accent-rgb), .7); }
       .tab:not(.active):hover { color: var(--text); }
       .tab-sub { font-size: clamp(17px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-bottom: 30px; }
@@ -528,7 +529,7 @@
         <div class="wrap inner">
           <div class="tabs" role="tablist">
             <button class="tab active" data-tab="g" type="button">RevoltG</button>
-            <button class="tab" data-tab="pc" type="button">RevoltPC</button>
+            <button class="tab" data-tab="pc" type="button">RevoltPC<span class="tab-tag tag-pc">Cloud PC</span></button>
             <button class="tab" data-tab="vh" type="button">RevoltVH<span class="tab-tag tag-free">Việt hóa miễn phí</span></button>
             <button class="tab" data-tab="ps" type="button">RevoltPS5<span class="tab-tag">Coming soon</span></button>
           </div>
