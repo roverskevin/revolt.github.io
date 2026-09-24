@@ -146,14 +146,15 @@
       .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; border: 1px solid var(--line-2);
         background: #0e1218; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03); }
       .rg-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(58% 120% at 88% 4%, rgba(var(--accent-rgb), .16), transparent 55%); }
-      .rg-fx { position: absolute; right: 46px; top: 50%; transform: translateY(-50%); width: 130px; height: 130px; display: grid; place-items: center; z-index: 0; pointer-events: none; }
-      .rg-fx .rg-emblem { position: static; transform: none; font-size: 82px; color: rgba(var(--accent-rgb), .3); filter: drop-shadow(0 0 14px rgba(var(--accent-rgb), .45)); animation: rgFloat 4.5s ease-in-out infinite; }
-      .rg-fx i { position: absolute; inset: 0; margin: auto; width: 92px; height: 92px; border: 1.5px solid rgba(var(--accent-rgb), .45); border-radius: 50%; opacity: 0; animation: rgSonar 3s ease-out infinite; }
+      .rg-fx { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); width: 150px; height: 150px; display: grid; place-items: center; z-index: 0; pointer-events: none; }
+      .rg-fx .rg-emblem { position: static; font-size: 108px; color: #00e5ff; animation: rgFloat 4.5s ease-in-out infinite, rgRGB 6s linear infinite; }
+      .rg-fx i { position: absolute; inset: 0; margin: auto; width: 116px; height: 116px; border: 1.5px solid rgba(255, 255, 255, .22); border-radius: 50%; opacity: 0; animation: rgSonar 3s ease-out infinite; }
       .rg-fx i:nth-child(2) { animation-delay: 1s; }
       .rg-fx i:nth-child(3) { animation-delay: 2s; }
       @keyframes rgFloat { 0%, 100% { transform: translateY(-5px); } 50% { transform: translateY(5px); } }
-      @keyframes rgSonar { 0% { transform: scale(.55); opacity: .7; } 100% { transform: scale(1.45); opacity: 0; } }
-      @media (prefers-reduced-motion: reduce) { .rg-fx .rg-emblem, .rg-fx i { animation: none; } .rg-fx i { display: none; } }
+      @keyframes rgSonar { 0% { transform: scale(.5); opacity: .55; } 100% { transform: scale(1.35); opacity: 0; } }
+      @keyframes rgRGB { from { filter: drop-shadow(0 0 16px currentColor) hue-rotate(0deg); } to { filter: drop-shadow(0 0 16px currentColor) hue-rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { .rg-fx .rg-emblem { animation: rgRGB 8s linear infinite; } .rg-fx i { display: none; } }
       .rg-hero .rg-ribbon { position: absolute; top: 12px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; }
       .rg-hero .rg-ribbon iconify-icon { font-size: 12px; }
       .rg-hero .rg-hinfo { position: relative; z-index: 2; padding: 16px 18px; max-width: 66%; }
@@ -168,8 +169,6 @@
       .rg-cover .lb { font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: rgba(255, 255, 255, .68); text-align: center; }
       .rg-cover:hover { transform: translateY(-3px); border-color: var(--accent-line); }
       .rg-cover:hover .ic { color: var(--accent); }
-      .rg-cover.on { border-color: var(--accent); background: rgba(var(--accent-rgb), .08); box-shadow: 0 0 16px -2px rgba(var(--accent-rgb), .45), inset 0 0 14px rgba(var(--accent-rgb), .08); }
-      .rg-cover.on .ic, .rg-cover.on .lb { color: var(--accent); }
       @media (max-width: 640px) { .rg-grid { grid-template-columns: repeat(3, 1fr); } .rg-grid .rg-cover:nth-child(n+4) { display: none; } .rg-hero .rg-hinfo { max-width: 82%; } }
       body { transition: none; }
       .tabs, .tab, .chip, .btn, .dl, .dl-win, .cover, .conn .box, .g-card, .tab-sub .hl, .hl { transition: background .35s, border-color .35s, color .35s, box-shadow .35s; }
@@ -554,7 +553,7 @@
                       </div>
                     </div>
                     <div class="rg-grid">
-                      <span class="rg-cover on"><iconify-icon class="ic" icon="mdi:view-grid"></iconify-icon><span class="lb">Tất cả</span></span>
+                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:view-grid"></iconify-icon><span class="lb">Tất cả</span></span>
                       <span class="rg-cover"><iconify-icon class="ic" icon="mdi:fire"></iconify-icon><span class="lb">Hành động</span></span>
                       <span class="rg-cover"><iconify-icon class="ic" icon="mdi:ghost"></iconify-icon><span class="lb">Kinh dị</span></span>
                       <span class="rg-cover"><iconify-icon class="ic" icon="mdi:earth"></iconify-icon><span class="lb">Thế giới mở</span></span>
