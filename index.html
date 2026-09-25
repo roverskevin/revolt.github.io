@@ -116,9 +116,9 @@
         background: linear-gradient(130deg, #2360bd 0%, #34307f 46%, #141634 100%); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), 0 18px 40px -22px rgba(31, 122, 229, .8); }
       .ps5-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(75% 130% at 82% -15%, rgba(90, 170, 255, .55), transparent 62%); }
       .ps5-hero .ps5-emblem { position: absolute; right: 8px; top: 50%; transform: translateY(-48%); font-size: 150px; color: rgba(255, 255, 255, .1); pointer-events: none; }
-      .ps5-hero .ps5-ribbon { position: absolute; top: 12px; left: 13px; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: rgba(0, 0, 0, .38); border: 1px solid rgba(255, 255, 255, .2); padding: 4px 10px; border-radius: 999px; backdrop-filter: blur(4px); }
+      .ps5-hero .ps5-ribbon { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: rgba(0, 0, 0, .38); border: 1px solid rgba(255, 255, 255, .2); padding: 4px 10px; border-radius: 999px; backdrop-filter: blur(4px); margin-bottom: 9px; }
       .ps5-hero .ps5-ribbon iconify-icon { font-size: 12px; }
-      .ps5-hero .ps5-hinfo { position: relative; padding: 16px 18px; }
+      .ps5-hero .ps5-hinfo { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; padding: 16px 18px; }
       .ps5-hero .ps5-hinfo .eyebrow { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .72); }
       .ps5-hero .ps5-hinfo h4 { font-size: 23px; font-weight: 800; color: #fff; margin: 5px 0 4px; letter-spacing: -0.01em; }
       .ps5-hero .ps5-hinfo p { font-size: 12px; color: rgba(255, 255, 255, .78); margin-bottom: 13px; }
@@ -155,9 +155,9 @@
       @keyframes rgSonar { 0% { transform: scale(.45); opacity: .8; } 100% { transform: scale(1.55); opacity: 0; } }
       @keyframes rgRGB { from { filter: drop-shadow(0 0 16px currentColor) hue-rotate(0deg); } to { filter: drop-shadow(0 0 16px currentColor) hue-rotate(360deg); } }
       @media (prefers-reduced-motion: reduce) { .rg-fx .rg-emblem { animation: rgRGB 8s linear infinite; } .rg-fx i { display: none; } }
-      .rg-hero .rg-ribbon { position: absolute; top: 12px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; }
+      .rg-hero .rg-ribbon { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; margin-bottom: 9px; }
       .rg-hero .rg-ribbon iconify-icon { font-size: 12px; }
-      .rg-hero .rg-hinfo { position: relative; z-index: 2; padding: 16px 18px; max-width: 66%; }
+      .rg-hero .rg-hinfo { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; padding: 16px 18px; max-width: 66%; }
       .rg-hero .rg-hinfo .eyebrow { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
       .rg-hero .rg-hinfo h4 { font-size: 23px; font-weight: 800; color: #fff; margin: 5px 0 4px; letter-spacing: -0.01em; }
       .rg-hero .rg-hinfo p { font-size: 12px; color: rgba(255, 255, 255, .8); margin-bottom: 13px; }
@@ -506,7 +506,6 @@
         .rg-app, .ps5-ui { position: static; inset: auto; padding: 12px; gap: 10px; }
         body.theme-vh .vh-app { padding: 0; }
         .rg-hero, .ps5-hero { height: auto; min-height: 150px; flex: none; flex-direction: column; align-items: flex-start; justify-content: flex-start; }
-        .rg-hero .rg-ribbon, .ps5-hero .ps5-ribbon { position: static; margin: 13px 0 0 13px; }
         .rg-hero .rg-hinfo, .ps5-hero .ps5-hinfo { padding: 8px 16px 16px; max-width: 64%; }
         .vh-app .vh-side { display: none; }
         .vh-app .vh-main { padding: 12px; }
@@ -569,8 +568,8 @@
                     </div>
                     <div class="rg-hero">
                       <span class="rg-fx"><i></i><i></i><i></i><iconify-icon class="rg-emblem" icon="mdi:controller-classic"></iconify-icon></span>
-                      <span class="rg-ribbon"><iconify-icon icon="mdi:license"></iconify-icon>Bản quyền</span>
                       <div class="rg-hinfo">
+                        <span class="rg-ribbon"><iconify-icon icon="mdi:license"></iconify-icon>Bản quyền</span>
                         <span class="eyebrow">Bom tấn nổi bật</span>
                         <h4>Kho game AAA quốc tế</h4>
                         <p>Trải nghiệm trò chơi bản quyền, cài đặt nhanh chóng — sử dụng đơn giản.</p>
@@ -617,8 +616,8 @@
                     </div>
                     <div class="ps5-hero">
                       <iconify-icon class="ps5-emblem" icon="mdi:sony-playstation"></iconify-icon>
-                      <span class="ps5-ribbon"><iconify-icon icon="mdi:video-4k-box"></iconify-icon>4K HDR · DualSense</span>
                       <div class="ps5-hinfo">
+                        <span class="ps5-ribbon"><iconify-icon icon="mdi:video-4k-box"></iconify-icon>4K HDR · DualSense</span>
                         <span class="eyebrow">Bom tấn nổi bật</span>
                         <h4>PS5 trên đám mây</h4>
                         <p>Trải nghiệm trò chơi PS5 tức thì trên mọi thiết bị — không cần console.</p>
