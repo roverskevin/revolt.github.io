@@ -3,10 +3,10 @@
   "updated": "12/11/2026",
   "platforms": {
     "windows":   { "url": "https://dl.revolt.vn/RevoltPC-Setup.exe", "status": "stable" },
-    "linux":     { "url": "https://dl.revolt.vn/revoltpc-client-linux-x64.zip", "status": "beta" },
+    "linux":     { "url": "https://dl.revolt.vn/revoltpc-client-linux-x64.zip", "status": "stable" },
     "macos-x64": { "url": "https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-x64.zip", "status": "beta" },
     "macos-arm": { "url": "https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-arrm64.zip", "status": "beta" },
-    "web":       { "url": "", "status": "soon" },
+    "web":       { "url": "https://play.revolt.vn", "status": "stable" },
     "ios":       { "url": "", "status": "soon" },
     "android":   { "url": "", "status": "soon" }
   },

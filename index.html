@@ -1,901 +1,828 @@
-<!DOCTYPE html>
-<html lang="vi" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="RevoltG — Nền tảng trải nghiệm game bản quyền & thuê Cloud PC cấu hình cao." />
-    <meta name="keywords" content="revoltg, revoltpc, game bản quyền, cloud pc, thuê máy, cloud save" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="fav_revolt.ico" />
-    <link rel="icon" href="favicon.png" />
-    <title>:::RevoltG - Nền tảng game bản quyền &amp; Cloud PC:::</title>
+<!doctype html>
+<html lang="vi" data-theme="oc-teal">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RevoltG: Trải nghiệm trò chơi bản quyền</title>
+  <meta name="description" content="RevoltG: trải nghiệm trò chơi bản quyền, thuê Cloud PC theo giờ (RevoltPC), việt hóa game miễn phí (RevoltVH), Cloud PS5 (RevoltPS5)." />
+  <link rel="icon" href="./fav_revolt.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <style>
+    /* ===== Tokens (BNUI) ===== */
+    :root {
+      --surface-sunken: #111218;
+      --surface-page: #15171e;
+      --surface-raised: #1a1c23;
+      --surface-strong: #22242c;
+      --fill-subtle: #ffffff08;
+      --fill: #ffffff0f;
+      --fill-strong: #ffffff1f;
+      --line-subtle: #ffffff1f;
+      --line: #ffffff2e;
+      --text-primary: #ffffff;
+      --text-body: #ffffffd6;
+      --text-secondary: #ffffffb8;
+      --text-tertiary: #ffffff99;
+      --text-muted: #ffffff7a;
+      --success: #6cdb00;
+      --on-success: #111218;
+      --warning: #ffb400;
+      --danger: #dd0000;
+      --info: #148eff;
+      --info-tint: #148eff1f;
+      --info-line: #148eff3d;
+      --scrim: #000000cc;
+      --ring-secondary-hover: inset 0 0 0 2px #ffffff5c;
+      --ring-focus: 0 0 0 2px #111218, 0 0 0 4px #ffffff;
+      --shadow-sm: 0 3px 6px #0000007a;
+      --shadow-tile: 0 8px 12px #0000007a;
+      --shadow-lg: 0 6px 24px #00000080;
+      --font-display: 'Plus Jakarta Sans', 'Noto Sans', system-ui, sans-serif;
+      --font-body: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --fast: 100ms cubic-bezier(0, 0, .2, 1);
+      --medium: 200ms cubic-bezier(0, 0, .2, 1);
+      /* accent mặc định: Bnet Blue */
+      --accent-fill: #0074e0; --accent-fill-pressed: #003f7a; --accent: #148eff; --accent-ring: #47a6ff; --on-accent: #ffffff;
+    }
+    /* Mỗi sản phẩm một màu nhấn (accent themes của BNUI) */
+    [data-theme="oc-teal"]   { --accent-fill: #12b886; --accent-fill-pressed: #0ca678; --accent: #38d9a9; --accent-ring: #63e6be; --on-accent: #111218; }
+    [data-theme="oc-orange"] { --accent-fill: #fd7e14; --accent-fill-pressed: #f76707; --accent: #ffa94d; --accent-ring: #ffc078; --on-accent: #111218; }
+    [data-theme="oc-pink"]   { --accent-fill: #c2255c; --accent-fill-pressed: #a61e4d; --accent: #f06595; --accent-ring: #f783ac; --on-accent: #ffffff; }
+    [data-theme="bnet"]      { --accent-fill: #0074e0; --accent-fill-pressed: #003f7a; --accent: #148eff; --accent-ring: #47a6ff; --on-accent: #ffffff; }
 
-    <style>
-      :root {
-        --bg: #16181e;
-        --surface: rgba(255, 255, 255, 0.035);
-        --surface-2: rgba(255, 255, 255, 0.055);
-        --line: rgba(255, 255, 255, 0.09);
-        --line-2: rgba(255, 255, 255, 0.14);
-        --text: #f4f3f8;
-        --dim: #9b97a8;
-        --accent: #cf5b4e;
-        --accent-hover: #db6c5f;
-        --accent-deep: #b8392e;
-        --accent-rgb: 207, 91, 78;
-        --on-accent: #ffffff;
-        --accent-soft: rgba(var(--accent-rgb), 0.14);
-        --accent-line: rgba(var(--accent-rgb), 0.4);
-        --maxw: 1160px;
-        --r: 16px;
-      }
-      body.theme-g {
-        --accent: #1fe3d2;
-        --accent-hover: #54ecdf;
-        --accent-deep: #0b8a7e;
-        --accent-rgb: 31, 227, 210;
-        --accent-soft: rgba(31, 227, 210, 0.14);
-        --accent-line: rgba(31, 227, 210, 0.4);
-        --on-accent: #06241f;
-      }
-      body.theme-g .bar .home .tag { display: none; }
-      body.theme-vh {
-        --accent: #e5484d;
-        --accent-hover: #f26569;
-        --accent-deep: #a11e22;
-        --accent-rgb: 229, 72, 77;
-        --accent-soft: rgba(229, 72, 77, 0.14);
-        --accent-line: rgba(229, 72, 77, 0.4);
-        --on-accent: #ffffff;
-      }
-      body.theme-vh .boot-logo { display: none; }
-      body.theme-ps {
-        --accent: #1f7ae5;
-        --accent-hover: #4a97f2;
-        --accent-deep: #0b4a9c;
-        --accent-rgb: 31, 122, 229;
-        --accent-soft: rgba(31, 122, 229, 0.14);
-        --accent-line: rgba(31, 122, 229, 0.4);
-        --on-accent: #ffffff;
-      }
-      body.theme-ps .boot-logo { display: none; }
-      .vh-app { display: flex; width: 100%; max-width: 640px; margin: 0 auto; text-align: left; border: 1px solid var(--line-2); border-radius: 3px; overflow: hidden; background: rgba(0, 0, 0, .22); }
-      .vh-app .vh-side { width: 152px; flex: none; padding: 12px 10px; border-right: 1px solid var(--line); }
-      .vh-app .sh { display: flex; align-items: center; gap: 8px; padding: 2px 4px 8px; }
-      .vh-app .sh .dot { width: 24px; height: 24px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent-line); display: grid; place-items: center; flex: none; }
-      .vh-app .sh .dot iconify-icon { font-size: 15px; color: var(--accent); }
-      .vh-app .sh b { font-size: 11.5px; font-weight: 700; line-height: 1.15; }
-      .vh-app .lbl { font-size: 9px; letter-spacing: .12em; color: var(--dim); text-transform: uppercase; padding: 10px 6px 5px; }
-      .vh-app .vh-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 6px 9px; border-radius: 7px; font-size: 12px; color: var(--dim); margin-bottom: 2px; }
-      .vh-app .vh-row .l { display: inline-flex; align-items: center; gap: 7px; }
-      .vh-app .vh-row .l iconify-icon { font-size: 14px; }
-      .vh-app .vh-row .n { font-size: 10px; opacity: .8; }
-      .vh-app .vh-row.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-      .vh-app .vh-main { flex: 1; min-width: 0; padding: 11px 12px; }
-      .vh-app .mh { display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; color: var(--text); margin-bottom: 9px; }
-      .vh-app .mh .bdg { font-size: 10px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 2px 9px; border-radius: 999px; }
-      .vh-app .vh-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
-      .vh-app .vh-tile { border-radius: 3px; overflow: hidden; border: 1px solid var(--line); background: #0e0f13; }
-      .vh-app .vh-tile .art { position: relative; aspect-ratio: 16 / 9; display: grid; place-items: center; background: linear-gradient(150deg, var(--c1, #24252b), var(--c2, #141519)); }
-      .vh-app .vh-tile .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-      .vh-app .vh-tile .art iconify-icon { font-size: 20px; color: rgba(255, 255, 255, .4); }
-      .vh-app .vh-tile .tl { padding: 5px 7px 7px; }
-      .vh-app .vh-tile .tl .name { font-size: 9px; font-weight: 600; color: var(--text); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
-      .vh-app .vh-tile .tl .bar { height: 5px; width: 72%; border-radius: 3px; background: rgba(255, 255, 255, .15); margin-bottom: 5px; }
-      .vh-app .vh-tile .tl .pill { display: inline-block; font-size: 8px; font-weight: 600; color: var(--accent); border: 1px solid var(--accent-line); border-radius: 999px; padding: 1px 6px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-      @media (max-width: 640px) { .vh-app .vh-side { display: none; } .vh-app .vh-grid { grid-template-columns: repeat(2, 1fr); } }
-      /* RevoltVH: launcher chiếm trọn màn hình review, thanh tải nổi docked ở đáy */
-      body.theme-vh .screen { padding: 0; }
-      body.theme-vh .boot { padding: 0; }
-      body.theme-vh .vh-app { position: absolute; inset: 9px; max-width: none; width: auto; height: auto; border-radius: 3px; background: rgba(0, 0, 0, .3); }
-      body.theme-vh .vh-app .vh-side { width: 190px; padding: 16px 12px; }
-      body.theme-vh .vh-app .vh-main { padding: 16px 18px 74px; }
-      body.theme-vh .vh-app .vh-grid { gap: 12px; }
-      body.theme-vh .dl-vh { position: absolute; left: 16px; right: 16px; bottom: 16px; width: auto; margin: 0; z-index: 4; }
-      /* RevoltPS5: showcase "đang triển khai" */
-      /* RevoltPS5 — giao diện home PS5, tràn full màn hình review */
-      body.theme-ps .screen { padding: 0; }
-      body.theme-ps .boot { padding: 0; }
-      body.theme-ps .view-ps { position: absolute; inset: 9px; width: auto; }
-      body.theme-ps .dl-ps { position: absolute; left: 16px; right: 16px; bottom: 16px; width: auto; margin: 0; z-index: 4; }
-      .ps5-ui { position: absolute; inset: 0; border-radius: 3px; overflow: hidden; padding: 15px 16px 80px; display: flex; flex-direction: column; gap: 13px; text-align: left;
-        background: radial-gradient(130% 90% at 50% -5%, #12345f 0%, #0a1729 52%, #05070e 100%); border: 1px solid var(--accent-line); }
-      .ps5-top { display: flex; align-items: center; justify-content: space-between; }
-      .ps5-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: #fff; }
-      .ps5-brand iconify-icon { font-size: 21px; color: var(--accent); }
-      .ps5-status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #cfe3fb; background: rgba(var(--accent-rgb), .16); border: 1px solid var(--accent-line); padding: 4px 11px; border-radius: 999px; }
-      .ps5-status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 9px var(--accent); animation: psPulse 1.5s infinite; }
-      @keyframes psPulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
-      .ps5-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end;
-        background: linear-gradient(130deg, #2360bd 0%, #34307f 46%, #141634 100%); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), 0 18px 40px -22px rgba(31, 122, 229, .8); }
-      .ps5-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(75% 130% at 82% -15%, rgba(90, 170, 255, .55), transparent 62%); }
-      .ps5-hero .ps5-emblem { position: absolute; right: 8px; top: 50%; transform: translateY(-48%); font-size: 150px; color: rgba(255, 255, 255, .1); pointer-events: none; }
-      .ps5-hero .ps5-ribbon { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: rgba(0, 0, 0, .38); border: 1px solid rgba(255, 255, 255, .2); padding: 4px 10px; border-radius: 999px; backdrop-filter: blur(4px); margin-bottom: 9px; }
-      .ps5-hero .ps5-ribbon iconify-icon { font-size: 12px; }
-      .ps5-hero .ps5-hinfo { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; padding: 16px 18px; }
-      .ps5-hero .ps5-hinfo .eyebrow { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .72); }
-      .ps5-hero .ps5-hinfo h4 { font-size: 23px; font-weight: 800; color: #fff; margin: 5px 0 4px; letter-spacing: -0.01em; }
-      .ps5-hero .ps5-hinfo p { font-size: 12px; color: rgba(255, 255, 255, .78); margin-bottom: 13px; }
-      .ps5-play { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: #071324; background: #fff; padding: 8px 18px; border-radius: 999px; box-shadow: 0 8px 22px -8px rgba(0, 0, 0, .7); }
-      .ps5-play iconify-icon { font-size: 18px; }
-      .ps5-rail { display: flex; gap: 10px; height: 96px; flex: none; }
-      .ps5-game { position: relative; flex: 1; height: 100%; border-radius: 3px; overflow: hidden; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .09); box-shadow: 0 10px 22px -14px rgba(0, 0, 0, .9); transition: transform .18s, box-shadow .18s; background: linear-gradient(150deg, var(--c1, #1d3a66), var(--c2, #0d1730)); }
-      .ps5-game:hover { transform: translateY(-4px); box-shadow: 0 16px 26px -14px rgba(31, 122, 229, .7); }
-      .ps5-game iconify-icon { font-size: 26px; color: rgba(255, 255, 255, .88); }
-      .ps5-game .lock { position: absolute; right: 6px; bottom: 6px; font-size: 12px; color: rgba(255, 255, 255, .55); }
-      /* RevoltG — launcher thư viện game bản quyền, tràn full màn hình review */
-      body.theme-g .screen { padding: 0; }
-      body.theme-g .boot { padding: 0; }
-      body.theme-g .boot-logo { display: none; }
-      body.theme-g .view-g { position: absolute; inset: 9px; width: auto; }
-      body.theme-g .dl-single { position: absolute; left: 16px; right: 16px; bottom: 16px; width: auto; margin: 0; z-index: 4; }
-      .rg-app { position: absolute; inset: 0; border-radius: 3px; overflow: hidden; padding: 14px 16px 78px; display: flex; flex-direction: column; gap: 11px; text-align: left;
-        background: linear-gradient(180deg, #121419 0%, #0a0b0e 100%); border: 1px solid var(--line-2); }
-      .rg-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-      .rg-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 14px; color: #fff; }
-      .rg-brand iconify-icon { font-size: 20px; color: var(--accent); }
-      .rg-cats { display: inline-flex; gap: 6px; }
-      .rg-cats span { font-size: 10px; font-weight: 700; color: var(--dim); padding: 4px 11px; border-radius: 3px; border: 1px solid var(--line); white-space: nowrap; }
-      .rg-cats span.on { color: var(--on-accent); background: var(--accent); border-color: transparent; }
-      .rg-hero { position: relative; flex: 1; min-height: 0; border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; border: 1px solid var(--line-2);
-        background: #0e1218; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03); }
-      .rg-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(58% 120% at 88% 4%, rgba(var(--accent-rgb), .16), transparent 55%); }
-      .rg-fx { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); width: 150px; height: 150px; display: grid; place-items: center; z-index: 0; pointer-events: none; }
-      .rg-fx .rg-emblem { position: static; font-size: 108px; color: #00e5ff; animation: rgFloat 4.5s ease-in-out infinite, rgRGB 6s linear infinite; }
-      .rg-fx i { position: absolute; inset: 0; margin: auto; width: 118px; height: 118px; border: 2px solid rgba(var(--accent-rgb), .55); border-radius: 50%; opacity: 0; box-shadow: 0 0 12px rgba(var(--accent-rgb), .3); animation: rgSonar 2.6s ease-out infinite; }
-      .rg-fx i:nth-child(2) { animation-delay: .87s; }
-      .rg-fx i:nth-child(3) { animation-delay: 1.73s; }
-      @keyframes rgFloat { 0%, 100% { transform: translateY(-5px); } 50% { transform: translateY(5px); } }
-      @keyframes rgSonar { 0% { transform: scale(.45); opacity: .8; } 100% { transform: scale(1.55); opacity: 0; } }
-      @keyframes rgRGB { from { filter: drop-shadow(0 0 16px currentColor) hue-rotate(0deg); } to { filter: drop-shadow(0 0 16px currentColor) hue-rotate(360deg); } }
-      @media (prefers-reduced-motion: reduce) { .rg-fx .rg-emblem { animation: rgRGB 8s linear infinite; } .rg-fx i { display: none; } }
-      .rg-hero .rg-ribbon { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #06241f; background: var(--accent); padding: 4px 10px; border-radius: 3px; margin-bottom: 9px; }
-      .rg-hero .rg-ribbon iconify-icon { font-size: 12px; }
-      .rg-hero .rg-hinfo { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; padding: 16px 18px; max-width: 66%; }
-      .rg-hero .rg-hinfo .eyebrow { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
-      .rg-hero .rg-hinfo h4 { font-size: 23px; font-weight: 800; color: #fff; margin: 5px 0 4px; letter-spacing: -0.01em; }
-      .rg-hero .rg-hinfo p { font-size: 12px; color: rgba(255, 255, 255, .8); margin-bottom: 13px; }
-      .rg-play { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--on-accent); background: var(--accent); padding: 8px 18px; border-radius: 3px; box-shadow: 0 8px 22px -8px rgba(var(--accent-rgb), .8); }
-      .rg-play iconify-icon { font-size: 18px; }
-      .rg-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; flex: none; }
-      .rg-cover { position: relative; aspect-ratio: 16 / 10; border-radius: 3px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 8px 18px -12px rgba(0, 0, 0, .9); transition: transform .18s, border-color .18s, box-shadow .18s; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 7px; padding: 8px; background: #12161d; }
-      .rg-cover .ic { font-size: 23px; color: rgba(255, 255, 255, .82); transition: color .18s; }
-      .rg-cover .lb { font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: rgba(255, 255, 255, .68); text-align: center; }
-      .rg-cover:hover { transform: translateY(-3px); border-color: var(--accent-line); }
-      .rg-cover:hover .ic { color: var(--accent); }
-      @media (max-width: 640px) { .rg-grid { grid-template-columns: repeat(3, 1fr); } .rg-grid .rg-cover:nth-child(n+4) { display: none; } .rg-hero .rg-hinfo { max-width: 82%; } }
-      body { transition: none; }
-      .tabs, .tab, .chip, .btn, .dl, .dl-win, .cover, .conn .box, .g-card, .tab-sub .hl, .hl { transition: background .35s, border-color .35s, color .35s, box-shadow .35s; }
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; }
-      * { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .16) transparent; }
-      ::-webkit-scrollbar { width: 11px; height: 11px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .14); border-radius: 999px; border: 3px solid transparent; background-clip: padding-box; }
-      ::-webkit-scrollbar-thumb:hover { background: var(--accent-line); background-clip: padding-box; }
-      body {
-        font-family: "Saira", system-ui, sans-serif;
-        background-color: var(--bg);
-        background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='320'%20height='320'%20fill='none'%3E%3Ccircle%20cx='46'%20cy='58'%20r='14'%20stroke='%23ffffff'%20stroke-opacity='.13'%20stroke-width='1.4'/%3E%3Ccircle%20cx='286'%20cy='42'%20r='8'%20stroke='%235a9bd4'%20stroke-opacity='.15'%20stroke-width='1.4'/%3E%3Crect%20x='236'%20y='108'%20width='22'%20height='22'%20rx='3'%20transform='rotate(45%20247%20119)'%20stroke='%2370b06a'%20stroke-opacity='.14'%20stroke-width='1.4'/%3E%3Cpath%20d='M114%20256%20L136%20256%20L125%20236%20Z'%20stroke='%23cf5b4e'%20stroke-opacity='.18'%20stroke-width='1.5'/%3E%3Cpath%20d='M52%20246%20l15%2015%20M67%20246%20l-15%2015'%20stroke='%23cf5b4e'%20stroke-opacity='.17'%20stroke-width='1.5'/%3E%3Ccircle%20cx='200'%20cy='296'%20r='10'%20stroke='%23ffffff'%20stroke-opacity='.12'%20stroke-width='1.4'/%3E%3Cpath%20d='M288%20240%20L304%20268%20L272%20268%20Z'%20stroke='%23ffffff'%20stroke-opacity='.12'%20stroke-width='1.4'/%3E%3Ccircle%20cx='160'%20cy='158'%20r='3'%20fill='%23ffffff'%20fill-opacity='.16'/%3E%3Crect%20x='166'%20y='40'%20width='16'%20height='16'%20rx='2'%20transform='rotate(45%20174%2048)'%20stroke='%23ffffff'%20stroke-opacity='.12'%20stroke-width='1.4'/%3E%3Cpath%20d='M150%20300%20l12%2012%20M162%20300%20l-12%2012'%20stroke='%235a9bd4'%20stroke-opacity='.13'%20stroke-width='1.4'/%3E%3C/svg%3E");
-        background-size: 310px 310px;
-        background-attachment: fixed;
-        color: var(--text);
-        line-height: 1.55;
-        -webkit-font-smoothing: antialiased;
-        letter-spacing: -0.01em;
-      }
-      .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 26px; }
-      a { color: inherit; text-decoration: none; }
-      .eyebrow {
-        display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent);
-        background: var(--accent-soft); border: 1px solid var(--accent-line);
-        padding: 5px 13px; border-radius: 999px; margin-bottom: 22px;
-      }
-      .muted { color: var(--dim); }
+    /* ===== Base ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--surface-page); color: var(--text-body); font: 400 16px/24px var(--font-body); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: var(--accent-fill); color: var(--on-accent); }
+    :focus-visible { outline: none; box-shadow: var(--ring-focus); }
+    iconify-icon { display: inline-block; flex: none; }
+    .container { max-width: 1312px; margin: 0 auto; padding: 0 16px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-      /* ---------- Buttons ---------- */
-      .btn {
-        display: inline-flex; align-items: center; gap: 9px;
-        font-family: inherit; font-weight: 600; font-size: 15px;
-        padding: 12px 22px; border-radius: 11px; cursor: pointer;
-        border: 1px solid transparent; transition: transform .15s, background .18s, border-color .18s, color .18s;
-      }
-      .btn:hover { transform: translateY(-1px); }
-      .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 8px 24px -10px rgba(var(--accent-rgb),.8); }
-      .btn-primary:hover { background: var(--accent-hover); }
-      .btn-ghost { background: var(--surface); border-color: var(--line-2); color: var(--text); }
-      .btn-ghost:hover { background: var(--surface-2); }
-      .btn svg { display: block; }
+    /* ===== Buttons & badges ===== */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 24px; border-radius: 4px; font: 700 16px/19px var(--font-display); white-space: nowrap; transition: box-shadow var(--fast); }
+    .btn iconify-icon { font-size: 18px; }
+    .btn--primary { background: var(--accent-fill); color: var(--on-accent); }
+    .btn--primary:hover { box-shadow: inset 0 0 0 2px var(--accent-ring); }
+    .btn--primary:active { background: var(--accent-fill-pressed); }
+    .btn--secondary { background: var(--fill-strong); color: var(--text-primary); }
+    .btn--secondary:hover { box-shadow: var(--ring-secondary-hover); }
+    .btn--secondary:active { background: var(--fill); color: var(--text-tertiary); }
+    .btn--xl { height: 56px; padding: 0 32px; font-size: 20px; letter-spacing: .4px; }
+    .btn .ext { font-size: 16px; opacity: .8; }
+    .badge { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 4px; font: 700 12px/14px var(--font-display); letter-spacing: .6px; text-transform: uppercase; white-space: nowrap; }
+    .badge--new { background: var(--success); color: var(--on-success); }
+    .badge--urgent { background: var(--danger); color: #fff; }
 
-      /* ---------- Top bar ---------- */
-      header { position: sticky; top: 0; z-index: 50; background: rgba(11,10,15,.72); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-      .bar { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-      .bar .home { display: flex; align-items: center; gap: 11px; }
-      .bar .home img { height: 21px; display: block; }
-      .bar .home .tag { font-size: 13px; font-weight: 600; color: var(--accent); }
-      .bar nav { display: flex; align-items: center; gap: 30px; }
-      .bar nav a.lnk { font-size: 14.5px; font-weight: 500; color: var(--dim); transition: color .18s; }
-      .bar nav a.lnk:hover { color: var(--text); }
+    /* ===== Header + app tabs ===== */
+    .top { position: sticky; top: 0; z-index: 20; background: var(--surface-page); box-shadow: 0 1px 0 var(--line-subtle); }
+    .top .container { display: flex; align-items: center; gap: 32px; height: 72px; }
+    .top .logo img { height: 26px; }
+    .apptabs { display: flex; align-items: stretch; gap: 4px; height: 100%; }
+    .apptab { position: relative; display: flex; align-items: center; gap: 8px; padding: 0 14px; font: 500 15px/24px var(--font-display); letter-spacing: .8px; text-transform: uppercase; color: var(--text-tertiary); transition: color var(--fast); }
+    .apptab:hover { color: var(--text-primary); }
+    .apptab[aria-current="page"] { color: var(--text-primary); font-weight: 700; }
+    .apptab[aria-current="page"]::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 0; height: 2px; background: var(--accent); }
+    .apptab .badge { height: 18px; padding: 0 6px; font-size: 10px; letter-spacing: .5px; }
+    .top .links { margin-left: auto; display: flex; gap: 4px; }
+    .top .links a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 4px; font: 700 15px/24px var(--font-display); color: var(--text-primary); transition: background-color var(--fast); }
+    .top .links a:hover { background: #ffffff0d; }
+    .top .links iconify-icon { font-size: 20px; color: var(--text-secondary); }
 
-      /* ---------- Hero ---------- */
-      .hero { position: relative; padding: 56px 0 0; text-align: center; overflow: hidden; }
-      .hero::before {
-        content: ""; position: absolute; top: -160px; left: 50%; transform: translateX(-50%);
-        width: 760px; height: 520px; border-radius: 50%;
-        background: radial-gradient(closest-side, rgba(var(--accent-rgb),.22), transparent 70%);
-        pointer-events: none;
-      }
-      .hero .inner { position: relative; max-width: 900px; margin-inline: auto; }
-      .hero h1 {
-        font-weight: 700; font-size: clamp(29px, 4.6vw, 50px); line-height: 1.05;
-        letter-spacing: -0.02em; margin-bottom: 32px; white-space: nowrap;
-      }
-      .hero h1 .hl { color: var(--accent); }
-      .tabs { display: inline-flex; gap: 4px; padding: 5px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 999px; margin: 16px 0; }
-      .tab { position: relative; font-family: inherit; font-size: 15px; font-weight: 600; padding: 8px 26px; border-radius: 999px; border: none; background: transparent; color: var(--dim); cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; }
-      .tab .tab-tag { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 5px; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #f0b429; background: rgba(240, 180, 41, .12); border: 1px solid rgba(240, 180, 41, .4); padding: 1px 6px; border-radius: 999px; white-space: nowrap; line-height: 1.5; pointer-events: none; }
-      .tab .tab-tag.tag-free { color: #3ecf8e; background: rgba(62, 207, 142, .12); border-color: rgba(62, 207, 142, .4); }
-      .tab .tab-tag.tag-pc { color: #e5806f; background: rgba(207, 91, 78, .16); border-color: rgba(207, 91, 78, .45); }
-      .tab.active { background: var(--accent); color: var(--on-accent); box-shadow: 0 6px 18px -6px rgba(var(--accent-rgb), .7); }
-      .tab:not(.active):hover { color: var(--text); }
-      .tab-sub { font-size: clamp(17px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-bottom: 30px; }
-      .tab-sub .hl { color: var(--accent); }
-      .view { width: 100%; }
-      .view-pc { display: flex; justify-content: center; }
-      .lib-img { max-width: 100%; max-height: 188px; border-radius: 10px; border: 1px solid var(--line-2); display: block; box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .85); }
-      [hidden] { display: none !important; }
-      .btn-discord { display: inline-flex; align-items: center; gap: 9px; font-family: inherit; font-weight: 600; font-size: 14.5px; padding: 9px 18px; border-radius: 3px; background: #5865f2; color: #fff; box-shadow: 0 8px 22px -10px rgba(88, 101, 242, .8); transition: transform .15s, background .18s; }
-      .btn-discord:hover { transform: translateY(-1px); background: #6b77f5; }
-      .btn-discord iconify-icon { font-size: 20px; }
+    /* ===== Page hero ===== */
+    .phero { position: relative; overflow: hidden; background: var(--surface-strong); }
+    .phero__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+    .phero__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, var(--surface-page) 18%, #15171ee6 38%, #15171e40 70%, #15171e1a 100%), linear-gradient(0deg, var(--surface-page) 0%, transparent 35%); }
+    .phero .container { position: relative; min-height: 520px; display: flex; flex-direction: column; justify-content: center; padding-top: 64px; padding-bottom: 72px; }
+    .phero__body { max-width: 600px; }
+    .eyebrow { display: flex; align-items: center; gap: 8px; font: 700 12px/14px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-secondary); }
+    .phero h1 { margin-top: 18px; font: 800 56px/60px var(--font-display); color: var(--text-primary); letter-spacing: -.5px; }
+    .phero h1 img { height: 72px; width: auto; }
+    .phero .lead { margin-top: 18px; font-size: 20px; line-height: 30px; color: var(--text-body); }
+    .phero .ctas { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
+    .phero .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 14px; line-height: 21px; color: var(--text-secondary); }
+    .phero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .phero .text-link { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .alt-plats { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; color: var(--text-secondary); }
+    .alt-plats a { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 4px; background: var(--fill); color: var(--text-primary); transition: box-shadow var(--fast); }
+    .alt-plats a:hover { box-shadow: inset 0 0 0 1px var(--fill-strong); background: var(--fill-strong); }
+    .alt-plats a[hidden], .phero .btn[hidden] { display: none; }
+    .phero .meta iconify-icon { font-size: 16px; color: var(--accent); }
 
-      /* ---------- Modal ---------- */
-      .modal { position: fixed; inset: 0; z-index: 100; display: none; }
-      .modal.open { display: flex; align-items: center; justify-content: center; padding: 24px; }
-      .modal-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .72); backdrop-filter: blur(5px); }
-      .modal-box { position: relative; width: 100%; max-width: 780px; max-height: 86vh; background: #14151b; border: 1px solid var(--line-2); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 40px 100px -30px rgba(0, 0, 0, .85); animation: modalIn .22s ease; }
-      @keyframes modalIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
-      .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border-bottom: 1px solid var(--line); flex: none; }
-      .modal-head h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
-      .modal-close { width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line-2); background: var(--surface); color: var(--text); display: grid; place-items: center; cursor: pointer; transition: background .18s, border-color .18s; flex: none; }
-      .modal-close:hover { background: var(--surface-2); border-color: var(--accent-line); }
-      .modal-close iconify-icon { font-size: 20px; }
-      .modal-body { padding: 24px 26px; overflow-y: auto; }
-      .modal-body iframe { width: 100%; height: 72vh; border: 0; display: block; background: #fff; }
-      .tos .lead { color: var(--text); font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
-      .tos h4 { font-size: 15px; font-weight: 700; color: var(--accent); margin: 22px 0 9px; }
-      .tos p { font-size: 14.5px; color: var(--dim); line-height: 1.7; margin-bottom: 10px; }
-      .tos p b { color: var(--text); font-weight: 600; }
-      .doc h4 { font-size: 17px; font-weight: 700; color: var(--accent); margin: 26px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-      .doc h4:first-child { margin-top: 0; }
-      .doc h5 { font-size: 15px; font-weight: 700; color: var(--text); margin: 18px 0 7px; }
-      .doc p { font-size: 14.5px; color: var(--dim); line-height: 1.7; margin-bottom: 10px; }
-      .doc p b, .doc strong { color: var(--text); font-weight: 600; }
-      .doc ul { margin: 0 0 12px; padding-left: 20px; }
-      .doc li { font-size: 14.5px; color: var(--dim); line-height: 1.6; margin-bottom: 6px; }
-      .doc li strong { color: var(--text); }
-      .doc a { color: var(--accent); text-decoration: underline; word-break: break-word; }
-      .doc kbd { font-family: ui-monospace, monospace; font-size: 12px; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 5px; padding: 1px 6px; color: var(--text); white-space: nowrap; }
-      .doc code { font-family: ui-monospace, monospace; font-size: 13px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; color: var(--accent); }
-      .doc table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 13px; }
-      .doc th, .doc td { border: 1px solid var(--line); padding: 8px 10px; text-align: center; color: var(--dim); }
-      .doc th { background: var(--surface); color: var(--text); font-weight: 600; }
-      .doc td:first-child, .doc th:first-child { text-align: left; color: var(--text); }
-      .hero .cta { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
-      .hero .tiny { font-size: 13.5px; color: var(--dim); }
-      .hero .tiny b { color: var(--text); font-weight: 600; }
-      .hero .tiny a { color: var(--accent); border-bottom: 1px solid var(--accent-line); padding-bottom: 1px; }
+    /* ===== Sections ===== */
+    .sec { padding: 64px 0 0; }
+    .sec + .sec { border-top: 1px solid var(--line-subtle); margin-top: 64px; }
+    .sec h2 { font: 700 28px/32px var(--font-display); color: var(--text-primary); }
+    .sec .sub { margin-top: 8px; font-size: 16px; line-height: 24px; color: var(--text-secondary); max-width: 680px; }
+    .head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
 
-      /* ---------- Downloads ---------- */
-      .downloads { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
-      .dl {
-        display: flex; align-items: center; gap: 12px; text-align: left;
-        padding: 12px 20px; border-radius: 3px; min-width: 168px;
-        border: 1px solid var(--line-2); background: var(--surface); color: var(--text);
-        transition: transform .15s, background .18s, border-color .18s, box-shadow .25s;
-      }
-      .dl iconify-icon { font-size: 27px; }
-      .dl .os { display: flex; flex-direction: column; line-height: 1.2; }
-      .dl .os .name { font-weight: 600; font-size: 15.5px; }
-      .dl .os .stat { font-size: 12px; color: var(--dim); }
-      .dl .os .beta { font-style: normal; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #f0b429; background: rgba(240, 180, 41, .15); border: 1px solid rgba(240, 180, 41, .42); padding: 0 5px; border-radius: 999px; margin-left: 3px; vertical-align: middle; }
-      a.dl:hover { transform: translateY(-2px); background: var(--surface-2); border-color: var(--accent-line); }
-      .dl.primary { background: var(--accent); border-color: var(--accent); box-shadow: 0 8px 26px -10px rgba(var(--accent-rgb),.85); }
-      .dl.primary .os .stat { color: rgba(255,255,255,.82); }
-      a.dl.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
-      .dl.soon { opacity: .48; cursor: default; }
-      .dl.soon .os .stat { color: var(--accent); }
-      .dl-win { display: inline-flex; align-items: center; gap: 13px; background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); border-radius: 3px; padding: 13px 22px; box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), .85); transition: transform .15s, background .18s; }
-      .dl-win:hover { transform: translateY(-2px); background: var(--accent-hover); }
-      .dl-win .ic { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: rgba(255, 255, 255, .18); border: 1px solid rgba(255, 255, 255, .28); flex: none; }
-      .dl-win .ic iconify-icon { font-size: 23px; }
-      .dl-win .os { display: flex; flex-direction: column; line-height: 1.25; text-align: left; }
-      .dl-win .os .name { font-weight: 700; font-size: 16px; }
-      .dl-win .os .stat { font-size: 12px; color: var(--on-accent); opacity: .82; }
-      .dl-win .dl-arrow { font-size: 22px; margin-left: 4px; }
-      .lib { display: grid; grid-template-columns: repeat(6, 1fr); gap: 9px; width: 100%; max-width: 600px; margin: 0 auto; }
-      .cover { aspect-ratio: 3 / 4; border-radius: 8px; background: linear-gradient(155deg, var(--c1, #24252b), var(--c2, #141519)); border: 1px solid rgba(255, 255, 255, .08); display: grid; place-items: center; box-shadow: inset 0 0 22px rgba(0, 0, 0, .3); transition: transform .2s, border-color .2s; }
-      .cover:hover { transform: translateY(-3px); border-color: var(--accent-line); }
-      .cover iconify-icon { font-size: 22px; color: rgba(255, 255, 255, .42); }
-      @media (max-width: 620px) { .lib { grid-template-columns: repeat(4, 1fr); } }
+    /* "Là gì?" + 3 bước */
+    .what { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; }
+    .what p.body { margin-top: 16px; font-size: 17px; line-height: 27px; color: var(--text-body); }
+    .what p.body + p.body { margin-top: 12px; }
+    .what p.body b { color: var(--text-primary); }
+    .steps { list-style: none; margin-top: 20px; display: grid; gap: 8px; counter-reset: s; }
+    .steps li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; padding: 18px 20px; border-radius: 4px; background: var(--fill); }
+    .steps li::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--fill-strong); font: 800 18px/1 var(--font-display); color: var(--text-primary); }
+    .steps b { display: block; font: 700 17px/22px var(--font-display); color: var(--text-primary); }
+    .steps span { display: block; margin-top: 4px; font-size: 14px; line-height: 21px; color: var(--text-secondary); }
 
-      /* ---------- Boot monitor ---------- */
-      .stage { padding-top: 0; display: flex; justify-content: center; }
-      .monitor { width: 100%; max-width: 760px; }
-      .screen {
-        position: relative; aspect-ratio: 16 / 10; border-radius: 4px;
-        border: 1px solid var(--line-2);
-        background: radial-gradient(120% 120% at 50% 34%, #17131f 0%, #0a0910 72%);
-        box-shadow: 0 50px 110px -50px rgba(var(--accent-rgb), .6), inset 0 0 0 7px #0c0b11, inset 0 0 70px rgba(var(--accent-rgb), .07);
-        display: flex; flex-direction: column; align-items: center; gap: 18px;
-        padding: 30px; overflow: hidden;
-      }
-      .boot { flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
-      .screen .downloads { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 10px; width: 100%; margin: 0; }
-      /* Docked bar (RevoltG/VH/PS5): 2 nút — giãn fit sát 2 bên, không xuống hàng */
-      .screen .dl-single, .screen .dl-vh, .screen .dl-ps { flex-wrap: nowrap; align-items: stretch; }
-      .screen .dl-single .dl-win, .screen .dl-vh .dl-win, .screen .dl-ps .dl-win { flex: 1; min-width: 0; }
-      .screen .dl-single .dl-win .dl-arrow, .screen .dl-vh .dl-win .dl-arrow, .screen .dl-ps .dl-win .dl-arrow { margin-left: auto; }
-      .screen .dl-single .btn-discord, .screen .dl-vh .btn-discord, .screen .dl-ps .btn-discord { flex: none; }
-      .screen .dl { flex: 0 1 145px; min-width: 0; gap: 9px; padding: 11px 12px; border-radius: 3px; }
-      .dl .ic { flex: none; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(255, 255, 255, .06); border: 1px solid var(--line-2); }
-      .dl .ic iconify-icon { font-size: 21px; }
-      .dl.primary .ic { background: rgba(255, 255, 255, .2); border-color: rgba(255, 255, 255, .28); }
-      .screen .dl .os .name { font-size: 14px; }
-      .screen .dl .os .stat { font-size: 11px; }
-      @media (max-width: 620px) { .screen .dl { flex-basis: 134px; } }
-      .boot-logo { display: none; }
-      .conn { display: flex; align-items: flex-start; gap: 0; }
-      .conn .node { display: flex; flex-direction: column; align-items: center; gap: 11px; width: 100px; }
-      .conn .box { width: 72px; height: 72px; border-radius: 18px; display: grid; place-items: center; border: 1px solid var(--line-2); background: linear-gradient(160deg, var(--surface-2), var(--surface)); transition: box-shadow .3s, transform .2s, border-color .2s; }
-      .conn .node:hover .box { transform: translateY(-3px); border-color: var(--accent-line); }
-      .conn .box iconify-icon { font-size: 36px; color: var(--text); }
-      .conn .box.hub { border-color: var(--accent-line); background: var(--accent-soft); box-shadow: 0 0 34px rgba(var(--accent-rgb), .45); animation: hubGlow 2.4s ease-in-out infinite; }
-      .conn .box.hub iconify-icon { color: var(--accent); }
-      @keyframes hubGlow { 0%, 100% { box-shadow: 0 0 18px rgba(var(--accent-rgb), .3); } 50% { box-shadow: 0 0 32px rgba(var(--accent-rgb), .6); } }
-      .conn .node .nlabel { font-size: 12.5px; font-weight: 600; color: var(--text); letter-spacing: .02em; }
-      .conn .link { position: relative; width: 74px; height: 2px; margin-top: 36px; background: linear-gradient(90deg, var(--line-2), var(--accent-line)); border-radius: 2px; }
-      .conn .link i { position: absolute; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 11px var(--accent); animation: flow 1.5s linear infinite; }
-      .conn .link i:nth-child(2) { animation-delay: .5s; }
-      .conn .link i:nth-child(3) { animation-delay: 1s; }
-      @media (max-width: 620px) { .conn .box { width: 58px; height: 58px; border-radius: 14px; } .conn .box iconify-icon { font-size: 28px; } .conn .link { width: 30px; margin-top: 29px; } .conn .node { width: 80px; } }
-      .conn .node .nstat { margin-top: 5px; font-size: 11.5px; font-weight: 700; line-height: 1.3; padding: 3px 10px; border-radius: 999px; white-space: nowrap; color: var(--dim); background: rgba(255, 255, 255, .05); border: 1px solid var(--line); }
-      .conn .node .nstat.strong { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); box-shadow: 0 0 14px rgba(var(--accent-rgb), .35); }
+    /* Tính năng */
+    .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feat { padding: 24px; border-radius: 4px; background: var(--fill); }
+    .feat .fi { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 4px; background: var(--fill-strong); color: var(--text-primary); font-size: 22px; }
+    .feat h3 { margin-top: 16px; font: 700 18px/22px var(--font-display); color: var(--text-primary); }
+    .feat p { margin-top: 6px; font-size: 14px; line-height: 21px; color: var(--text-secondary); }
 
-      /* ---------- Tech strip ---------- */
-      .specs-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 44px 26px 6px; }
-      .chip { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 500; color: var(--text); background: var(--surface); border: 1px solid var(--line-2); padding: 8px 15px; border-radius: 999px; transition: border-color .2s, background .2s; }
-      .chip:hover { border-color: var(--accent-line); background: var(--surface-2); }
-      .chip iconify-icon { color: var(--accent); font-size: 17px; }
-      .chip b { color: var(--accent); font-weight: 700; }
-      .chip.feat b { color: var(--on-accent); }
-      .chip.feat { color: var(--on-accent); font-weight: 700; background: var(--accent); border-color: var(--accent); padding-left: 16px; animation: chipGlow 2.4s ease-in-out infinite; }
-      .chip.feat iconify-icon { color: var(--on-accent); font-size: 18px; }
-      .chip.feat:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
-      .chip.feat .tagx { margin-left: 2px; font-size: 10.5px; font-weight: 800; letter-spacing: .02em; color: var(--accent-deep); background: #fff; padding: 2px 8px; border-radius: 999px; }
-      @keyframes chipGlow { 0%, 100% { box-shadow: 0 6px 20px -10px rgba(var(--accent-rgb), .7); } 50% { box-shadow: 0 8px 30px -6px rgba(var(--accent-rgb), 1); } }
+    /* Bìa game dọc */
+    .tiles { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 32px 20px; }
+    .tile__cover { aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; background: var(--surface-strong); box-shadow: var(--shadow-tile); transition: transform var(--fast), filter var(--fast); }
+    .tile__cover img { width: 100%; height: 100%; object-fit: cover; }
+    .tile:hover .tile__cover { transform: scale(1.05); filter: brightness(1.08); }
+    .tile__title { margin-top: 12px; font: 600 15px/19px var(--font-display); color: var(--text-body); }
+    .tile:hover .tile__title { color: var(--text-primary); }
+    .tile__genre { margin-top: 2px; font-size: 13px; line-height: 18px; color: var(--text-tertiary); }
 
-      /* ---------- RevoltG cards ---------- */
-      .g-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .g-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 28px; transition: border-color .2s, background .2s, transform .2s; }
-      .g-card:hover { border-color: var(--accent-line); background: var(--surface-2); transform: translateY(-3px); }
-      .g-card .gi { width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); border: 1px solid var(--accent-line); margin-bottom: 17px; }
-      .g-card .gi iconify-icon { font-size: 25px; color: var(--accent); }
-      .g-card h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
-      .g-card p { font-size: 14.5px; color: var(--dim); line-height: 1.55; }
-      @media (max-width: 820px) { .g-cards { grid-template-columns: 1fr; } }
-      @keyframes flow { 0% { left: -3px; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { left: calc(100% - 4px); opacity: 0; } }
-      .boot-bar { width: 210px; max-width: 54%; height: 4px; border-radius: 999px; background: rgba(255, 255, 255, .08); overflow: hidden; }
-      .boot-bar span { display: block; height: 100%; width: 38%; border-radius: 999px; background: linear-gradient(90deg, transparent, var(--accent), transparent); animation: load 1.5s ease-in-out infinite; }
-      @keyframes load { 0% { transform: translateX(-130%); } 100% { transform: translateX(360%); } }
-      .boot-text { font-size: 13px; color: var(--dim); letter-spacing: .05em; }
-      .neck { width: 120px; height: 28px; margin: 0 auto; background: linear-gradient(#141220, #0e0d14); clip-path: polygon(32% 0, 68% 0, 84% 100%, 16% 100%); }
-      .base { width: 230px; height: 12px; margin: -1px auto 0; border-radius: 8px; background: #15131d; border: 1px solid var(--line); }
-      @media (max-width: 560px) { .stage { padding-top: 44px; } }
+    /* Thẻ ngang 16:9 (game đã việt hóa) */
+    .mcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .mcard { border-radius: 4px; overflow: hidden; background: var(--fill); transition: background-color var(--fast); }
+    .mcard:hover { background: var(--fill-strong); }
+    .mcard__media { aspect-ratio: 460 / 215; background: var(--surface-strong); }
+    .mcard__media img { width: 100%; height: 100%; object-fit: cover; transition: filter var(--fast); }
+    .mcard:hover .mcard__media img { filter: brightness(1.1); }
+    .mcard__body { padding: 16px 20px 18px; }
+    .mcard__body .eyebrow { font-weight: 500; }
+    .mcard__body h3 { margin-top: 6px; font: 700 17px/21px var(--font-display); color: var(--text-primary); }
 
-      /* ---------- App showcase ---------- */
-      .showcase { position: relative; padding: 48px 0 0; }
-      .frame {
-        position: relative; border: 1px solid var(--line-2); border-radius: 18px; overflow: hidden;
-        background: #0d0c12; box-shadow: 0 40px 90px -40px rgba(var(--accent-rgb),.5), 0 10px 40px -20px rgba(0,0,0,.8);
-      }
-      .frame .topbar { display: flex; align-items: center; gap: 7px; padding: 11px 15px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.02); }
-      .frame .topbar i { width: 11px; height: 11px; border-radius: 50%; background: #34323c; display: inline-block; }
-      .frame img { display: block; width: 100%; }
+    /* Cách hoạt động (RevoltPC) */
+    .flow { display: grid; grid-template-columns: 1fr 32px 1fr 32px 1fr; align-items: center; margin-top: 24px; }
+    .flow .node { padding: 20px; border-radius: 4px; background: var(--fill); text-align: center; }
+    .flow .node.hub { box-shadow: inset 0 0 0 2px var(--accent); }
+    .flow .node iconify-icon { font-size: 30px; color: var(--text-primary); }
+    .flow .node.hub iconify-icon { color: var(--accent); }
+    .flow .node b { display: block; margin-top: 8px; font: 700 16px/20px var(--font-display); color: var(--text-primary); }
+    .flow .node span { display: block; margin-top: 4px; font-size: 13px; line-height: 18px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+    .flow .arrow { display: grid; place-items: center; color: var(--text-muted); font-size: 20px; }
 
-      /* ---------- Sections ---------- */
-      .section { padding: 96px 0; }
-      .s-head { max-width: 620px; margin-bottom: 44px; }
-      .s-head.center { margin-inline: auto; text-align: center; }
-      .s-head h2 { font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 14px; }
-      .s-head p { color: var(--dim); font-size: 17px; }
+    /* Bảng giá */
+    .table-wrap { overflow-x: auto; border-radius: 4px; background: var(--fill-subtle); }
+    .cmp { width: 100%; min-width: 820px; border-collapse: collapse; font-size: 14px; line-height: 20px; }
+    .cmp th, .cmp td { padding: 16px 20px; text-align: left; }
+    .cmp thead th { vertical-align: top; padding-top: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line-subtle); }
+    .cmp thead th:first-child { width: 140px; }
+    .plan-name { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font: 700 18px/22px var(--font-display); color: var(--text-primary); }
+    .plan-price { margin-top: 8px; font: 500 24px/29px var(--font-display); color: var(--text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .plan-price small { font: 500 13px/16px var(--font-display); color: var(--text-secondary); margin-left: 4px; }
+    .cmp tbody th { font: 700 12px/16px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+    .cmp tbody tr:nth-child(odd) { background: var(--fill-subtle); }
+    .cmp td { white-space: nowrap; }
+    .alert { display: flex; gap: 12px; margin-top: 16px; padding: 14px 16px; border-radius: 4px; background: var(--info-tint); box-shadow: inset 0 0 0 1px var(--info-line); font-size: 14px; line-height: 21px; }
+    .alert iconify-icon { font-size: 20px; color: var(--info); margin-top: 1px; }
+    .alert b { color: var(--text-primary); }
 
-      /* ---------- Spec / feature cards ---------- */
-      .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .card {
-        background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
-        padding: 26px; transition: background .2s, border-color .2s, transform .2s;
-      }
-      .card:hover { background: var(--surface-2); border-color: var(--line-2); transform: translateY(-3px); }
-      .card .k { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .02em; margin-bottom: 13px; }
-      .card .v { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
-      .card .d { color: var(--dim); font-size: 14.5px; }
+    /* Khung tải về */
+    .getit { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 48px; align-items: start; }
+    .req { list-style: none; margin-top: 20px; padding: 16px 20px; border-radius: 4px; background: var(--fill-subtle); }
+    .req li { display: flex; gap: 10px; padding: 6px 0; font-size: 14px; line-height: 21px; }
+    .req li iconify-icon { font-size: 18px; color: var(--success); margin-top: 2px; }
+    .panel { background: var(--surface-raised); border-radius: 5px; overflow: hidden; }
+    .panel__head { padding: 20px 28px; background: var(--surface-strong); }
+    .panel__head .eyebrow { color: var(--text-muted); }
+    .panel__head b { display: block; margin-top: 6px; font: 700 24px/28px var(--font-display); color: var(--text-primary); }
+    .panel__body { padding: 24px 28px 28px; }
+    .panel__body .btn { width: 100%; }
+    .panel__body .btn + .btn { margin-top: 8px; }
+    .panel__body .fine { margin-top: 12px; text-align: center; font-size: 12px; line-height: 18px; color: var(--text-secondary); }
+    .plats { display: grid; gap: 8px; }
+    .plat { display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px; border-radius: 4px; background: var(--fill-strong); color: var(--text-primary); transition: box-shadow var(--fast); }
+    a.plat[href]:hover { box-shadow: var(--ring-secondary-hover); }
+    .plat iconify-icon { font-size: 22px; }
+    .plat b { font: 700 15px/18px var(--font-display); }
+    .plat [data-st] { margin-left: auto; font-size: 12px; line-height: 14px; color: var(--text-secondary); }
+    .plat[data-status="beta"] [data-st] { padding: 3px 7px; border-radius: 3px; background: var(--danger); color: #fff; font: 700 10px/12px var(--font-display); letter-spacing: .6px; text-transform: uppercase; }
+    .plat.soon { background: var(--fill); color: var(--text-muted); }
+    .plat.soon [data-st] { color: var(--text-muted); }
 
-      /* ---------- Steps ---------- */
-      .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-      .step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; }
-      .step .no { width: 34px; height: 34px; border-radius: 9px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent); font-weight: 700; font-size: 15px; display: grid; place-items: center; margin-bottom: 16px; }
-      .step h3 { font-size: 17px; font-weight: 600; margin-bottom: 7px; }
-      .step p { color: var(--dim); font-size: 14.5px; }
+    /* Câu hỏi thường gặp */
+    .faq { display: grid; gap: 8px; max-width: 880px; }
+    .faq details { border-radius: 4px; background: var(--fill); }
+    .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; list-style: none; cursor: pointer; font: 700 16px/22px var(--font-display); color: var(--text-primary); border-radius: 4px; transition: background-color var(--fast); }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary:hover { background: var(--fill); }
+    .faq summary iconify-icon { font-size: 18px; color: var(--text-secondary); }
+    .faq details[open] summary iconify-icon { transform: rotate(180deg); }
+    .faq .ans { padding: 0 20px 20px; font-size: 15px; line-height: 24px; color: var(--text-body); }
+    .faq .ans a { color: var(--accent); }
+    .faq .ans a:hover { color: var(--accent-ring); }
 
-      /* ---------- Pricing ---------- */
-      .plans { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-      .plan { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px 17px; display: flex; flex-direction: column; }
-      .plan.feat { border-color: var(--accent-line); background: linear-gradient(180deg, rgba(var(--accent-rgb),.1), rgba(var(--accent-rgb),.02)); box-shadow: 0 20px 60px -30px rgba(var(--accent-rgb),.6); }
-      .plan .pname { font-size: 14px; font-weight: 600; color: var(--dim); margin-bottom: 16px; display: flex; align-items: center; gap: 9px; }
-      .plan.feat .pname { color: var(--accent); }
-      .plan .pname .badge { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 2px 8px; border-radius: 999px; }
-      .plan .price { font-size: 28px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 18px; }
-      .plan .price .per-inline { font-size: 14px; font-weight: 500; letter-spacing: 0; color: var(--dim); margin-left: 5px; }
-      .plan .price .rc { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .03em; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 5px; padding: 2px 6px; line-height: 1; vertical-align: baseline; margin-left: 6px; }
-      .plan .per { color: var(--dim); font-size: 13px; margin: 7px 0 18px; }
-      .plan .pname { font-size: 13.5px; }
-      .plan ul { list-style: none; margin-bottom: 22px; display: flex; flex-direction: column; gap: 9px; }
-      .plan li { font-size: 13.5px; display: flex; gap: 8px; align-items: flex-start; }
-      .plan li svg { flex: none; margin-top: 3px; color: var(--accent); }
-      .plan .btn { margin-top: auto; justify-content: center; }
-      .note { margin-top: 18px; font-size: 13px; color: var(--dim); }
+    /* Sản phẩm khác */
+    .others { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .other { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 4px; background: var(--fill); transition: background-color var(--fast); }
+    .other:hover { background: var(--fill-strong); }
+    .other .fi { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--fill-strong); color: var(--text-primary); font-size: 22px; }
+    .other b { display: block; font: 700 17px/21px var(--font-display); color: var(--text-primary); }
+    .other span { display: block; margin-top: 2px; font-size: 13px; line-height: 18px; color: var(--text-secondary); }
+    .other .go { margin-left: auto; color: var(--text-muted); font-size: 18px; }
 
-      /* ---------- Docs callout ---------- */
-      .callout {
-        display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap;
-        background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 34px 32px;
-      }
-      .callout h3 { font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); letter-spacing: -0.02em; margin-bottom: 7px; }
-      .callout p { color: var(--dim); font-size: 16px; max-width: 52ch; }
+    /* ===== Footer ===== */
+    footer { margin-top: 96px; padding: 40px 0 32px; background: var(--surface-sunken); }
+    .foot { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px; }
+    .foot img { height: 26px; }
+    .foot p { margin-top: 14px; max-width: 320px; font-size: 14px; line-height: 21px; color: var(--text-tertiary); }
+    .foot h4 { margin-bottom: 12px; font: 700 12px/16px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-muted); }
+    .foot a { display: block; padding: 4px 0; font-size: 14px; line-height: 21px; color: var(--text-secondary); transition: color var(--fast); }
+    .foot a:hover { color: var(--text-primary); }
+    .foot-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line-subtle); font-size: 12px; line-height: 18px; color: var(--text-muted); }
 
-      /* ---------- Closing ---------- */
-      .closing { position: relative; text-align: center; padding: 110px 0; overflow: hidden; }
-      .closing::before {
-        content: ""; position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%);
-        width: 700px; height: 500px; border-radius: 50%;
-        background: radial-gradient(closest-side, rgba(var(--accent-rgb),.18), transparent 70%);
-      }
-      .closing .inner { position: relative; }
-      .closing h2 { font-weight: 800; font-size: clamp(34px, 5.5vw, 60px); letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 16px; }
-      .closing p { color: var(--dim); font-size: 18px; margin-bottom: 30px; }
-      .closing .cta { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
+    /* ===== Dialogs ===== */
+    .modal { position: fixed; inset: 0; z-index: 10000; display: none; }
+    .modal.open { display: block; animation: fade 200ms ease-out; }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    .modal-backdrop { position: absolute; inset: 0; background: var(--scrim); backdrop-filter: blur(20px); }
+    .modal-box { position: relative; margin: 6vh auto; width: min(760px, 92vw); max-height: 88vh; display: flex; flex-direction: column; background: var(--surface-raised); border-radius: 4px; box-shadow: var(--shadow-lg); }
+    .modal-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 32px 16px; }
+    .modal-head h3 { font: 700 24px/26px var(--font-display); color: var(--text-primary); }
+    .modal-close { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 4px; color: var(--text-secondary); font-size: 20px; flex: none; transition: background-color var(--fast), color var(--fast); }
+    .modal-close:hover { background: var(--fill-strong); color: var(--text-primary); }
+    .modal-body { overflow: auto; padding: 0 32px 32px; font-size: 15px; line-height: 24px; color: var(--text-body); }
+    .modal-body .lead { color: var(--text-primary); }
+    .modal-body h4 { margin: 24px 0 8px; font: 700 16px/19px var(--font-display); color: var(--text-primary); }
+    .modal-body h5 { margin: 18px 0 6px; font: 700 12px/16px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-muted); }
+    .modal-body p, .modal-body ul { margin-bottom: 10px; }
+    .modal-body ul { padding-left: 20px; }
+    .modal-body b, .modal-body strong { color: var(--text-primary); }
+    .modal-body table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+    .modal-body th, .modal-body td { padding: 6px 8px; text-align: center; border: 1px solid var(--line-subtle); }
+    .modal-body kbd { padding: 1px 6px; border-radius: 3px; background: var(--fill-strong); font-size: 12px; }
+    .modal-body a { color: var(--accent); }
 
-      /* ---------- Footer ---------- */
-      .site-footer { margin-top: 50px; border-top: 1px solid var(--line); background: rgba(0, 0, 0, .22); }
-      .foot-top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; padding: 52px 26px 38px; }
-      .foot-brand { max-width: 360px; }
-      .foot-brand img { height: 24px; margin-bottom: 16px; display: block; }
-      .foot-co { font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--text); margin-bottom: 9px; }
-      .foot-desc { font-size: 14px; color: var(--dim); line-height: 1.6; }
-      .foot-cols { display: flex; gap: 56px; flex-wrap: wrap; }
-      .foot-col { display: flex; flex-direction: column; gap: 11px; }
-      .foot-col h4 { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 4px; }
-      .foot-col a { font-size: 14px; color: var(--dim); transition: color .18s; }
-      .foot-col a:hover { color: var(--text); }
-      .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; padding: 18px 26px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); }
-      .foot-bottom .dot { color: var(--accent); font-weight: 700; }
-      @media (max-width: 700px) { .foot-top { flex-direction: column; gap: 34px; } .foot-cols { gap: 40px; } }
+    /* ===== Responsive ===== */
+    @media (max-width: 1100px) {
+      .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .getit { grid-template-columns: 1fr; }
+      .panel { max-width: 520px; }
+    }
+    @media (max-width: 900px) {
+      .what { grid-template-columns: 1fr; gap: 40px; }
+      .feats, .mcards, .others { grid-template-columns: 1fr 1fr; }
+      .foot { grid-template-columns: 1fr 1fr; }
+      .foot > div:first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 720px) {
+      .top .container { flex-wrap: wrap; height: auto; gap: 0; padding-top: 12px; }
+      .top .logo { order: 1; }
+      .top .links { order: 2; }
+      .top .links a { padding: 0 10px; height: 40px; }
+      .top .links a span { display: none; }
+      .apptabs { order: 3; width: calc(100% + 32px); margin: 4px -16px 0; height: 48px; padding: 0 6px; overflow-x: auto; scrollbar-width: none; }
+      .apptab { padding: 0 10px; font-size: 13px; white-space: nowrap; }
+      .apptab[aria-current="page"]::after { left: 10px; right: 10px; }
+      .phero .container { min-height: 0; padding-top: 200px; padding-bottom: 40px; }
+      .phero__scrim { background: linear-gradient(0deg, var(--surface-page) 45%, #15171ecc 65%, #15171e33 100%); }
+      .phero h1 { font-size: 40px; line-height: 44px; }
+      .phero h1 img { height: 52px; }
+      .phero .lead { font-size: 17px; line-height: 26px; }
+      .sec { padding-top: 48px; }
+      .sec + .sec { margin-top: 48px; }
+      .sec h2 { font-size: 24px; line-height: 28px; }
+      .feats, .mcards, .others { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+      .flow { grid-template-columns: 1fr; gap: 8px; }
+      .flow .arrow { transform: rotate(90deg); }
+      .head-row { flex-direction: column; align-items: flex-start; }
+      .panel__head, .panel__body { padding-left: 20px; padding-right: 20px; }
+      .modal-head { padding: 20px 20px 12px; }
+      .modal-body { padding: 0 20px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .tile:hover .tile__cover { transform: none; }
+    }
+  </style>
+</head>
+<body>
 
-      /* ---------- Responsive ---------- */
-      @media (max-width: 1180px) { .plans { grid-template-columns: repeat(3, 1fr); } }
-      @media (min-width: 881px) and (max-width: 1080px) { .steps { grid-template-columns: repeat(2, 1fr); } }
-      @media (max-width: 880px) {
-        .bar nav a.lnk { display: none; }
-        .grid3, .steps { grid-template-columns: 1fr; }
-        .plans { grid-template-columns: repeat(2, 1fr); }
-        .section { padding: 70px 0; }
-      }
-      @media (max-width: 560px) { .plans { grid-template-columns: 1fr; } .hero h1 { white-space: normal; } }
-      /* MOBILE: gỡ absolute/docked cho showcase — app + nút tải xếp dọc tự nhiên, không đè nhau */
-      @media (max-width: 700px) {
-        .screen { aspect-ratio: auto !important; padding: 10px; gap: 10px; display: flex; flex-direction: column; justify-content: flex-start; }
-        .boot { flex: none; width: 100%; gap: 12px; justify-content: flex-start; }
-        body.theme-g .boot, body.theme-vh .boot, body.theme-ps .boot { padding: 0; }
-        body.theme-g .view-g, body.theme-ps .view-ps, body.theme-vh .vh-app { position: static; inset: auto; width: auto; height: auto; }
-        .rg-app, .ps5-ui { position: static; inset: auto; padding: 12px; gap: 10px; }
-        body.theme-vh .vh-app { padding: 0; }
-        .rg-hero, .ps5-hero { height: auto; min-height: 150px; flex: none; flex-direction: column; align-items: flex-start; justify-content: flex-start; }
-        .rg-hero .rg-hinfo, .ps5-hero .ps5-hinfo { padding: 8px 16px 16px; max-width: 64%; }
-        .vh-app .vh-side { display: none; }
-        .vh-app .vh-main { padding: 12px; }
-        .vh-app .vh-grid { grid-template-columns: repeat(2, 1fr); }
-        .rg-fx { right: 6px; width: 108px; height: 108px; }
-        .rg-fx .rg-emblem { font-size: 76px; }
-        .rg-fx i { width: 84px; height: 84px; }
-        .screen .downloads { position: static; left: auto; right: auto; bottom: auto; margin: 0; }
-        body.theme-g .dl-single, body.theme-vh .dl-vh, body.theme-ps .dl-ps { position: static; left: auto; right: auto; bottom: auto; margin: 0; flex-direction: column; }
-        .screen .dl-single .dl-win, .screen .dl-vh .dl-win, .screen .dl-ps .dl-win { flex: none; width: 100%; }
-        .screen .btn-discord { justify-content: center; }
-      }
-    </style>
-  </head>
+  <!-- ===== HEADER + TAB SẢN PHẨM ===== -->
+  <header class="top">
+    <div class="container">
+      <a class="logo" href="#revoltg" aria-label="RevoltG"><img src="./revoltglogo.png" alt="RevoltG" /></a>
+      <nav class="apptabs" aria-label="Sản phẩm">
+        <a class="apptab" href="#revoltg" data-page="g">RevoltG</a>
+        <a class="apptab" href="#revoltpc" data-page="pc">RevoltPC</a>
+        <a class="apptab" href="#revoltvh" data-page="vh">RevoltVH <span class="badge badge--new">Miễn phí</span></a>
+        <a class="apptab" href="#revoltps5" data-page="ps">RevoltPS5 <span class="badge badge--urgent">Sắp ra mắt</span></a>
+      </nav>
+      <div class="links">
+        <a href="#" data-modal="guide"><iconify-icon icon="lucide:circle-help"></iconify-icon><span>Hỗ trợ</span></a>
+        <a href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon><span>Discord</span></a>
+      </div>
+    </div>
+  </header>
 
-  <body class="theme-g">
-    <main id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="wrap inner">
-          <div class="tabs" role="tablist">
-            <button class="tab active" data-tab="g" type="button">RevoltG</button>
-            <button class="tab" data-tab="pc" type="button">RevoltPC<span class="tab-tag tag-pc">Cloud PC</span></button>
-            <button class="tab" data-tab="vh" type="button">RevoltVH<span class="tab-tag tag-free">Việt hóa miễn phí</span></button>
-            <button class="tab" data-tab="ps" type="button">RevoltPS5<span class="tab-tag">Coming soon</span></button>
+  <main>
+
+  <!-- =================================================================== -->
+  <!-- ============================ REVOLTG =============================== -->
+  <!-- =================================================================== -->
+  <div class="page" id="page-g" data-theme="oc-teal" data-title="RevoltG: Trải nghiệm trò chơi bản quyền">
+    <section class="phero">
+      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_hero.jpg" alt="" onerror="this.remove()" />
+      <div class="phero__scrim"></div>
+      <div class="container">
+        <div class="phero__body">
+          <span class="eyebrow">Nền tảng trò chơi bản quyền</span>
+          <h1><img src="./revoltglogo.png" alt="RevoltG" /></h1>
+          <p class="lead">Ứng dụng trải nghiệm kho game bản quyền quốc tế. Chọn game, kích hoạt bằng Rcoin, RevoltG sẽ tự cài đặt, cập nhật và đăng nhập giúp bạn.</p>
+          <div class="ctas">
+            <a class="btn btn--primary btn--xl" data-dl="revoltg.windows" data-keep href="https://dl.revolt.vn/RevoltG.Installer.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon>Tải RevoltG</a>
+            <button class="btn btn--secondary btn--xl" type="button" data-scroll="g-games">Xem Trò Chơi</button>
           </div>
-          <p class="tab-sub" id="tabSub">Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.</p>
+          <div class="meta">
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Tải miễn phí</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Windows 10/11</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Cloud Save</span>
+          </div>
         </div>
-        <div class="wrap stage">
-          <div class="monitor">
-            <div class="screen">
-              <div class="boot">
-                <img class="boot-logo" src="./revoltglogo.png" alt="RevoltG" />
-                <div class="view view-pc" hidden>
-                <div class="conn">
-                  <div class="node">
-                    <div class="box"><iconify-icon icon="mdi:monitor"></iconify-icon></div>
-                    <span class="nlabel">Máy bạn</span>
-                    <span class="nstat">~10 FPS</span>
-                  </div>
-                  <div class="link"><i></i><i></i><i></i></div>
-                  <div class="node">
-                    <div class="box hub"><iconify-icon icon="mdi:server-network"></iconify-icon></div>
-                    <span class="nlabel">Cloud PC</span>
-                    <span class="nstat">~15ms ping</span>
-                  </div>
-                  <div class="link"><i></i><i></i><i></i></div>
-                  <div class="node">
-                    <div class="box"><iconify-icon icon="mdi:controller-classic"></iconify-icon></div>
-                    <span class="nlabel">Trải nghiệm</span>
-                    <span class="nstat strong">120+ FPS</span>
-                  </div>
-                </div>
-                </div>
-                <div class="view view-g">
-                  <div class="rg-app">
-                    <div class="rg-top">
-                      <span class="rg-brand"><iconify-icon icon="mdi:controller-classic"></iconify-icon>RevoltG · Thư viện</span>
-                      <span class="rg-cats"><span class="on">Nổi bật</span><span>Mới</span><span>Bom tấn</span></span>
-                    </div>
-                    <div class="rg-hero">
-                      <span class="rg-fx"><i></i><i></i><i></i><iconify-icon class="rg-emblem" icon="mdi:controller-classic"></iconify-icon></span>
-                      <div class="rg-hinfo">
-                        <span class="rg-ribbon"><iconify-icon icon="mdi:license"></iconify-icon>Bản quyền</span>
-                        <span class="eyebrow">Bom tấn nổi bật</span>
-                        <h4>Kho game AAA quốc tế</h4>
-                        <p>Trải nghiệm trò chơi bản quyền, cài đặt nhanh chóng — sử dụng đơn giản.</p>
-                        <span class="rg-play"><iconify-icon icon="mdi:play"></iconify-icon>Trải nghiệm</span>
-                      </div>
-                    </div>
-                    <div class="rg-grid">
-                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:view-grid"></iconify-icon><span class="lb">Tất cả</span></span>
-                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:fire"></iconify-icon><span class="lb">Hành động</span></span>
-                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:ghost"></iconify-icon><span class="lb">Kinh dị</span></span>
-                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:earth"></iconify-icon><span class="lb">Thế giới mở</span></span>
-                      <span class="rg-cover"><iconify-icon class="ic" icon="mdi:sword-cross"></iconify-icon><span class="lb">Nhập vai</span></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="view view-vh" hidden>
-                  <div class="vh-app">
-                    <aside class="vh-side">
-                      <div class="sh"><span class="dot"><iconify-icon icon="mdi:translate"></iconify-icon></span><b>RevoltVH<br />Việt Hóa</b></div>
-                      <div class="vh-row active"><span class="l"><iconify-icon icon="mdi:home"></iconify-icon>Trang chủ</span></div>
-                      <div class="vh-row"><span class="l"><iconify-icon icon="mdi:folder-download-outline"></iconify-icon>Đã cài đặt</span></div>
-                      <div class="lbl">Nhóm dịch</div>
-                      <div class="vh-row"><span class="l">Revolt</span></div>
-                      <div class="vh-row"><span class="l">Sưu tầm</span></div>
-                    </aside>
-                    <div class="vh-main">
-                      <div class="mh">Mới cập nhật<span class="bdg">Việt hóa</span></div>
-                      <div class="vh-grid" id="vhGrid">
-                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Elden Ring</div><span class="pill">Revolt</span></div></div>
-                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1285190/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Borderlands 4</div><span class="pill">Revolt</span></div></div>
-                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/3274580/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Anno 117: Pax Romana</div><span class="pill">Revolt</span></div></div>
-                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2417610/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Metal Gear Solid Δ</div><span class="pill">Revolt</span></div></div>
-                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/532790/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Vampire: Bloodlines 2</div><span class="pill">Revolt</span></div></div>
-                        <div class="vh-tile"><div class="art"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2893820/header.jpg" alt="" onerror="this.remove()" /></div><div class="tl"><div class="name">Of Ash and Steel</div><span class="pill">Revolt</span></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="view view-ps" hidden>
-                  <div class="ps5-ui">
-                    <div class="ps5-top">
-                      <span class="ps5-brand"><iconify-icon icon="mdi:sony-playstation"></iconify-icon>Cloud PS5</span>
-                      <span class="ps5-status"><i class="dot"></i>Đang triển khai</span>
-                    </div>
-                    <div class="ps5-hero">
-                      <iconify-icon class="ps5-emblem" icon="mdi:sony-playstation"></iconify-icon>
-                      <div class="ps5-hinfo">
-                        <span class="ps5-ribbon"><iconify-icon icon="mdi:video-4k-box"></iconify-icon>4K HDR · DualSense</span>
-                        <span class="eyebrow">Bom tấn nổi bật</span>
-                        <h4>PS5 trên đám mây</h4>
-                        <p>Trải nghiệm trò chơi PS5 tức thì trên mọi thiết bị — không cần console.</p>
-                        <span class="ps5-play"><iconify-icon icon="mdi:clock-outline"></iconify-icon>Sắp ra mắt</span>
-                      </div>
-                    </div>
-                    <div class="ps5-rail">
-                      <span class="ps5-game" style="--c1:#2a2f7a;--c2:#141634"><iconify-icon icon="mdi:sword-cross"></iconify-icon></span>
-                      <span class="ps5-game" style="--c1:#1d3a66;--c2:#0d1730"><iconify-icon icon="mdi:pistol"></iconify-icon></span>
-                      <span class="ps5-game" style="--c1:#2e2450;--c2:#12102a"><iconify-icon icon="mdi:car-sports"></iconify-icon></span>
-                      <span class="ps5-game" style="--c1:#173a52;--c2:#0b1826"><iconify-icon icon="mdi:soccer"></iconify-icon></span>
-                      <span class="ps5-game" style="--c1:#243a6e;--c2:#101a34"><iconify-icon icon="mdi:rocket-launch"></iconify-icon></span>
-                      <span class="ps5-game" style="--c1:#2b2758;--c2:#121027"><iconify-icon icon="mdi:ghost"></iconify-icon></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="downloads dl-multi" hidden>
-                <a class="dl primary" data-platform="windows" href="https://dl.revolt.vn/RevoltPC-Setup.exe" aria-label="Tải RevoltPC cho Windows">
-                  <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
-                  <span class="os"><span class="name">Windows</span><span class="stat">Tải về · .exe</span></span>
-                </a>
-                <a class="dl" data-platform="linux" href="https://dl.revolt.vn/revoltpc-client-linux-x64.zip" aria-label="Tải RevoltPC cho Linux">
-                  <span class="ic"><iconify-icon icon="mdi:linux"></iconify-icon></span>
-                  <span class="os"><span class="name">Linux</span><span class="stat">Tải về <em class="beta">Beta</em></span></span>
-                </a>
-                <a class="dl" data-platform="macos-x64" href="https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-x64.zip" aria-label="Tải RevoltPC cho macOS Intel">
-                  <span class="ic"><iconify-icon icon="mdi:apple"></iconify-icon></span>
-                  <span class="os"><span class="name">macOS Intel</span><span class="stat">x64 <em class="beta">Beta</em></span></span>
-                </a>
-                <a class="dl" data-platform="macos-arm" href="https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-arrm64.zip" aria-label="Tải RevoltPC cho macOS Apple Silicon">
-                  <span class="ic"><iconify-icon icon="mdi:apple"></iconify-icon></span>
-                  <span class="os"><span class="name">macOS ARM</span><span class="stat">ARM <em class="beta">Beta</em></span></span>
-                </a>
-                <a class="dl soon" data-platform="web" aria-disabled="true">
-                  <span class="ic"><iconify-icon icon="mdi:web"></iconify-icon></span>
-                  <span class="os"><span class="name">Web</span><span class="stat">Sắp ra mắt</span></span>
-                </a>
-                <a class="dl soon" data-platform="ios" aria-disabled="true">
-                  <span class="ic"><iconify-icon icon="mdi:apple-ios"></iconify-icon></span>
-                  <span class="os"><span class="name">iOS</span><span class="stat">Sắp ra mắt</span></span>
-                </a>
-                <a class="dl soon" data-platform="android" aria-disabled="true">
-                  <span class="ic"><iconify-icon icon="mdi:android"></iconify-icon></span>
-                  <span class="os"><span class="name">Android</span><span class="stat">Sắp ra mắt</span></span>
-                </a>
-                <a class="btn-discord dl-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
-              </div>
-              <div class="downloads dl-single">
-                <a class="dl-win" href="https://dl.revolt.vn/RevoltG.Installer.exe" aria-label="Tải RevoltG cho Windows">
-                  <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
-                  <span class="os"><span class="name">Tải RevoltG cho Windows</span><span class="stat">Chỉ hỗ trợ Windows 10/11 · .exe</span></span>
-                  <iconify-icon icon="mdi:tray-arrow-down" class="dl-arrow"></iconify-icon>
-                </a>
-                <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
-              </div>
-              <div class="downloads dl-vh" hidden>
-                <a class="dl-win" data-app="revoltvh" href="https://vh.revolt.vn/updates/RevoltVH.exe" aria-label="Tải RevoltVH cho Windows">
-                  <span class="ic"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon></span>
-                  <span class="os"><span class="name">Tải RevoltVH cho Windows</span><span class="stat">Miễn phí hoàn toàn · Windows 10/11</span></span>
-                  <iconify-icon icon="mdi:tray-arrow-down" class="dl-arrow"></iconify-icon>
-                </a>
-                <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
-              </div>
-              <div class="downloads dl-ps" hidden>
-                <a class="dl-win" href="https://discord.revolt.vn/" target="_blank" rel="noopener" aria-label="Đăng ký xem trước RevoltPS5">
-                  <span class="ic"><iconify-icon icon="mdi:playlist-star"></iconify-icon></span>
-                  <span class="os"><span class="name">Đăng ký xem trước</span><span class="stat">Cloud PS5 · thử nghiệm sớm</span></span>
-                  <iconify-icon icon="mdi:arrow-right" class="dl-arrow"></iconify-icon>
-                </a>
-                <a class="btn-discord" href="https://discord.revolt.vn/" target="_blank" rel="noopener"><iconify-icon icon="ic:baseline-discord"></iconify-icon>Discord</a>
-              </div>
-            </div>
-            <div class="neck"></div>
-            <div class="base"></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="sec">
+        <div class="what">
+          <div>
+            <h2>RevoltG là gì?</h2>
+            <p class="body">RevoltG là nền tảng hạ tầng giúp bạn <b>trải nghiệm game bản quyền</b>. Bạn dùng Rcoin để kích hoạt quyền truy cập một trò chơi, còn RevoltG lo phần cài đặt, cập nhật và đăng nhập tài khoản bằng hệ thống <b>Auto-login</b> bảo mật.</p>
+            <p class="body">Tiến trình chơi được lưu bằng <b>RevoltG Cloud Save</b>, nên bạn có thể chơi tiếp ở máy khác, kể cả ở quán net.</p>
+          </div>
+          <div>
+            <h2>Bắt đầu trong 3 bước</h2>
+            <ol class="steps">
+              <li><div><b>Tải và cài RevoltG</b><span>Hỗ trợ Windows 10/11.</span></div></li>
+              <li><div><b>Nạp Rcoin, chọn game</b><span>Kích hoạt trò chơi bạn muốn trong thư viện.</span></div></li>
+              <li><div><b>Bấm chơi</b><span>RevoltG tự cài, cập nhật và đăng nhập. Bạn chỉ việc vào game.</span></div></li>
+            </ol>
           </div>
         </div>
       </section>
 
-      <div id="pcContent" hidden>
-      <!-- TECH STRIP -->
-      <section class="wrap specs-strip" aria-label="Công nghệ hỗ trợ">
-        <span class="chip feat"><iconify-icon icon="mdi:flash"></iconify-icon>GPU Zero Copy<span class="tagx">Độ trễ ~0</span></span>
-        <span class="chip"><iconify-icon icon="mdi:gamepad-variant"></iconify-icon>Kho game cài sẵn</span>
-        <span class="chip"><iconify-icon icon="mdi:cloud-download"></iconify-icon>Tự cài &amp; update game</span>
-        <span class="chip"><iconify-icon icon="mdi:palette"></iconify-icon>True Color 4:4:4</span>
-        <span class="chip"><iconify-icon icon="mdi:speedometer"></iconify-icon>Tới <b>240</b>&nbsp;FPS</span>
-        <span class="chip"><iconify-icon icon="mdi:video-high-definition"></iconify-icon>Codec H.265</span>
-      </section>
-
-      <!-- PRICING -->
-      <section class="section" id="pricing" style="padding-top: 10px">
-        <div class="wrap">
-          <div class="plans">
-            <div class="plan feat">
-              <div class="pname">Thông dụng <span class="badge">Phổ biến</span></div>
-              <div class="price">8.000<span class="rc">RC</span><span class="per-inline">/ giờ</span></div>
-              <ul>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>1080p · DLSS 3.0</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Intel Core i5-12400F</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RTX 4060 · 8GB</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RAM DDR4 32GB</li>
-              </ul>            </div>
-            <div class="plan">
-              <div class="pname">Phổ thông</div>
-              <div class="price">9.000<span class="rc">RC</span><span class="per-inline">/ giờ</span></div>
-              <ul>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>1080p · DLSS 4.0</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Intel Core i5-12400F</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RTX 5060 · 8GB</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RAM DDR4 32GB</li>
-              </ul>            </div>
-            <div class="plan">
-              <div class="pname">Mới ra mắt</div>
-              <div class="price">12.000<span class="rc">RC</span><span class="per-inline">/ giờ</span></div>
-              <ul>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>1440p · DLSS 4.0</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Intel Core i5-14600KF</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RTX 5060 Ti · 16GB</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RAM DDR4 32GB</li>
-              </ul>            </div>
-            <div class="plan">
-              <div class="pname">Cao cấp</div>
-              <div class="price">14.000<span class="rc">RC</span><span class="per-inline">/ giờ</span></div>
-              <ul>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>2160p (4K) · DLSS 3.0</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Intel Core i5-12600KF</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RTX 4070 Super · 12GB</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RAM DDR4 32GB</li>
-              </ul>            </div>
-            <div class="plan">
-              <div class="pname">Siêu cấp</div>
-              <div class="price">16.000<span class="rc">RC</span><span class="per-inline">/ giờ</span></div>
-              <ul>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Độ phân giải cao nhất</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>CPU Intel cao cấp</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GPU RTX 4070 Ti · 12GB</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RAM DDR4 32GB</li>
-              </ul>            </div>
-          </div>
-          <p class="note">Ngoài trả theo giờ, RevoltPC còn có gói nâng cấp <b style="color:var(--text)">UNLIMITED</b> để nhận mức giá ưu đãi hơn.</p>
+      <section class="sec">
+        <h2>Tính năng</h2>
+        <p class="sub">Mọi thứ bạn cần để vào game nhanh nhất.</p>
+        <div class="feats" style="margin-top: 24px">
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:library"></iconify-icon></span><h3>Kho game bản quyền quốc tế</h3><p>Đa dạng thể loại, cập nhật liên tục mỗi tuần.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:refresh-cw"></iconify-icon></span><h3>Tự cài &amp; cập nhật</h3><p>Không phải tự tải từng game, không phải chờ cập nhật thủ công.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:shield-check"></iconify-icon></span><h3>Auto-login bảo mật</h3><p>Thông tin đăng nhập được mã hóa, bạn không cần nhập tài khoản game.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:cloud-upload"></iconify-icon></span><h3>RevoltG Cloud Save</h3><p>Lưu tiến trình lên đám mây, chơi tiếp ở bất kỳ đâu.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:layout-grid"></iconify-icon></span><h3>Tìm theo thể loại</h3><p>Hành động, nhập vai, thế giới mở, kinh dị, sinh tồn và nhiều hơn nữa.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:languages"></iconify-icon></span><h3>Đi cùng RevoltVH</h3><p>Muốn chơi bằng tiếng Việt? Dùng kèm RevoltVH miễn phí.</p></div>
         </div>
       </section>
-      </div>
 
-      <!-- REVOLTG CONTENT -->
-      <div id="gContent">
-        <section class="wrap specs-strip" aria-label="Tính năng RevoltG">
-          <span class="chip feat"><iconify-icon icon="mdi:gamepad-variant"></iconify-icon>Kho game<span class="tagx">Bản quyền</span></span>
-          <span class="chip"><iconify-icon icon="mdi:cloud-download"></iconify-icon>Tự cài &amp; update game</span>
-          <span class="chip"><iconify-icon icon="mdi:sync"></iconify-icon>Cập nhật liên tục</span>
-          <span class="chip"><iconify-icon icon="mdi:earth"></iconify-icon>Kho game quốc tế</span>
-          <span class="chip"><iconify-icon icon="mdi:cloud-upload"></iconify-icon>RevoltG Cloud Save</span>
-        </section>
-        <section class="section" style="padding-top: 6px">
-          <div class="wrap">
-            <div class="g-cards">
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:bookshelf"></iconify-icon></div>
-                <h3>Kho game khổng lồ</h3>
-                <p>Game bản quyền đa dạng, cập nhật liên tục mỗi tuần.</p>
-              </div>
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:auto-fix"></iconify-icon></div>
-                <h3>Tự động &amp; tiện lợi</h3>
-                <p>Tự cài, tự cập nhật — chỉ việc truy cập và khởi chạy là được.</p>
-              </div>
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:cloud-upload"></iconify-icon></div>
-                <h3>RevoltG Cloud Save</h3>
-                <p>Lưu tiến trình &amp; dữ liệu game lên đám mây — chơi tiếp ở bất kỳ đâu, kể cả quán net, không lo mất save.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div id="vhContent" hidden>
-        <section class="wrap specs-strip" aria-label="Tính năng RevoltVH">
-          <span class="chip feat"><iconify-icon icon="mdi:gift-outline"></iconify-icon>Miễn phí<span class="tagx">100%</span></span>
-          <span class="chip"><iconify-icon icon="mdi:translate"></iconify-icon>Việt hóa bởi AI</span>
-          <span class="chip"><iconify-icon icon="mdi:sync"></iconify-icon>Cập nhật liên tục</span>
-          <span class="chip"><iconify-icon icon="mdi:puzzle-outline"></iconify-icon>Không cần mod thủ công</span>
-          <span class="chip"><iconify-icon icon="mdi:link-variant"></iconify-icon>Tương thích RevoltG</span>
-          <span class="chip"><iconify-icon icon="mdi:shape-outline"></iconify-icon>Đa dạng thể loại</span>
-        </section>
-        <section class="section" style="padding-top: 6px">
-          <div class="wrap">
-            <div class="g-cards">
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:translate-variant"></iconify-icon></div>
-                <h3>Kho việt hóa đồ sộ</h3>
-                <p>Kho game việt hóa phong phú, cập nhật liên tục mỗi tuần.</p>
-              </div>
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:robot-happy-outline"></iconify-icon></div>
-                <h3>Dịch bằng AI</h3>
-                <p>Bản dịch tiếng Việt tự nhiên, mượt mà nhờ AI và ngày càng hoàn thiện.</p>
-              </div>
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:flash"></iconify-icon></div>
-                <h3>Tự động áp dụng</h3>
-                <p>Mở game qua RevoltVH là có tiếng Việt ngay — không cần cài mod thủ công.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div id="psContent" hidden>
-        <section class="wrap specs-strip" aria-label="Tính năng RevoltPS5">
-          <span class="chip feat"><iconify-icon icon="mdi:progress-clock"></iconify-icon>Trạng thái<span class="tagx">Đang triển khai</span></span>
-          <span class="chip"><iconify-icon icon="mdi:video-4k-box"></iconify-icon>4K HDR 60FPS</span>
-          <span class="chip"><iconify-icon icon="mdi:vibrate"></iconify-icon>DualSense haptic</span>
-          <span class="chip"><iconify-icon icon="mdi:devices"></iconify-icon>Chơi mọi thiết bị</span>
-          <span class="chip"><iconify-icon icon="mdi:cloud-outline"></iconify-icon>Không cần console</span>
-        </section>
-        <section class="section" style="padding-top: 6px">
-          <div class="wrap">
-            <div class="g-cards">
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:sony-playstation"></iconify-icon></div>
-                <h3>PS5 trên đám mây</h3>
-                <p>Trải nghiệm game PS5 chạy trên máy chủ mạnh, stream về mọi thiết bị — không cần bỏ tiền mua console.</p>
-              </div>
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:vibrate"></iconify-icon></div>
-                <h3>Cảm giác nguyên bản</h3>
-                <p>4K HDR, phản hồi DualSense và độ trễ thấp — giữ trọn trải nghiệm như chơi trên máy thật.</p>
-              </div>
-              <div class="g-card">
-                <div class="gi"><iconify-icon icon="mdi:rocket-launch-outline"></iconify-icon></div>
-                <h3>Đang triển khai</h3>
-                <p>Dịch vụ sắp ra mắt. Đăng ký sớm qua Discord để nhận suất trải nghiệm thử nghiệm đầu tiên.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="wrap foot-top">
-        <div class="foot-brand">
-          <a href="#top"><img src="./revoltglogo.png" alt="RevoltG" /></a>
-          <p class="foot-desc">Nền tảng thuê Cloud PC cấu hình cao</p>
+      <section class="sec" id="g-games">
+        <div class="head-row">
+          <div><h2>Trò chơi nổi bật</h2><p class="sub">Một vài tựa game đang có trên RevoltG.</p></div>
+          <a class="btn btn--secondary" data-dl="revoltg.windows" data-keep href="https://dl.revolt.vn/RevoltG.Installer.exe">Tải App Để Xem Tất Cả</a>
         </div>
-        <div class="foot-cols">
-          <div class="foot-col">
-            <h4>Hỗ trợ</h4>
-            <a href="#" data-modal="guide">Hướng dẫn</a>
-            <a href="https://discord.revolt.vn/" target="_blank" rel="noopener">Discord</a>
+        <div class="tiles">
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg" alt="" /></div><div class="tile__title">Black Myth: Wukong</div><div class="tile__genre">Hành động nhập vai</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg" alt="" /></div><div class="tile__title">Elden Ring</div><div class="tile__genre">Nhập vai hành động</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/library_600x900.jpg" alt="" /></div><div class="tile__title">Red Dead Redemption 2</div><div class="tile__genre">Hành động phiêu lưu</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg" alt="" /></div><div class="tile__title">Baldur's Gate 3</div><div class="tile__genre">Nhập vai</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/library_600x900.jpg" alt="" /></div><div class="tile__title">God of War</div><div class="tile__genre">Hành động phiêu lưu</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900.jpg" alt="" /></div><div class="tile__title">Cyberpunk 2077</div><div class="tile__genre">Nhập vai thế giới mở</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/990080/library_600x900.jpg" alt="" /></div><div class="tile__title">Hogwarts Legacy</div><div class="tile__genre">Nhập vai thế giới mở</div></div>
+          <div class="tile"><div class="tile__cover"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1151640/library_600x900.jpg" alt="" /></div><div class="tile__title">Horizon Zero Dawn</div><div class="tile__genre">Hành động thế giới mở</div></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="getit">
+          <div>
+            <h2>Tải RevoltG</h2>
+            <p class="sub">Cài một lần, mọi trò chơi trong thư viện đều mở từ RevoltG.</p>
+            <ul class="req">
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Windows 10 hoặc Windows 11</span></li>
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Kết nối Internet ổn định</span></li>
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Tài khoản RevoltG và Rcoin để kích hoạt game</span></li>
+            </ul>
           </div>
-          <div class="foot-col">
-            <h4>Pháp lý</h4>
-            <a href="#" data-modal="tos">Điều khoản dịch vụ</a>
-            <a href="#" data-modal="privacy">Chính sách bảo mật</a>
+          <div class="panel">
+            <div class="panel__head"><span class="eyebrow">RevoltG</span><b>Ứng dụng cho Windows</b></div>
+            <div class="panel__body">
+              <a class="btn btn--primary btn--xl" data-dl="revoltg.windows" data-keep href="https://dl.revolt.vn/RevoltG.Installer.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon>Tải Cho Windows</a>
+              <a class="btn btn--secondary" href="https://discord.revolt.vn/" target="_blank" rel="noopener">Hỏi Đáp Trên Discord <iconify-icon class="ext" icon="lucide:external-link"></iconify-icon></a>
+              <p class="fine">Tải miễn phí, tệp .exe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Câu hỏi thường gặp</h2>
+        <div class="faq">
+          <details><summary>RevoltG có mất phí không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Tải ứng dụng miễn phí. Mỗi trò chơi được kích hoạt bằng Rcoin, đơn vị điểm dịch vụ của RevoltG. Rcoin không quy đổi ngược lại thành tiền mặt.</div></details>
+          <details><summary>Tôi có sở hữu tài khoản game không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Không. Kích hoạt một trò chơi là thuê quyền truy cập để trải nghiệm. Thông tin đăng nhập được hệ thống Auto-login của RevoltG mã hóa và bảo mật.</div></details>
+          <details><summary>Cloud Save hoạt động thế nào?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Dữ liệu game của bạn được lưu trên máy chủ RevoltG. Khi đăng nhập ở máy khác, bạn chơi tiếp từ đúng chỗ đã dừng.</div></details>
+          <details><summary>Máy tôi yếu thì sao?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Hãy thử <a href="#revoltpc">RevoltPC</a>: thuê Cloud PC cấu hình cao theo giờ, game chạy trên máy chủ và hình ảnh được stream về máy bạn.</div></details>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Sản phẩm khác</h2>
+        <div class="others">
+          <a class="other" href="#revoltpc"><span class="fi"><iconify-icon icon="lucide:monitor"></iconify-icon></span><span><b>RevoltPC</b><span>Thuê Cloud PC theo giờ</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltvh"><span class="fi"><iconify-icon icon="lucide:languages"></iconify-icon></span><span><b>RevoltVH</b><span>Việt hóa game miễn phí</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltps5"><span class="fi"><iconify-icon icon="mdi:sony-playstation"></iconify-icon></span><span><b>RevoltPS5</b><span>Cloud PS5, sắp ra mắt</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- ============================ REVOLTPC ============================== -->
+  <!-- =================================================================== -->
+  <div class="page" id="page-pc" data-theme="oc-orange" data-title="RevoltPC: Thuê Cloud PC theo giờ" hidden>
+    <section class="phero">
+      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_hero.jpg" alt="" onerror="this.remove()" />
+      <div class="phero__scrim"></div>
+      <div class="container">
+        <div class="phero__body">
+          <span class="eyebrow">Thuê Cloud PC theo giờ</span>
+          <h1><img src="./revoltpclogo.png" alt="RevoltPC" onerror="this.outerHTML='RevoltPC'" /></h1>
+          <p class="lead">PC của bạn, mạnh mẽ, mọi lúc mọi nơi. Thuê máy tính cấu hình cao và điều khiển nó ngay từ máy của bạn.</p>
+          <div class="ctas">
+            <a class="btn btn--primary btn--xl" id="pc-main" data-dl="platforms.windows" data-keep href="https://dl.revolt.vn/RevoltPC-Setup.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon><span class="lbl">Tải Cho Windows</span></a>
+            <a class="btn btn--secondary btn--xl" id="pc-web" data-dl="platforms.web" data-keep href="https://play.revolt.vn" target="_blank" rel="noopener"><iconify-icon icon="lucide:globe" style="font-size: 20px"></iconify-icon>Chơi Trên Web</a>
+          </div>
+          <div class="alt-plats" aria-label="Tải cho nền tảng khác">
+            <span>Nền tảng khác:</span>
+            <a data-plat="windows" data-dl="platforms.windows" data-keep href="https://dl.revolt.vn/RevoltPC-Setup.exe"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon>Windows</a>
+            <a data-plat="linux" data-dl="platforms.linux" data-keep href="https://dl.revolt.vn/revoltpc-client-linux-x64.zip"><iconify-icon icon="mdi:linux"></iconify-icon>Linux</a>
+            <a data-plat="macos-arm" data-dl="platforms.macos-arm" data-keep href="https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-arrm64.zip"><iconify-icon icon="mdi:apple"></iconify-icon>macOS Apple Silicon</a>
+            <a data-plat="macos-x64" data-dl="platforms.macos-x64" data-keep href="https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-x64.zip"><iconify-icon icon="mdi:apple"></iconify-icon>macOS Intel</a>
+          </div>
+          <div class="meta">
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Từ 8.000 RC/giờ</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Tới 240 FPS</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Windows, Linux, macOS, Web</span>
+            <button class="text-link" type="button" data-scroll="pc-pricing">Xem bảng giá</button>
           </div>
         </div>
       </div>
-      <div class="wrap foot-bottom">
-        <span>Phát triển bởi © RevoltG</span>
-        <span class="dot">revolt.vn</span>
-      </div>
-    </footer>
+    </section>
 
-    <!-- MODAL: ToS RevoltG -->
+    <div class="container">
+      <section class="sec">
+        <div class="what">
+          <div>
+            <h2>RevoltPC là gì?</h2>
+            <p class="body">RevoltPC cho bạn <b>thuê một máy tính vật lý cấu hình cao</b> đặt tại máy chủ RevoltG. Bạn mở app trên máy mình, kết nối tới Cloud PC và dùng nó như máy thật: chơi game, làm việc, dựng hình.</p>
+            <p class="body">Máy của bạn chỉ cần nhận hình ảnh được stream về, nên <b>kể cả máy yếu vẫn chạy mượt</b>.</p>
+            <div class="flow" aria-label="Cách hoạt động">
+              <div class="node"><iconify-icon icon="lucide:laptop"></iconify-icon><b>Máy bạn</b><span>~10 FPS</span></div>
+              <div class="arrow"><iconify-icon icon="lucide:arrow-right"></iconify-icon></div>
+              <div class="node hub"><iconify-icon icon="lucide:server"></iconify-icon><b>Cloud PC</b><span>~15 ms ping</span></div>
+              <div class="arrow"><iconify-icon icon="lucide:arrow-right"></iconify-icon></div>
+              <div class="node"><iconify-icon icon="lucide:gamepad-2"></iconify-icon><b>Trải nghiệm</b><span>120+ FPS</span></div>
+            </div>
+          </div>
+          <div>
+            <h2>Bắt đầu trong 3 bước</h2>
+            <ol class="steps">
+              <li><div><b>Tải RevoltPC</b><span>Có bản Windows, Linux, macOS, hoặc chơi luôn trên web.</span></div></li>
+              <li><div><b>Chọn gói, nạp Rcoin</b><span>Trả theo giờ, từ 8.000 RC/giờ.</span></div></li>
+              <li><div><b>Kết nối và sử dụng</b><span>Dùng Cloud PC như máy tính của chính bạn.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2>Công nghệ</h2>
+        <p class="sub">Tối ưu cho chơi game và làm việc từ xa.</p>
+        <div class="feats" style="margin-top: 24px">
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:zap"></iconify-icon></span><h3>GPU Zero Copy</h3><p>Đưa khung hình đi thẳng từ GPU, độ trễ gần như bằng 0.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:gauge"></iconify-icon></span><h3>Tới 240 FPS</h3><p>Khung hình mượt cho cả game thi đấu.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:palette"></iconify-icon></span><h3>True Color 4:4:4</h3><p>Màu sắc chính xác như RGB, chữ hiển thị sắc nét.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:film"></iconify-icon></span><h3>Codec H.265</h3><p>Giảm tới 50% băng thông so với H.264.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:gamepad"></iconify-icon></span><h3>Tay cầm &amp; micro</h3><p>Xbox, PS4, PS5, Stadia, Switch, không cần driver. Chuyển tiếp micro có khử ồn AI.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:network"></iconify-icon></span><h3>Revolt Tunnel</h3><p>Vượt tường NAT của nhà mạng và chuyển tiếp thiết bị USB.</p></div>
+        </div>
+      </section>
+
+      <section class="sec" id="pc-pricing">
+        <h2>Bảng giá theo giờ</h2>
+        <p class="sub" style="margin-bottom: 24px">Thanh toán bằng Rcoin. Chọn gói theo độ phân giải và cấu hình bạn cần.</p>
+        <div class="table-wrap">
+          <table class="cmp">
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr-only">Thông số</span></th>
+                <th scope="col"><div class="plan-name">Thông dụng <span class="badge badge--new">Phổ biến</span></div><div class="plan-price">8.000<small>RC/giờ</small></div></th>
+                <th scope="col"><div class="plan-name">Phổ thông</div><div class="plan-price">9.000<small>RC/giờ</small></div></th>
+                <th scope="col"><div class="plan-name">Mới ra mắt</div><div class="plan-price">12.000<small>RC/giờ</small></div></th>
+                <th scope="col"><div class="plan-name">Cao cấp</div><div class="plan-price">14.000<small>RC/giờ</small></div></th>
+                <th scope="col"><div class="plan-name">Siêu cấp</div><div class="plan-price">16.000<small>RC/giờ</small></div></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Hiển thị</th><td>1080p, DLSS 3.0</td><td>1080p, DLSS 4.0</td><td>1440p, DLSS 4.0</td><td>2160p (4K), DLSS 3.0</td><td>Cao nhất</td></tr>
+              <tr><th scope="row">CPU</th><td>Intel Core i5-12400F</td><td>Intel Core i5-12400F</td><td>Intel Core i5-14600KF</td><td>Intel Core i5-12600KF</td><td>Intel cao cấp</td></tr>
+              <tr><th scope="row">GPU</th><td>RTX 4060 8GB</td><td>RTX 5060 8GB</td><td>RTX 5060 Ti 16GB</td><td>RTX 4070 Super 12GB</td><td>RTX 4070 Ti 12GB</td></tr>
+              <tr><th scope="row">RAM</th><td>DDR4 32GB</td><td>DDR4 32GB</td><td>DDR4 32GB</td><td>DDR4 32GB</td><td>DDR4 32GB</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert" role="note"><iconify-icon icon="lucide:info"></iconify-icon><span>Ngoài trả theo giờ, RevoltPC còn có gói nâng cấp <b>UNLIMITED</b> để nhận mức giá ưu đãi hơn.</span></div>
+      </section>
+
+      <section class="sec">
+        <div class="getit">
+          <div>
+            <h2>Tải RevoltPC</h2>
+            <p class="sub">Chọn đúng hệ điều hành của máy bạn. Bản macOS đang thử nghiệm (Beta). Không muốn cài đặt thì mở bản web tại play.revolt.vn.</p>
+            <ul class="req">
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Kết nối Internet ổn định (nên dùng mạng dây hoặc Wi-Fi 5 GHz)</span></li>
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Đặt độ phân giải bằng hoặc thấp hơn màn hình của bạn để giảm độ trễ</span></li>
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Dùng True Color / 10-bit cần GPU hỗ trợ giải mã H.265</span></li>
+            </ul>
+            <p class="sub" style="margin-top: 16px"><a href="#" data-modal="guide" style="color: var(--accent)">Xem hướng dẫn kỹ thuật đầy đủ</a></p>
+          </div>
+          <div class="panel">
+            <div class="panel__head"><span class="eyebrow">RevoltPC</span><b>Chọn nền tảng</b></div>
+            <div class="panel__body plats">
+              <a class="plat" data-dl="platforms.windows" data-status="stable" href="https://dl.revolt.vn/RevoltPC-Setup.exe"><iconify-icon icon="mdi:microsoft-windows"></iconify-icon><b>Windows</b><span data-st>Tải về</span></a>
+              <a class="plat" data-dl="platforms.linux" data-status="stable" href="https://dl.revolt.vn/revoltpc-client-linux-x64.zip"><iconify-icon icon="mdi:linux"></iconify-icon><b>Linux</b><span data-st>Tải về</span></a>
+              <a class="plat" data-dl="platforms.macos-x64" data-status="beta" href="https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-x64.zip"><iconify-icon icon="mdi:apple"></iconify-icon><b>macOS Intel</b><span data-st>Beta</span></a>
+              <a class="plat" data-dl="platforms.macos-arm" data-status="beta" href="https://dl.revolt.vn/beta/revoltpc-2.3.10-macos-arrm64.zip"><iconify-icon icon="mdi:apple"></iconify-icon><b>macOS Apple Silicon</b><span data-st>Beta</span></a>
+              <a class="plat" data-dl="platforms.web" data-keep data-status="stable" data-verb="Mở trên web" href="https://play.revolt.vn" target="_blank" rel="noopener"><iconify-icon icon="mdi:web"></iconify-icon><b>Web</b><span data-st>Mở trên web</span></a>
+              <a class="plat soon" data-dl="platforms.ios" data-status="soon" aria-disabled="true"><iconify-icon icon="mdi:apple-ios"></iconify-icon><b>iOS</b><span data-st>Sắp ra mắt</span></a>
+              <a class="plat soon" data-dl="platforms.android" data-status="soon" aria-disabled="true"><iconify-icon icon="mdi:android"></iconify-icon><b>Android</b><span data-st>Sắp ra mắt</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Câu hỏi thường gặp</h2>
+        <div class="faq">
+          <details><summary>RevoltPC tính tiền thế nào?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Bạn trả theo giờ bằng Rcoin, giá tùy gói từ 8.000 đến 16.000 RC/giờ. Gói nâng cấp UNLIMITED cho mức giá ưu đãi hơn.</div></details>
+          <details><summary>Máy tôi yếu có dùng được không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Được. Mọi xử lý chạy trên Cloud PC, máy bạn chỉ giải mã hình ảnh stream về. Nên đặt độ phân giải bằng hoặc thấp hơn màn hình máy bạn để tiết kiệm băng thông.</div></details>
+          <details><summary>Có dùng được tay cầm không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Có. RevoltPC hỗ trợ tay cầm Xbox, PS4, PS5, Google Stadia và Nintendo Switch qua USB hoặc Bluetooth, không cần cài driver.</div></details>
+          <details><summary>Mạng nhà tôi không kết nối được tới Cloud PC?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Modem nhà mạng thường có tường NAT chặn kết nối trực tiếp. Hãy bật Revolt Tunnel trong app, hoặc dùng VPN / bật IPv6. Chi tiết trong <a href="#" data-modal="guide">hướng dẫn kỹ thuật</a>.</div></details>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Sản phẩm khác</h2>
+        <div class="others">
+          <a class="other" href="#revoltg"><span class="fi"><iconify-icon icon="lucide:gamepad-2"></iconify-icon></span><span><b>RevoltG</b><span>Trải nghiệm game bản quyền</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltvh"><span class="fi"><iconify-icon icon="lucide:languages"></iconify-icon></span><span><b>RevoltVH</b><span>Việt hóa game miễn phí</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltps5"><span class="fi"><iconify-icon icon="mdi:sony-playstation"></iconify-icon></span><span><b>RevoltPS5</b><span>Cloud PS5, sắp ra mắt</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- ============================ REVOLTVH ============================== -->
+  <!-- =================================================================== -->
+  <div class="page" id="page-vh" data-theme="oc-pink" data-title="RevoltVH: Việt hóa game miễn phí" hidden>
+    <section class="phero">
+      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_hero.jpg" alt="" onerror="this.remove()" />
+      <div class="phero__scrim"></div>
+      <div class="container">
+        <div class="phero__body">
+          <span class="eyebrow">Việt hóa game <span class="badge badge--new">Miễn phí</span></span>
+          <h1>RevoltVH</h1>
+          <p class="lead">Chơi game bằng tiếng Việt. Mở game qua RevoltVH là có bản việt hóa, dịch bằng AI và hoàn toàn miễn phí.</p>
+          <div class="ctas">
+            <a class="btn btn--primary btn--xl" data-dl="revoltvh.windows" data-keep href="https://vh.revolt.vn/updates/RevoltVH.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon>Tải RevoltVH</a>
+            <button class="btn btn--secondary btn--xl" type="button" data-scroll="vh-games">Game Đã Việt Hóa</button>
+          </div>
+          <div class="meta">
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Miễn phí hoàn toàn</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Không cần cài mod</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Windows 10/11</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="sec">
+        <div class="what">
+          <div>
+            <h2>RevoltVH là gì?</h2>
+            <p class="body">RevoltVH là <b>kho bản việt hóa cho game PC</b>. Bản dịch được tạo bằng AI và cập nhật liên tục mỗi tuần.</p>
+            <p class="body">Ứng dụng <b>tự áp dụng bản việt hóa</b> khi bạn mở game, nên bạn không phải đi tìm, tải và cài mod thủ công. Ngoài bản dịch của Revolt, RevoltVH còn tổng hợp bản việt hóa từ các nhóm dịch cộng đồng.</p>
+          </div>
+          <div>
+            <h2>Bắt đầu trong 3 bước</h2>
+            <ol class="steps">
+              <li><div><b>Tải RevoltVH</b><span>Miễn phí, chạy trên Windows 10/11.</span></div></li>
+              <li><div><b>Tìm game của bạn</b><span>Duyệt kho việt hóa hoặc tìm theo tên game.</span></div></li>
+              <li><div><b>Mở game qua RevoltVH</b><span>Tiếng Việt được áp dụng tự động.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2>Tính năng</h2>
+        <p class="sub">Chơi game nước ngoài mà không vướng rào cản ngôn ngữ.</p>
+        <div class="feats" style="margin-top: 24px">
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:gift"></iconify-icon></span><h3>Miễn phí 100%</h3><p>Không thu phí tải app, không thu phí bản dịch.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:sparkles"></iconify-icon></span><h3>Dịch bằng AI</h3><p>Bản dịch tự nhiên, mượt mà và ngày càng hoàn thiện.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:wand-2"></iconify-icon></span><h3>Tự động áp dụng</h3><p>Không cài mod thủ công, không chép đè file game.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:refresh-cw"></iconify-icon></span><h3>Cập nhật mỗi tuần</h3><p>Game mới được việt hóa và thêm vào kho liên tục.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:users"></iconify-icon></span><h3>Nhiều nhóm dịch</h3><p>Tổng hợp bản việt hóa của Revolt và các nhóm dịch cộng đồng.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:link"></iconify-icon></span><h3>Đi cùng RevoltG</h3><p>Dùng chung với thư viện game trên RevoltG.</p></div>
+        </div>
+      </section>
+
+      <section class="sec" id="vh-games">
+        <div class="head-row">
+          <div><h2>Mới việt hóa</h2><p class="sub">Một vài game vừa có bản tiếng Việt trên RevoltVH.</p></div>
+          <a class="btn btn--secondary" data-dl="revoltvh.windows" data-keep href="https://vh.revolt.vn/updates/RevoltVH.exe">Tải App Để Xem Tất Cả</a>
+        </div>
+        <div class="mcards">
+          <div class="mcard"><div class="mcard__media"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="" /></div><div class="mcard__body"><span class="eyebrow">Nhóm dịch Revolt</span><h3>Elden Ring</h3></div></div>
+          <div class="mcard"><div class="mcard__media"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1285190/header.jpg" alt="" /></div><div class="mcard__body"><span class="eyebrow">Nhóm dịch Revolt</span><h3>Borderlands 4</h3></div></div>
+          <div class="mcard"><div class="mcard__media"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/3274580/header.jpg" alt="" /></div><div class="mcard__body"><span class="eyebrow">Nhóm dịch Revolt</span><h3>Anno 117: Pax Romana</h3></div></div>
+          <div class="mcard"><div class="mcard__media"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2417610/header.jpg" alt="" /></div><div class="mcard__body"><span class="eyebrow">Nhóm dịch Revolt</span><h3>Metal Gear Solid Delta: Snake Eater</h3></div></div>
+          <div class="mcard"><div class="mcard__media"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/532790/header.jpg" alt="" /></div><div class="mcard__body"><span class="eyebrow">Nhóm dịch Revolt</span><h3>Vampire: The Masquerade - Bloodlines 2</h3></div></div>
+          <div class="mcard"><div class="mcard__media"><img loading="lazy" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2893820/header.jpg" alt="" /></div><div class="mcard__body"><span class="eyebrow">Nhóm dịch Revolt</span><h3>Of Ash and Steel</h3></div></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="getit">
+          <div>
+            <h2>Tải RevoltVH</h2>
+            <p class="sub">Miễn phí hoàn toàn. Cài xong là có thể chơi game bằng tiếng Việt.</p>
+            <ul class="req">
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Windows 10 hoặc Windows 11</span></li>
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Kết nối Internet để tải bản việt hóa</span></li>
+              <li><iconify-icon icon="lucide:check"></iconify-icon><span>Không cần tài khoản trả phí</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel__head"><span class="eyebrow">RevoltVH</span><b>Ứng dụng cho Windows</b></div>
+            <div class="panel__body">
+              <a class="btn btn--primary btn--xl" data-dl="revoltvh.windows" data-keep href="https://vh.revolt.vn/updates/RevoltVH.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon>Tải Cho Windows</a>
+              <a class="btn btn--secondary" href="https://discord.revolt.vn/" target="_blank" rel="noopener">Đề Xuất Game Trên Discord <iconify-icon class="ext" icon="lucide:external-link"></iconify-icon></a>
+              <p class="fine">Miễn phí hoàn toàn, tệp .exe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Câu hỏi thường gặp</h2>
+        <div class="faq">
+          <details><summary>RevoltVH có mất phí không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Không. RevoltVH miễn phí hoàn toàn, cả ứng dụng lẫn bản việt hóa.</div></details>
+          <details><summary>Tôi có phải cài mod thủ công không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Không. Bạn chỉ cần mở game qua RevoltVH, bản việt hóa được áp dụng tự động.</div></details>
+          <details><summary>Game tôi chơi đã có bản việt hóa chưa?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Mở RevoltVH và tìm theo tên game. Kho được cập nhật mỗi tuần; nếu chưa có, bạn có thể đề xuất trên <a href="https://discord.revolt.vn/" target="_blank" rel="noopener">Discord</a>.</div></details>
+          <details><summary>Dùng RevoltVH cùng RevoltG được không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Được. RevoltVH tương thích với thư viện game trên <a href="#revoltg">RevoltG</a>.</div></details>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Sản phẩm khác</h2>
+        <div class="others">
+          <a class="other" href="#revoltg"><span class="fi"><iconify-icon icon="lucide:gamepad-2"></iconify-icon></span><span><b>RevoltG</b><span>Trải nghiệm game bản quyền</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltpc"><span class="fi"><iconify-icon icon="lucide:monitor"></iconify-icon></span><span><b>RevoltPC</b><span>Thuê Cloud PC theo giờ</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltps5"><span class="fi"><iconify-icon icon="mdi:sony-playstation"></iconify-icon></span><span><b>RevoltPS5</b><span>Cloud PS5, sắp ra mắt</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- ============================ REVOLTPS5 ============================= -->
+  <!-- =================================================================== -->
+  <div class="page" id="page-ps" data-theme="bnet" data-title="RevoltPS5: Cloud PS5 sắp ra mắt" hidden>
+    <section class="phero">
+      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/library_hero.jpg" alt="" onerror="this.remove()" />
+      <div class="phero__scrim"></div>
+      <div class="container">
+        <div class="phero__body">
+          <span class="eyebrow">Cloud PS5 <span class="badge badge--urgent">Sắp ra mắt</span></span>
+          <h1>RevoltPS5</h1>
+          <p class="lead">Chơi game PS5 trên đám mây, ngay trên thiết bị bạn đang có, không cần mua console.</p>
+          <div class="ctas">
+            <a class="btn btn--primary btn--xl" href="https://discord.revolt.vn/" target="_blank" rel="noopener">Đăng Ký Xem Trước <iconify-icon class="ext" icon="lucide:external-link"></iconify-icon></a>
+          </div>
+          <div class="meta">
+            <span><iconify-icon icon="lucide:clock"></iconify-icon>Đang triển khai</span>
+            <span><iconify-icon icon="lucide:check"></iconify-icon>Thông báo trên Discord</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="sec">
+        <div class="what">
+          <div>
+            <h2>RevoltPS5 là gì?</h2>
+            <p class="body">RevoltPS5 là dịch vụ <b>Cloud PS5</b>: game chạy trên máy PS5 đặt tại máy chủ, hình ảnh được stream về thiết bị của bạn.</p>
+            <p class="body">Dịch vụ <b>đang được triển khai</b> và sẽ mở thử nghiệm sớm cho người dùng đã đăng ký trước.</p>
+            <div class="alert" role="note"><iconify-icon icon="lucide:info"></iconify-icon><span>Thời gian ra mắt và suất thử nghiệm sẽ được thông báo trên kênh <b>Discord</b> chính thức.</span></div>
+          </div>
+          <div>
+            <h2>Tham gia sớm</h2>
+            <ol class="steps">
+              <li><div><b>Vào Discord RevoltG</b><span>Tham gia cộng đồng để đăng ký xem trước.</span></div></li>
+              <li><div><b>Nhận thông báo</b><span>Bạn được báo ngay khi mở suất thử nghiệm.</span></div></li>
+              <li><div><b>Chơi PS5 trên thiết bị của bạn</b><span>Không cần mua máy, không cần cài đặt phức tạp.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2>Dự kiến</h2>
+        <p class="sub">Những gì RevoltPS5 hướng tới khi ra mắt.</p>
+        <div class="feats" style="margin-top: 24px">
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:monitor-play"></iconify-icon></span><h3>4K HDR</h3><p>Hình ảnh sắc nét, màu sắc rực rỡ.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:vibrate"></iconify-icon></span><h3>Phản hồi DualSense</h3><p>Giữ trọn cảm giác như chơi trên máy thật.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:smartphone"></iconify-icon></span><h3>Mọi thiết bị</h3><p>Chỉ cần màn hình và kết nối mạng, không cần console.</p></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Câu hỏi thường gặp</h2>
+        <div class="faq">
+          <details><summary>Khi nào RevoltPS5 ra mắt?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Dịch vụ đang được triển khai. Thời gian cụ thể sẽ được thông báo trên <a href="https://discord.revolt.vn/" target="_blank" rel="noopener">Discord</a>.</div></details>
+          <details><summary>Tôi có cần mua máy PS5 không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Không. Game chạy trên PS5 đặt tại máy chủ, bạn chỉ nhận hình ảnh stream về.</div></details>
+          <details><summary>Đăng ký xem trước thế nào?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Tham gia Discord RevoltG và theo dõi kênh thông báo để nhận suất thử nghiệm đầu tiên.</div></details>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 style="margin-bottom: 24px">Trong lúc chờ</h2>
+        <div class="others">
+          <a class="other" href="#revoltg"><span class="fi"><iconify-icon icon="lucide:gamepad-2"></iconify-icon></span><span><b>RevoltG</b><span>Trải nghiệm game bản quyền</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltpc"><span class="fi"><iconify-icon icon="lucide:monitor"></iconify-icon></span><span><b>RevoltPC</b><span>Thuê Cloud PC theo giờ</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+          <a class="other" href="#revoltvh"><span class="fi"><iconify-icon icon="lucide:languages"></iconify-icon></span><span><b>RevoltVH</b><span>Việt hóa game miễn phí</span></span><iconify-icon class="go" icon="lucide:chevron-right"></iconify-icon></a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <a href="#revoltg"><img src="./revoltglogo.png" alt="RevoltG" /></a>
+          <p>Nền tảng thuê Cloud PC cấu hình cao và trải nghiệm trò chơi bản quyền.</p>
+        </div>
+        <div>
+          <h4>Sản phẩm</h4>
+          <a href="#revoltg">RevoltG</a>
+          <a href="#revoltpc">RevoltPC</a>
+          <a href="#revoltvh">RevoltVH</a>
+          <a href="#revoltps5">RevoltPS5</a>
+        </div>
+        <div>
+          <h4>Hỗ trợ</h4>
+          <a href="#" data-modal="guide">Hướng dẫn kỹ thuật</a>
+          <a href="https://discord.revolt.vn/" target="_blank" rel="noopener">Discord</a>
+        </div>
+        <div>
+          <h4>Pháp lý</h4>
+          <a href="#" data-modal="tos">Điều khoản dịch vụ</a>
+          <a href="#" data-modal="privacy">Chính sách bảo mật</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>Phát triển bởi RevoltG</span>
+        <span>revolt.vn</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: ToS RevoltG -->
     <div class="modal" id="modal-tos" aria-hidden="true">
       <div class="modal-backdrop"></div>
       <div class="modal-box" role="dialog" aria-modal="true" aria-label="Điều khoản sử dụng dịch vụ RevoltG">
         <div class="modal-head">
           <h3>Điều khoản sử dụng dịch vụ RevoltG</h3>
-          <button class="modal-close" type="button" aria-label="Đóng"><iconify-icon icon="mdi:close"></iconify-icon></button>
+          <button class="modal-close" type="button" aria-label="Đóng"><iconify-icon icon="lucide:x"></iconify-icon></button>
         </div>
         <div class="modal-body tos">
-          <p class="lead">Chào mừng bạn đến với RevoltG — Nền tảng hạ tầng trải nghiệm trò chơi bản quyền. Bằng việc kích hoạt tài khoản và sử dụng dịch vụ (bao gồm nạp Rcoin), bạn đồng ý với các điều khoản sau:</p>
+          <p class="lead">Chào mừng bạn đến với RevoltG, nền tảng hạ tầng trải nghiệm trò chơi bản quyền. Bằng việc kích hoạt tài khoản và sử dụng dịch vụ (bao gồm nạp Rcoin), bạn đồng ý với các điều khoản sau:</p>
           <h4>1. Bản chất dịch vụ</h4>
           <p>RevoltG là đơn vị cung cấp hạ tầng công nghệ, bao gồm: dịch vụ thuê máy tính vật lý (RevoltPC), trình phát đa phương tiện (Media Player), hệ thống lưu trữ đám mây (Cloud Save) và giải pháp tự động đăng nhập bảo mật (Auto-login).</p>
           <p>RevoltG không kinh doanh, mua bán hoặc phân phối trái phép các tài khoản số của bên thứ ba. Chúng tôi chỉ cung cấp công cụ kỹ thuật để người dùng truy cập và trải nghiệm các nền tảng này trên hạ tầng của RevoltG.</p>
@@ -928,7 +855,7 @@
       <div class="modal-box" role="dialog" aria-modal="true" aria-label="Chính sách bảo mật RevoltG">
         <div class="modal-head">
           <h3>Chính sách bảo mật RevoltG</h3>
-          <button class="modal-close" type="button" aria-label="Đóng"><iconify-icon icon="mdi:close"></iconify-icon></button>
+          <button class="modal-close" type="button" aria-label="Đóng"><iconify-icon icon="lucide:x"></iconify-icon></button>
         </div>
         <div class="modal-body tos">
           <p class="lead">RevoltG coi trọng quyền riêng tư của bạn. Chính sách này mô tả cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ dữ liệu khi bạn sử dụng dịch vụ.</p>
@@ -945,7 +872,7 @@
           <h4>4. Chia sẻ dữ liệu với bên thứ ba</h4>
           <p>RevoltG <b>không bán, không chia sẻ</b> dữ liệu cá nhân của bạn cho bên thứ ba vì mục đích thương mại. Thông tin định danh chỉ được dùng để đăng nhập vào các nền tảng game tương ứng theo yêu cầu của bạn. Chúng tôi chỉ cung cấp dữ liệu khi có yêu cầu hợp pháp từ cơ quan chức năng.</p>
           <h4>5. Quyền của người dùng</h4>
-          <p>Người dùng có quyền sử dụng tài khoản đã đăng ký để trải nghiệm các dịch vụ của RevoltG. Tuy nhiên, vì lý do bảo mật và nhằm ngăn chặn việc mua bán/chuyển nhượng tài khoản trái phép, người dùng <b>không được phép đổi email</b> — email và thông tin định danh tài khoản <b>không thể thay đổi</b> sau khi đăng ký.</p>
+          <p>Người dùng có quyền sử dụng tài khoản đã đăng ký để trải nghiệm các dịch vụ của RevoltG. Tuy nhiên, vì lý do bảo mật và nhằm ngăn chặn việc mua bán/chuyển nhượng tài khoản trái phép, người dùng <b>không được phép đổi email</b>: email và thông tin định danh tài khoản <b>không thể thay đổi</b> sau khi đăng ký.</p>
           <h4>6. Lưu trữ dữ liệu</h4>
           <p>Dữ liệu được lưu trong thời gian tài khoản của bạn còn hoạt động và một khoảng thời gian hợp lý sau đó nhằm phục vụ nghĩa vụ pháp lý và đối soát giao dịch.</p>
           <h4>7. Thay đổi chính sách</h4>
@@ -962,7 +889,7 @@
       <div class="modal-box" role="dialog" aria-modal="true" aria-label="Hướng dẫn kỹ thuật RevoltPC">
         <div class="modal-head">
           <h3>Hướng dẫn kỹ thuật RevoltPC</h3>
-          <button class="modal-close" type="button" aria-label="Đóng"><iconify-icon icon="mdi:close"></iconify-icon></button>
+          <button class="modal-close" type="button" aria-label="Đóng"><iconify-icon icon="lucide:x"></iconify-icon></button>
         </div>
         <div class="modal-body doc">
           <h4>Video Stream</h4>
@@ -1001,16 +928,16 @@
               <tr><th></th><th>H.264</th><th>H.265</th><th>Limited</th><th>Limited 10-bit</th><th>True Color</th></tr>
             </thead>
             <tbody>
-              <tr><td>CPU</td><td>✅</td><td></td><td>✅</td><td></td><td></td></tr>
-              <tr><td>GPU</td><td>✅</td><td>(?)</td><td>✅</td><td>(?) + HEVC</td><td>(?) + HEVC</td></tr>
-              <tr><td>FFmpeg</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+              <tr><td>CPU</td><td>Có</td><td></td><td>Có</td><td></td><td></td></tr>
+              <tr><td>GPU</td><td>Có</td><td>(?)</td><td>Có</td><td>(?) + HEVC</td><td>(?) + HEVC</td></tr>
+              <tr><td>FFmpeg</td><td>Có</td><td>Có</td><td>Có</td><td>Có</td><td>Có</td></tr>
             </tbody>
           </table>
           <p>(?): phụ thuộc vào phần cứng có hỗ trợ hay không. H.265 khả dụng trên mọi GPU tích hợp của Intel từ thế hệ 3, còn Nvidia từ các dòng GTX đầu 10.</p>
           <h5>Độ phân giải video</h5>
           <p>Độ phân giải cho video stream, cũng chính là độ phân giải màn hình của Cloud PC. Chỉ nên thiết lập bằng hoặc thấp hơn độ phân giải của máy bạn để tránh lãng phí băng thông và tăng độ trễ khung hình.</p>
           <h5>Giới hạn khung hình</h5>
-          <p>Giới hạn ở đây là mức FPS tối đa của video stream từ Cloud PC. Khi thay đổi giá trị này, tần số quét của màn hình Cloud PC cũng được giới hạn ở mức Hz tương ứng, ví dụ 120 FPS ↔ 120 Hz.</p>
+          <p>Giới hạn ở đây là mức FPS tối đa của video stream từ Cloud PC. Khi thay đổi giá trị này, tần số quét của màn hình Cloud PC cũng được giới hạn ở mức Hz tương ứng, ví dụ 120 FPS tương ứng 120 Hz.</p>
           <p>Con số FPS thực mà bạn cảm nhận có thể thấp hơn tùy nhiều yếu tố: khi không có khung hình mới, game đang load shader nên tạm dừng render, hoặc game bị khóa FPS thấp hơn mức bạn giới hạn. RevoltPC chỉ render các khung hình mới nên đo FPS trong app sẽ không chính xác.</p>
 
           <h4>Hiển Thị</h4>
@@ -1024,9 +951,9 @@
           <h5>Vsync</h5>
           <p>VSync (đồng bộ dọc) giới hạn khung hình tối đa bằng với tần số quét của màn hình, giảm tình trạng xé hình trong các chuyển động liên tục. Lưu ý VSync ở đây là phía app RevoltPC trên máy bạn; mặc định Cloud PC đã giới hạn khung hình trong phần Video.</p>
           <h5>View mode</h5>
-          <p>Tùy chọn <strong>Cố định view</strong> giúp giữ kích thước view khi cửa sổ to hơn độ phân giải video. Ví dụ video 1600x900 nhưng màn hình FHD 1920x1080, khi phóng to view vẫn giữ 1600x900 ở trung tâm — hình luôn rõ nét.</p>
+          <p>Tùy chọn <strong>Cố định view</strong> giúp giữ kích thước view khi cửa sổ to hơn độ phân giải video. Ví dụ video 1600x900 nhưng màn hình FHD 1920x1080, khi phóng to view vẫn giữ 1600x900 ở trung tâm, hình luôn rõ nét.</p>
           <p>Khi bật, dùng <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>+/-</kbd> để zoom nếu Display Scaling vượt 100%. Nhấn <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>0</kbd> để reset zoom.</p>
-          <p>Tùy chọn <strong>Fullscreen</strong> hiển thị app toàn màn hình, chân thực như máy thật — kết hợp độ phân giải trùng màn hình (thêm True Color) thì tuyệt vời.</p>
+          <p>Tùy chọn <strong>Fullscreen</strong> hiển thị app toàn màn hình, chân thực như máy thật. Kết hợp độ phân giải trùng màn hình (thêm True Color) thì tuyệt vời.</p>
 
           <h4>Điều khiển</h4>
           <h5>Clipboard</h5>
@@ -1046,7 +973,7 @@
 
           <h4>Chuyển tiếp Microphone</h4>
           <p>RevoltPC chuyển tiếp mic trên máy bạn qua Cloud PC. Khi host cần mic, app thu mic đã chọn và chuyển sang host. Hỗ trợ mọi loại mic (headset, mic rời, USB/Jack 3.5mm, mic tích hợp) miễn là máy đã nhận thiết bị.</p>
-          <p>Tính năng <strong>Giảm tiếng ồn</strong> khử tiếng ồn môi trường bằng AI. Chỉ dùng khi mic chưa tích hợp sẵn — nó tăng nhẹ độ trễ âm và có thể lọc cả giọng nếu bạn nói quá nhỏ.</p>
+          <p>Tính năng <strong>Giảm tiếng ồn</strong> khử tiếng ồn môi trường bằng AI. Chỉ dùng khi mic chưa tích hợp sẵn, vì nó tăng nhẹ độ trễ âm và có thể lọc cả giọng nếu bạn nói quá nhỏ.</p>
 
           <h4>Revolt Tunnel</h4>
           <p>Mạng riêng ảo dùng giao thức WireGuard kết nối Client và Cloud PC, tạo mạng cục bộ (LAN) giúp truyền dữ liệu nhanh và kết nối các thiết bị được hỗ trợ.</p>
@@ -1070,124 +997,137 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        var subs = {
-          g:  'Trải nghiệm kho <span class="hl">game bản quyền</span> quốc tế.',
-          pc: '<span class="hl">PC của bạn</span> — mạnh mẽ, mọi lúc mọi nơi.',
-          vh: 'Chơi game <span class="hl">bằng tiếng Việt</span> — dịch bởi AI.',
-          ps: 'Chơi <span class="hl">PS5 trên đám mây</span> — không cần console.'
-        };
-        var LOGO  = { g: './revoltglogo.png', pc: './revoltpclogo.png', vh: './revoltvhlogo.png', ps: './revoltpclogo.png' };
-        var THEME = { g: 'theme-g', pc: '', vh: 'theme-vh', ps: 'theme-ps' };
-        var VIEW  = { g: '.view-g', pc: '.view-pc', vh: '.view-vh', ps: '.view-ps' };
-        var CONT  = { g: '#gContent', pc: '#pcContent', vh: '#vhContent', ps: '#psContent' };
-        var DL    = { g: '.dl-single', pc: '.dl-multi', vh: '.dl-vh', ps: '.dl-ps' };
-        var tabs = document.querySelectorAll('.tab');
-        var sub = document.getElementById('tabSub');
-        var bootLogo = document.querySelector('.boot-logo');
-        bootLogo.addEventListener('error', function () {
-          if ((this.getAttribute('src') || '').indexOf('revoltvhlogo') > -1) this.src = './revoltglogo.png';
+  <script>
+    // ----- Chuyển tab sản phẩm (mỗi sản phẩm một trang, theo #hash) -----
+    (function () {
+      var ROUTES = { revoltg: 'g', revoltpc: 'pc', revoltvh: 'vh', revoltps5: 'ps' };
+      var tabs = document.querySelectorAll('.apptab');
+      function show(key, keepScroll) {
+        document.querySelectorAll('.page').forEach(function (p) {
+          var on = p.id === 'page-' + key;
+          p.hidden = !on;
+          if (on) {
+            document.documentElement.dataset.theme = p.dataset.theme;
+            document.title = p.dataset.title;
+          }
         });
-        function only(map, keep) {
-          Object.keys(map).forEach(function (key) {
-            var el = document.querySelector(map[key]);
-            if (el) el.hidden = (key !== keep);
-          });
-        }
-        function setTab(k) {
-          tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-tab') === k); });
-          if (subs[k]) sub.innerHTML = subs[k];
-          only(VIEW, k); only(CONT, k); only(DL, k);
-          document.body.classList.remove('theme-g', 'theme-vh', 'theme-ps');
-          if (THEME[k]) document.body.classList.add(THEME[k]);
-          if (LOGO[k]) bootLogo.src = LOGO[k];
-        }
         tabs.forEach(function (t) {
-          t.addEventListener('click', function () { setTab(t.getAttribute('data-tab')); });
+          if (t.dataset.page === key) t.setAttribute('aria-current', 'page');
+          else t.removeAttribute('aria-current');
         });
-      })();
-    </script>
+        if (!keepScroll) window.scrollTo(0, 0);
+      }
+      function route(first) {
+        var key = ROUTES[(location.hash || '').slice(1)] || 'g';
+        show(key, first);
+      }
+      window.addEventListener('hashchange', function () { route(false); });
+      route(true);
 
-    <script>
-      (function () {
-        var modals = document.querySelectorAll('.modal');
-        function openModal(id) {
-          var m = document.getElementById('modal-' + id);
+      // nút cuộn tới một khu trong trang (không đổi #hash)
+      document.querySelectorAll('[data-scroll]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var el = document.getElementById(b.dataset.scroll);
+          if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' });
+        });
+      });
+    })();
+
+    // ----- Popup -----
+    (function () {
+      var modals = document.querySelectorAll('.modal');
+      var opener = null;
+      function closeAll() {
+        modals.forEach(function (m) { m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); });
+        document.body.style.overflow = '';
+        if (opener) { opener.focus(); opener = null; }
+      }
+      document.querySelectorAll('[data-modal]').forEach(function (t) {
+        t.addEventListener('click', function (e) {
+          e.preventDefault();
+          var m = document.getElementById('modal-' + t.getAttribute('data-modal'));
           if (!m) return;
-          var f = m.querySelector('iframe[data-src]');
-          if (f && !f.src) { f.src = f.getAttribute('data-src'); }
+          opener = t;
           m.classList.add('open');
+          m.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
-        }
-        function closeAll() {
-          modals.forEach(function (m) { m.classList.remove('open'); });
-          document.body.style.overflow = '';
-        }
-        document.querySelectorAll('[data-modal]').forEach(function (t) {
-          t.addEventListener('click', function (e) { e.preventDefault(); openModal(t.getAttribute('data-modal')); });
+          m.querySelector('.modal-close').focus();
         });
-        modals.forEach(function (m) {
-          m.addEventListener('click', function (e) {
-            if (e.target.classList.contains('modal-backdrop') || e.target.closest('.modal-close')) closeAll();
-          });
+      });
+      modals.forEach(function (m) {
+        m.addEventListener('click', function (e) {
+          if (e.target.classList.contains('modal-backdrop') || e.target.closest('.modal-close')) closeAll();
         });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
-      })();
-    </script>
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+    })();
 
-    <script>
-      // Đọc link tải từ JSON (sửa file JSON là web tự cập nhật, không cần sửa HTML)
-      (function () {
-        // Nguồn JSON đặt trên CDN dl.revolt.vn (cần bật CORS cho file này).
-        // Nếu lỗi/không bật CORS → tự fallback về file downloads.json cùng web → rồi link mặc định trong HTML.
-        var JSON_URL = 'https://dl.revolt.vn/downloads.json';
+    // ----- Hero RevoltPC: nút chính theo hệ điều hành của người xem -----
+    (function () {
+      var main = document.getElementById('pc-main');
+      var web = document.getElementById('pc-web');
+      if (!main) return;
+      var ua = navigator.userAgent || '';
+      var plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+      var os = 'windows';
+      if (/Android|iPhone|iPad|iPod/i.test(ua) || (/Mac/i.test(plat) && navigator.maxTouchPoints > 1)) os = 'mobile';
+      else if (/Mac/i.test(plat) || /Mac OS X/i.test(ua)) os = 'macos-arm';
+      else if (/Linux|X11|CrOS/i.test(plat + ' ' + ua)) os = 'linux';
+      if (os === 'mobile') {
+        // Điện thoại chưa có app: đưa bản web lên làm nút chính
+        main.hidden = true;
+        web.classList.remove('btn--secondary');
+        web.classList.add('btn--primary');
+        return;
+      }
+      var INFO = {
+        'linux': { icon: 'mdi:linux', label: 'Tải Cho Linux' },
+        'macos-arm': { icon: 'mdi:apple', label: 'Tải Cho macOS' }
+      };
+      if (INFO[os]) {
+        var src = document.querySelector('.alt-plats [data-plat="' + os + '"]');
+        main.setAttribute('data-dl', 'platforms.' + os);
+        if (src) main.setAttribute('href', src.getAttribute('href'));
+        main.querySelector('iconify-icon').setAttribute('icon', INFO[os].icon);
+        main.querySelector('.lbl').textContent = INFO[os].label;
+      }
+      var same = document.querySelector('.alt-plats [data-plat="' + os + '"]');
+      if (same) same.hidden = true;
+    })();
 
-        function applyTile(el, p) {
-          if (!el) return;
-          var stat = el.querySelector('.stat');
-          if (!p || p.status === 'soon' || !p.url) {
+    // ----- Link tải từ downloads.json (dl.revolt.vn, rồi file cùng web, rồi link trong HTML) -----
+    (function () {
+      var JSON_URL = 'https://dl.revolt.vn/downloads.json';
+      var LABEL = { stable: 'Tải về', beta: 'Beta', soon: 'Sắp ra mắt' };
+      function pick(obj, path) { return path.split('.').reduce(function (o, k) { return o && o[k]; }, obj); }
+      function apply(data) {
+        document.querySelectorAll('[data-dl]').forEach(function (el) {
+          var p = pick(data, el.getAttribute('data-dl'));
+          var st = el.querySelector('[data-st]');
+          if (!p || !p.url || p.status === 'soon') {
+            if (el.hasAttribute('data-keep')) return;
             el.classList.add('soon');
+            el.dataset.status = 'soon';
             el.removeAttribute('href');
             el.setAttribute('aria-disabled', 'true');
-            if (stat) stat.textContent = 'Sắp ra mắt';
+            if (st) st.textContent = LABEL.soon;
             return;
           }
           el.classList.remove('soon');
           el.removeAttribute('aria-disabled');
           el.setAttribute('href', p.url);
-          if (stat) {
-            if (p.status === 'beta') stat.innerHTML = 'Tải về <em class="beta">Beta</em>';
-            else stat.textContent = 'Tải về';
-          }
-        }
-        function apply(data) {
-          var plats = (data && data.platforms) || {};
-          document.querySelectorAll('.dl-multi .dl[data-platform]').forEach(function (el) {
-            applyTile(el, plats[el.getAttribute('data-platform')]);
-          });
-          var g = data && data.revoltg && data.revoltg.windows;
-          var winBtn = document.querySelector('.dl-single .dl-win');
-          if (winBtn && g && g.url) winBtn.setAttribute('href', g.url);
-          var vh = data && data.revoltvh && data.revoltvh.windows;
-          var vhBtn = document.querySelector('.dl-vh .dl-win');
-          if (vhBtn && vh && vh.url) vhBtn.setAttribute('href', vh.url);
-          var bi = document.getElementById('buildInfo');
-          if (bi && data && data.version) {
-            bi.textContent = 'RevoltPC v' + data.version + (data.updated ? ' · cập nhật ' + data.updated : '');
-          }
-        }
-        function load(url) {
-          return fetch(url + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) {
-            if (!r.ok) throw new Error('HTTP ' + r.status);
-            return r.json();
-          });
-        }
-        load(JSON_URL)
-          .catch(function () { return load('downloads.json'); })   // fallback: file cùng web
-          .then(apply)
-          .catch(function () { /* cả 2 đều lỗi → giữ link mặc định trong HTML */ });
-      })();
-    </script>
-  </body>
+          if (el.dataset.status) el.dataset.status = p.status === 'beta' ? 'beta' : 'stable';
+          if (st) st.textContent = p.status === 'beta' ? LABEL.beta : (el.dataset.verb || LABEL.stable);
+        });
+      }
+      function load(url) {
+        return fetch(url + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        });
+      }
+      load(JSON_URL).catch(function () { return load('downloads.json'); }).then(apply).catch(function () {});
+    })();
+  </script>
+</body>
 </html>
