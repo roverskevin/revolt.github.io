@@ -251,6 +251,14 @@
     .modal-close { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 4px; color: var(--text-secondary); font-size: 20px; flex: none; transition: background-color var(--fast), color var(--fast); }
     .modal-close:hover { background: var(--fill-strong); color: var(--text-primary); }
     .modal-body { overflow: auto; padding: 0 32px 32px; font-size: 15px; line-height: 24px; color: var(--text-body); }
+    /* Thanh cuộn mảnh, tối, hợp nền */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 8px; border: 3px solid transparent; background-clip: padding-box; }
+    ::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.28); }
+    ::-webkit-scrollbar-button { display: none; height: 0; width: 0; }
+    ::-webkit-scrollbar-corner { background: transparent; }
+    @supports (-moz-appearance: none) { * { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.18) transparent; } }
     .modal-body .lead { color: var(--text-primary); }
     .modal-body h4 { margin: 24px 0 8px; font: 700 16px/19px var(--font-display); color: var(--text-primary); }
     .modal-body h5 { margin: 18px 0 6px; font: 700 12px/16px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-muted); }
