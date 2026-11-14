@@ -85,13 +85,13 @@
     .top .container { display: flex; align-items: center; gap: 32px; height: 72px; }
     .top .logo img { height: 26px; }
     .apptabs { display: flex; align-items: stretch; gap: 4px; height: 100%; }
-    .apptab { position: relative; display: flex; align-items: center; gap: 8px; padding: 0 14px; font: 500 15px/24px var(--font-display); letter-spacing: .8px; text-transform: uppercase; color: var(--text-tertiary); transition: color var(--fast); }
+    .apptab { position: relative; display: flex; align-items: center; gap: 8px; padding: 0 14px; font: 500 15px/24px var(--font-display); letter-spacing: .8px; text-transform: uppercase; white-space: nowrap; color: var(--text-tertiary); transition: color var(--fast); }
     .apptab:hover { color: var(--text-primary); }
     .apptab[aria-current="page"] { color: var(--text-primary); font-weight: 700; }
     .apptab[aria-current="page"]::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 0; height: 2px; background: var(--accent); }
     .apptab .badge { height: 18px; padding: 0 6px; font-size: 10px; letter-spacing: .5px; }
     .top .links { margin-left: auto; display: flex; gap: 4px; }
-    .top .links a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 4px; font: 700 15px/24px var(--font-display); color: var(--text-primary); transition: background-color var(--fast); }
+    .top .links a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 4px; font: 700 15px/24px var(--font-display); color: var(--text-primary); white-space: nowrap; transition: background-color var(--fast); }
     .top .links a:hover { background: #ffffff0d; }
     .top .links iconify-icon { font-size: 20px; color: var(--text-secondary); }
 
@@ -414,7 +414,7 @@
         <div class="phero__body">
           <span class="eyebrow">Nền tảng trò chơi bản quyền</span>
           <h1><img src="./revoltglogo.png" alt="RevoltG" /></h1>
-          <p class="lead">Ứng dụng trải nghiệm kho game bản quyền quốc tế. Chọn game, kích hoạt bằng Rcoin, RevoltG sẽ tự cài đặt, cập nhật và đăng nhập giúp bạn.</p>
+          <p class="lead">Ứng dụng trải nghiệm kho game bản quyền quốc tế. Chọn game và truy cập, RevoltG sẽ tự cài đặt, cập nhật và đăng nhập giúp bạn.</p>
           <div class="ctas">
             <a class="btn btn--primary btn--xl" data-dl="revoltg.windows" data-keep href="https://dl.revolt.vn/RevoltG.Installer.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon>Tải RevoltG</a>
             <button class="btn btn--secondary btn--xl" type="button" data-scroll="g-games">Xem Trò Chơi</button>
@@ -428,7 +428,7 @@
         <div class="mock " aria-hidden="true">
           <div class="mock__bar"><span class="mock__title"><iconify-icon icon="lucide:gamepad-2"></iconify-icon>RevoltG</span><span class="mock__win"><iconify-icon icon="lucide:minus"></iconify-icon><iconify-icon icon="lucide:square"></iconify-icon><iconify-icon icon="lucide:x"></iconify-icon></span></div>
           <div class="mg-tabs"><span class="on"><iconify-icon icon="lucide:house"></iconify-icon>Trang chủ</span><span><iconify-icon icon="lucide:gamepad-2"></iconify-icon>Trò chơi</span><span><iconify-icon icon="lucide:monitor"></iconify-icon>RevoltPC</span></div>
-          <div class="mg-feat"><img src="https://cdn.revolt.vn/steam/2358720/header.jpg" alt="" onerror="this.remove()" /><div><small>Đang được chơi nhiều</small><b>Black Myth: Wukong</b><span class="mbtn">Chơi ngay</span></div></div>
+          <div class="mg-feat"><img src="https://cdn.revolt.vn/steam/4115450/hero.jpg" alt="" onerror="this.remove()" /><div><small>Đang được chơi nhiều</small><b>Phantom Blade Zero</b><span class="mbtn">Chơi ngay</span></div></div>
           <div class="mg-row"><b>Mới nhất</b><small>Xem tất cả</small></div>
           <div class="mg-covers"><img src="https://cdn.revolt.vn/steam/2358720/capsule.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.revolt.vn/steam/1245620/capsule.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.revolt.vn/steam/1174180/capsule.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.revolt.vn/steam/1086940/capsule.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.revolt.vn/steam/1593500/capsule.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /></div>
         </div>
