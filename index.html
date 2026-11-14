@@ -96,11 +96,73 @@
     .top .links iconify-icon { font-size: 20px; color: var(--text-secondary); }
 
     /* ===== Page hero ===== */
-    .phero { position: relative; overflow: hidden; background: var(--surface-strong); }
-    .phero__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-    .phero__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, var(--surface-page) 18%, #15171ee6 38%, #15171e40 70%, #15171e1a 100%), linear-gradient(0deg, var(--surface-page) 0%, transparent 35%); }
-    .phero .container { position: relative; min-height: 520px; display: flex; flex-direction: column; justify-content: center; padding-top: 64px; padding-bottom: 72px; }
-    .phero__body { max-width: 600px; }
+    .phero { position: relative; overflow: hidden; background: radial-gradient(900px 520px at 80% 45%, color-mix(in srgb, var(--accent-fill) 20%, transparent), transparent 70%), var(--surface-page); border-bottom: 1px solid var(--fill); }
+    .phero .container { position: relative; min-height: 560px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: center; gap: 56px; padding-top: 56px; padding-bottom: 64px; }
+    .phero__body { max-width: 560px; }
+    /* Khung app giả lập ở hero */
+    .mock { background: var(--surface-sunken); border-radius: 6px; overflow: hidden; box-shadow: 0 24px 60px #00000099, inset 0 0 0 1px var(--fill-strong); font-size: 12px; line-height: 16px; color: var(--text-secondary); user-select: none; }
+    .mock img { display: block; width: 100%; object-fit: cover; background: var(--fill); }
+    .mock__bar { display: flex; align-items: center; gap: 10px; height: 36px; padding: 0 12px; background: #0d0e13; }
+    .mock__title { display: inline-flex; align-items: center; gap: 6px; font: 800 12px/1 var(--font-display); color: var(--text-primary); letter-spacing: .4px; }
+    .mock__title iconify-icon { color: var(--accent); font-size: 15px; }
+    .mock__chip { margin-left: auto; padding: 3px 8px; border-radius: 4px; background: var(--fill); color: var(--text-primary); font-weight: 700; }
+    .mock__chip b { color: var(--accent); margin-right: 2px; }
+    .mock__win { display: inline-flex; gap: 12px; color: var(--text-muted); font-size: 13px; }
+    .mock__chip + .mock__win { margin-left: 14px; }
+    .mock__title + .mock__win { margin-left: auto; }
+    .mbtn { display: inline-flex; align-items: center; justify-content: center; height: 26px; padding: 0 12px; border-radius: 4px; background: var(--accent-fill); color: var(--on-accent); font: 700 11px/1 var(--font-display); }
+    .mg-tabs { display: flex; gap: 4px; padding: 0 12px; background: #0d0e13; border-bottom: 1px solid var(--fill); }
+    .mg-tabs span { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 10px; font-weight: 700; }
+    .mg-tabs .on { color: var(--text-primary); box-shadow: inset 0 -2px 0 var(--accent); }
+    .mg-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px 12px 0; }
+    .mg-stats div { padding: 8px 10px; border-radius: 4px; background: var(--surface-raised); box-shadow: inset 2px 0 0 var(--accent); }
+    .mg-stats small { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; }
+    .mg-stats b { font: 800 17px/22px var(--font-display); color: var(--text-primary); }
+    .mg-stats b.ok { color: #51cf66; }
+    .mg-feat { position: relative; margin: 12px 12px 0; border-radius: 4px; overflow: hidden; }
+    .mg-feat img { aspect-ratio: 460 / 120; object-position: center 30%; }
+    .mg-feat div { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; padding: 0 16px; background: linear-gradient(90deg, #111218f2 30%, transparent 75%); }
+    .mg-feat small { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: .5px; }
+    .mg-feat b { font: 800 18px/22px var(--font-display); color: var(--text-primary); margin-bottom: 4px; }
+    .mg-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 12px 8px; }
+    .mg-row b { color: var(--text-primary); font-size: 13px; }
+    .mg-covers { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 0 12px 14px; }
+    .mg-covers img { aspect-ratio: 2 / 3; border-radius: 4px; }
+    .mock--pc { background: radial-gradient(400px 260px at 50% 60%, color-mix(in srgb, var(--accent-fill) 14%, transparent), transparent 70%), var(--surface-sunken); }
+    .mp-head { padding: 18px 18px 6px; }
+    .mp-head b { display: block; font: 800 18px/24px var(--font-display); color: var(--text-primary); }
+    .mp-cards { display: grid; grid-template-columns: 1fr 1.15fr 1fr; align-items: center; gap: 10px; padding: 12px 18px 16px; }
+    .mp-card { padding: 12px; border-radius: 4px; background: var(--surface-raised); opacity: .55; }
+    .mp-card.on { opacity: 1; padding: 16px 14px; background: #1c1e26; box-shadow: inset 0 0 0 1px var(--fill-strong), 0 10px 30px #00000080; }
+    .mp-card small { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; font-weight: 700; }
+    .mp-card b { display: block; margin-top: 6px; font: 800 18px/22px var(--font-display); color: var(--text-primary); }
+    .mp-card.on b { font-size: 22px; line-height: 26px; }
+    .mp-card em { font-style: normal; }
+    .mp-card ul { list-style: none; margin: 10px 0; padding: 10px 0 0; border-top: 1px solid var(--fill); display: grid; gap: 4px; }
+    .mp-card li { display: flex; align-items: center; gap: 6px; }
+    .mp-card strong { display: block; font: 800 16px/20px var(--font-display); color: var(--text-primary); }
+    .mp-card strong span { font: 500 11px/1 var(--font-body); color: var(--text-secondary); }
+    .mp-card .mbtn { width: 100%; margin-top: 10px; }
+    .mp-foot { display: flex; justify-content: space-between; padding: 10px 18px 14px; }
+    .mp-foot span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 4px; background: var(--surface-raised); color: var(--text-primary); font-weight: 700; }
+    .mp-foot .dot { width: 7px; height: 7px; border-radius: 50%; background: #51cf66; }
+    .mv { display: grid; grid-template-columns: 150px 1fr; min-height: 330px; }
+    .mv-side { display: flex; flex-direction: column; gap: 2px; padding: 12px 8px; background: #0d0e13; border-right: 1px solid var(--fill); }
+    .mv-side span { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 4px; color: var(--text-primary); }
+    .mv-side span.on { background: var(--fill); color: var(--accent); }
+    .mv-side em { margin-left: auto; font-style: normal; color: var(--text-muted); }
+    .mv-side small { margin: 10px 8px 4px; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; font-weight: 700; color: var(--text-muted); }
+    .mv-main { padding: 12px; }
+    .mv-search { display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 10px; border-radius: 4px; background: var(--surface-raised); color: var(--text-muted); }
+    .mv-main .mg-row { padding: 12px 0 8px; }
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mv-card { position: relative; border-radius: 4px; overflow: hidden; background: var(--surface-raised); }
+    .mv-card img { aspect-ratio: 460 / 215; }
+    .mv-card .mbtn { position: absolute; right: 6px; bottom: 6px; height: 22px; padding: 0 10px; }
+    .ms { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 330px; padding: 24px; text-align: center; background: radial-gradient(260px 200px at 50% 40%, color-mix(in srgb, var(--accent-fill) 25%, transparent), transparent 70%); }
+    .ms > iconify-icon { font-size: 84px; color: var(--accent); margin-bottom: 6px; }
+    .ms b { font: 800 22px/28px var(--font-display); color: var(--text-primary); }
+    .ms small { font-size: 13px; margin-bottom: 8px; }
     .eyebrow { display: flex; align-items: center; gap: 8px; font: 700 12px/14px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-secondary); }
     .phero h1 { margin-top: 18px; font: 800 56px/60px var(--font-display); color: var(--text-primary); letter-spacing: -.5px; }
     .phero h1 img { height: 72px; width: auto; }
@@ -272,6 +334,9 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 1100px) {
+      .phero .container { grid-template-columns: 1fr; }
+      .phero__body { max-width: 640px; }
+      .mock { max-width: 640px; }
       .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .getit { grid-template-columns: 1fr; }
       .panel { max-width: 520px; }
@@ -291,8 +356,13 @@
       .apptabs { order: 3; width: calc(100% + 32px); margin: 4px -16px 0; height: 48px; padding: 0 6px; overflow-x: auto; scrollbar-width: none; }
       .apptab { padding: 0 10px; font-size: 13px; white-space: nowrap; }
       .apptab[aria-current="page"]::after { left: 10px; right: 10px; }
-      .phero .container { min-height: 0; padding-top: 200px; padding-bottom: 40px; }
-      .phero__scrim { background: linear-gradient(0deg, var(--surface-page) 45%, #15171ecc 65%, #15171e33 100%); }
+      .phero .container { min-height: 0; padding-top: 32px; padding-bottom: 40px; gap: 32px; }
+      .mv { grid-template-columns: 1fr; }
+      .mv-side { display: none; }
+      .mp-cards { grid-template-columns: 1fr; }
+      .mp-card:not(.on) { display: none; }
+      .mg-covers { grid-template-columns: repeat(4, 1fr); }
+      .mg-covers img:nth-child(5) { display: none; }
       .phero h1 { font-size: 40px; line-height: 44px; }
       .phero h1 img { height: 52px; }
       .phero .lead { font-size: 17px; line-height: 26px; }
@@ -340,8 +410,6 @@
   <!-- =================================================================== -->
   <div class="page" id="page-g" data-theme="oc-teal" data-title="RevoltG: Trải nghiệm trò chơi bản quyền">
     <section class="phero">
-      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_hero.jpg" alt="" onerror="this.remove()" />
-      <div class="phero__scrim"></div>
       <div class="container">
         <div class="phero__body">
           <span class="eyebrow">Nền tảng trò chơi bản quyền</span>
@@ -356,6 +424,13 @@
             <span><iconify-icon icon="lucide:check"></iconify-icon>Windows 10/11</span>
             <span><iconify-icon icon="lucide:check"></iconify-icon>Cloud Save</span>
           </div>
+        </div>
+        <div class="mock " aria-hidden="true">
+          <div class="mock__bar"><span class="mock__title"><iconify-icon icon="lucide:gamepad-2"></iconify-icon>RevoltG</span><span class="mock__win"><iconify-icon icon="lucide:minus"></iconify-icon><iconify-icon icon="lucide:square"></iconify-icon><iconify-icon icon="lucide:x"></iconify-icon></span></div>
+          <div class="mg-tabs"><span class="on"><iconify-icon icon="lucide:house"></iconify-icon>Trang chủ</span><span><iconify-icon icon="lucide:gamepad-2"></iconify-icon>Trò chơi</span><span><iconify-icon icon="lucide:monitor"></iconify-icon>RevoltPC</span></div>
+          <div class="mg-feat"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/header.jpg" alt="" onerror="this.remove()" /><div><small>Đang được chơi nhiều</small><b>Black Myth: Wukong</b><span class="mbtn">Chơi ngay</span></div></div>
+          <div class="mg-row"><b>Mới nhất</b><small>Xem tất cả</small></div>
+          <div class="mg-covers"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/library_600x900.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/library_600x900.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /></div>
         </div>
       </div>
     </section>
@@ -457,13 +532,11 @@
   <!-- =================================================================== -->
   <div class="page" id="page-pc" data-theme="oc-orange" data-title="RevoltPC: Thuê Cloud PC theo giờ" hidden>
     <section class="phero">
-      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_hero.jpg" alt="" onerror="this.remove()" />
-      <div class="phero__scrim"></div>
       <div class="container">
         <div class="phero__body">
           <span class="eyebrow">Thuê Cloud PC theo giờ</span>
           <h1><img src="./revoltpclogo.png" alt="RevoltPC" onerror="this.outerHTML='RevoltPC'" /></h1>
-          <p class="lead">PC của bạn, mạnh mẽ, mọi lúc mọi nơi. Thuê máy tính cấu hình cao và điều khiển nó ngay từ máy của bạn.</p>
+          <p class="lead">Chiến game max setting trên PC cấu hình cao. Thuê linh hoạt theo giờ, độ trễ cực thấp.</p>
           <div class="ctas">
             <a class="btn btn--primary btn--xl" id="pc-main" data-dl="platforms.windows" data-keep href="https://dl.revolt.vn/RevoltPC-Setup.exe"><iconify-icon icon="mdi:microsoft-windows" style="font-size: 22px"></iconify-icon><span class="lbl">Tải Cho Windows</span></a>
             <a class="btn btn--secondary btn--xl" id="pc-web" data-dl="platforms.web" data-keep href="https://play.revolt.vn" target="_blank" rel="noopener"><iconify-icon icon="lucide:globe" style="font-size: 20px"></iconify-icon>Chơi Trên Web</a>
@@ -481,6 +554,12 @@
             <span><iconify-icon icon="lucide:check"></iconify-icon>Windows, Linux, macOS, Web</span>
             <button class="text-link" type="button" data-scroll="pc-pricing">Xem bảng giá</button>
           </div>
+        </div>
+        <div class="mock mock--pc" aria-hidden="true">
+          <div class="mock__bar"><span class="mock__title"><iconify-icon icon="lucide:monitor"></iconify-icon>REVOLTPC</span><span class="mock__win"><iconify-icon icon="lucide:minus"></iconify-icon><iconify-icon icon="lucide:square"></iconify-icon><iconify-icon icon="lucide:x"></iconify-icon></span></div>
+          <div class="mp-head"><b>Bạn muốn thuê cấu hình nào?</b><small>Chọn máy, bấm thuê, vài giây là vào chơi.</small></div>
+          <div class="mp-cards"><div class="mp-card "><small>Thông dụng</small><b>RTX 4060</b><em>8GB VRAM</em><ul><li><iconify-icon icon="lucide:cpu"></iconify-icon>i5 12400F</li><li><iconify-icon icon="lucide:memory-stick"></iconify-icon>DDR4 32GB</li></ul><strong>8.000<span> RC/giờ</span></strong></div><div class="mp-card on"><small>Phổ thông</small><b>RTX 5060</b><em>8GB VRAM</em><ul><li><iconify-icon icon="lucide:cpu"></iconify-icon>i5 12400F</li><li><iconify-icon icon="lucide:memory-stick"></iconify-icon>DDR4 32GB</li></ul><strong>9.000<span> RC/giờ</span></strong><span class="mbtn">Thuê ngay</span></div><div class="mp-card "><small>Mới ra mắt</small><b>RTX 5060 Ti</b><em>16GB VRAM</em><ul><li><iconify-icon icon="lucide:cpu"></iconify-icon>i5 12400F</li><li><iconify-icon icon="lucide:memory-stick"></iconify-icon>DDR4 32GB</li></ul><strong>12.000<span> RC/giờ</span></strong></div></div>
+          <div class="mp-foot"><span><i class="dot"></i>Ping 1 ms</span><span><iconify-icon icon="lucide:wallet"></iconify-icon>Nạp Rcoin</span></div>
         </div>
       </div>
     </section>
@@ -516,11 +595,11 @@
         <p class="sub">Tối ưu cho chơi game và làm việc từ xa.</p>
         <div class="feats" style="margin-top: 24px">
           <div class="feat"><span class="fi"><iconify-icon icon="lucide:zap"></iconify-icon></span><h3>GPU Zero Copy</h3><p>Đưa khung hình đi thẳng từ GPU, độ trễ gần như bằng 0.</p></div>
-          <div class="feat"><span class="fi"><iconify-icon icon="lucide:gauge"></iconify-icon></span><h3>Tới 240 FPS</h3><p>Khung hình mượt cho cả game thi đấu.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:gauge"></iconify-icon></span><h3>Tới 240 FPS</h3><p>Khung hình mượt cho cả game cạnh tranh.</p></div>
           <div class="feat"><span class="fi"><iconify-icon icon="lucide:palette"></iconify-icon></span><h3>True Color 4:4:4</h3><p>Màu sắc chính xác như RGB, chữ hiển thị sắc nét.</p></div>
           <div class="feat"><span class="fi"><iconify-icon icon="lucide:film"></iconify-icon></span><h3>Codec H.265</h3><p>Giảm tới 50% băng thông so với H.264.</p></div>
           <div class="feat"><span class="fi"><iconify-icon icon="lucide:gamepad"></iconify-icon></span><h3>Tay cầm &amp; micro</h3><p>Xbox, PS4, PS5, Stadia, Switch, không cần driver. Chuyển tiếp micro có khử ồn AI.</p></div>
-          <div class="feat"><span class="fi"><iconify-icon icon="lucide:network"></iconify-icon></span><h3>Revolt Tunnel</h3><p>Vượt tường NAT của nhà mạng và chuyển tiếp thiết bị USB.</p></div>
+          <div class="feat"><span class="fi"><iconify-icon icon="lucide:network"></iconify-icon></span><h3>Revolt Relay</h3><p>Vượt tường NAT của nhà mạng khi không kết nối thẳng được tới Cloud PC.</p></div>
         </div>
       </section>
 
@@ -583,7 +662,7 @@
           <details><summary>RevoltPC tính tiền thế nào?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Bạn trả theo giờ bằng Rcoin, giá tùy gói từ 8.000 đến 16.000 RC/giờ. Gói nâng cấp UNLIMITED cho mức giá ưu đãi hơn.</div></details>
           <details><summary>Máy tôi yếu có dùng được không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Được. Mọi xử lý chạy trên Cloud PC, máy bạn chỉ giải mã hình ảnh stream về. Nên đặt độ phân giải bằng hoặc thấp hơn màn hình máy bạn để tiết kiệm băng thông.</div></details>
           <details><summary>Có dùng được tay cầm không?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Có. RevoltPC hỗ trợ tay cầm Xbox, PS4, PS5, Google Stadia và Nintendo Switch qua USB hoặc Bluetooth, không cần cài driver.</div></details>
-          <details><summary>Mạng nhà tôi không kết nối được tới Cloud PC?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Modem nhà mạng thường có tường NAT chặn kết nối trực tiếp. Hãy bật Revolt Tunnel trong app, hoặc dùng VPN / bật IPv6. Chi tiết trong <a href="#" data-modal="guide">hướng dẫn kỹ thuật</a>.</div></details>
+          <details><summary>Mạng nhà tôi không kết nối được tới Cloud PC?<iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><div class="ans">Modem nhà mạng thường có tường NAT chặn kết nối trực tiếp. Hãy bật Revolt Relay trong app, hoặc dùng VPN / bật IPv6. Chi tiết trong <a href="#" data-modal="guide">hướng dẫn kỹ thuật</a>.</div></details>
         </div>
       </section>
 
@@ -603,8 +682,6 @@
   <!-- =================================================================== -->
   <div class="page" id="page-vh" data-theme="oc-pink" data-title="RevoltVH: Việt hóa game miễn phí" hidden>
     <section class="phero">
-      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_hero.jpg" alt="" onerror="this.remove()" />
-      <div class="phero__scrim"></div>
       <div class="container">
         <div class="phero__body">
           <span class="eyebrow">Việt hóa game <span class="badge badge--new">Miễn phí</span></span>
@@ -618,6 +695,13 @@
             <span><iconify-icon icon="lucide:check"></iconify-icon>Miễn phí hoàn toàn</span>
             <span><iconify-icon icon="lucide:check"></iconify-icon>Không cần cài mod</span>
             <span><iconify-icon icon="lucide:check"></iconify-icon>Windows 10/11</span>
+          </div>
+        </div>
+        <div class="mock " aria-hidden="true">
+          <div class="mock__bar"><span class="mock__title"><iconify-icon icon="lucide:languages"></iconify-icon>RevoltG Việt Hóa</span><span class="mock__win"><iconify-icon icon="lucide:minus"></iconify-icon><iconify-icon icon="lucide:square"></iconify-icon><iconify-icon icon="lucide:x"></iconify-icon></span></div>
+          <div class="mv">
+            <div class="mv-side"><span class="on"><iconify-icon icon="lucide:house"></iconify-icon>Trang chủ</span><span><iconify-icon icon="lucide:layout-grid"></iconify-icon>Đã cài đặt</span><small>Nhóm dịch</small><span>Revolt<em>879</em></span><span>Sưu Tầm<em>60</em></span></div>
+            <div class="mv-main"><div class="mv-search"><iconify-icon icon="lucide:search"></iconify-icon>Tìm trò chơi...</div><div class="mg-row"><b>Mới cập nhật</b><small>1.400+ game</small></div><div class="mv-grid"><div class="mv-card"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><span class="mbtn">Chơi</span></div><div class="mv-card"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2417610/header.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><span class="mbtn">Chơi</span></div><div class="mv-card"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1285190/header.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><span class="mbtn">Chơi</span></div><div class="mv-card"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/532790/header.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'" /><span class="mbtn">Chơi</span></div></div></div>
           </div>
         </div>
       </div>
@@ -718,8 +802,6 @@
   <!-- =================================================================== -->
   <div class="page" id="page-ps" data-theme="bnet" data-title="RevoltPS5: Cloud PS5 sắp ra mắt" hidden>
     <section class="phero">
-      <img class="phero__art" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/library_hero.jpg" alt="" onerror="this.remove()" />
-      <div class="phero__scrim"></div>
       <div class="container">
         <div class="phero__body">
           <span class="eyebrow">Cloud PS5 <span class="badge badge--urgent">Sắp ra mắt</span></span>
@@ -731,6 +813,15 @@
           <div class="meta">
             <span><iconify-icon icon="lucide:clock"></iconify-icon>Đang triển khai</span>
             <span><iconify-icon icon="lucide:check"></iconify-icon>Thông báo trên Discord</span>
+          </div>
+        </div>
+        <div class="mock " aria-hidden="true">
+          <div class="mock__bar"><span class="mock__title"><iconify-icon icon="mdi:sony-playstation"></iconify-icon>RevoltPS5</span><span class="mock__win"><iconify-icon icon="lucide:minus"></iconify-icon><iconify-icon icon="lucide:square"></iconify-icon><iconify-icon icon="lucide:x"></iconify-icon></span></div>
+          <div class="ms">
+            <iconify-icon icon="mdi:sony-playstation"></iconify-icon>
+            <b>Cloud PS5</b>
+            <small>Chơi game PS5 ngay trên máy bạn đang có</small>
+            <span class="badge badge--urgent">Sắp ra mắt</span>
           </div>
         </div>
       </div>
@@ -977,30 +1068,15 @@
 
           <h4>Tay Cầm</h4>
           <p>RevoltPC hỗ trợ: Xbox (series), PS4, PS5, Google Stadia và Nintendo Switch. Các tay cầm này dùng USB HID nên <strong>không cần driver</strong>. Chỉ cần kết nối USB hoặc Bluetooth rồi nhấn nút bất kỳ là app nhận tín hiệu.</p>
-          <p><strong>Tín hiệu mọi tay cầm đều được chuyển sang Xbox layout</strong>, Cloud PC nhận vào là tay cầm Xbox qua driver ảo. Nếu muốn chuyển tiếp nguyên bản tay cầm/joystick USB, hãy dùng Tunnel và VirtualHere.</p>
+          <p><strong>Tín hiệu mọi tay cầm đều được chuyển sang Xbox layout</strong>, Cloud PC nhận vào là tay cầm Xbox qua driver ảo.</p>
 
           <h4>Chuyển tiếp Microphone</h4>
           <p>RevoltPC chuyển tiếp mic trên máy bạn qua Cloud PC. Khi host cần mic, app thu mic đã chọn và chuyển sang host. Hỗ trợ mọi loại mic (headset, mic rời, USB/Jack 3.5mm, mic tích hợp) miễn là máy đã nhận thiết bị.</p>
           <p>Tính năng <strong>Giảm tiếng ồn</strong> khử tiếng ồn môi trường bằng AI. Chỉ dùng khi mic chưa tích hợp sẵn, vì nó tăng nhẹ độ trễ âm và có thể lọc cả giọng nếu bạn nói quá nhỏ.</p>
 
-          <h4>Revolt Tunnel</h4>
-          <p>Mạng riêng ảo dùng giao thức WireGuard kết nối Client và Cloud PC, tạo mạng cục bộ (LAN) giúp truyền dữ liệu nhanh và kết nối các thiết bị được hỗ trợ.</p>
-          <h5>Vượt tường NAT</h5>
-          <p>Modem/router nhà mạng thường có tường NAT (symmetric) cản trở kết nối ngang hàng (P2P) đến Cloud PC. Dùng Tunnel có thể vượt NAT và thay đổi mức ping tùy tuyến mạng (ví dụ trực tiếp 20ms thì qua Tunnel dao động 15-30ms hoặc cao hơn).</p>
-          <p>Ngoài Tunnel, còn cách khác: dùng VPN, bật IPv6 hoặc yêu cầu nhà mạng mở NAT. Lưu ý mở NAT cao nhất rất dễ bị tấn công, chỉ cần mở <strong>port-restricted cone</strong> (<a href="https://github.com/P2PSP/core/blob/master/doc/NTS/NAT_traversal.md" target="_blank" rel="noopener">xem thêm</a>).</p>
-          <h5>Chuyển tiếp USB</h5>
-          <p>Tunnel hỗ trợ chuyển tiếp cổng USB qua <strong>VirtualHere Server</strong> (<code>vhusbdwin64</code>); phía Cloud PC bật <strong>VirtualHere Client</strong> để tiếp nhận. Nếu chỉ muốn VirtualHere mà không cho toàn bộ lưu lượng đi qua Tunnel, bỏ chọn "Kết nối qua Tunnel" trong Menu &gt; Kết Nối.</p>
-          <ul>
-            <li><strong>Hard drive</strong>: sao chép dữ liệu.</li>
-            <li><strong>Mouse/keyboard</strong>: bypass anti-cheat nếu yêu cầu input từ phần cứng.</li>
-            <li><strong>Controller</strong>: chuyển tiếp nguyên bản tay cầm thay vì Xbox layout mặc định.</li>
-            <li><strong>Microphone</strong>.</li>
-          </ul>
-          <h5>Cài đặt</h5>
-          <p>Khi cài Tunnel, nó cài <strong>WireSock VPN Client</strong>. Quá trình cài có thể mất mạng vài giây nên phải đăng xuất app trước khi cài. <strong>Lưu ý với máy Windows Arm64</strong>: Tunnel không được hỗ trợ; nếu cài thủ công WireSock bằng file CPU x86 sẽ gây lỗi card mạng và mất mạng vĩnh viễn.</p>
-          <h5>FAQ</h5>
-          <p>Q: <strong>Không dùng được VirtualHere?</strong><br />A: Đảm bảo Tunnel đã kết nối và file chạy VirtualHere Server có tên <code>vhusbdwin64</code>.</p>
-          <p>Q: <strong>Tunnel không vượt được NAT?</strong><br />A: Đảm bảo đã tích "Kết nối qua Tunnel"; nếu vẫn không được thì chọn cách khác ở lưu ý trên.</p>
+          <h4>Revolt Relay</h4>
+          <p>Modem/router nhà mạng thường có tường NAT (symmetric) cản trở kết nối ngang hàng (P2P) đến Cloud PC. Khi đó Revolt Relay chuyển tiếp kết nối qua máy chủ trung gian của Revolt để bạn vẫn vào được máy. Ping có thể thay đổi tùy tuyến mạng (ví dụ trực tiếp 20ms thì qua Relay dao động 15-30ms hoặc cao hơn).</p>
+          <p>Ngoài Relay, còn cách khác: dùng VPN, bật IPv6 hoặc yêu cầu nhà mạng mở NAT. Lưu ý mở NAT cao nhất rất dễ bị tấn công, chỉ cần mở <strong>port-restricted cone</strong> (<a href="https://github.com/P2PSP/core/blob/master/doc/NTS/NAT_traversal.md" target="_blank" rel="noopener">xem thêm</a>).</p>
         </div>
       </div>
     </div>
