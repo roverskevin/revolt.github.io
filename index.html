@@ -89,7 +89,7 @@
     .apptab:hover { color: var(--text-primary); }
     .apptab[aria-current="page"] { color: var(--text-primary); font-weight: 700; }
     .apptab[aria-current="page"]::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 0; height: 2px; background: var(--accent); }
-    .apptab .badge { height: 18px; padding: 0 6px; font-size: 10px; letter-spacing: .5px; }
+    .apptab .badge { position: absolute; left: 50%; top: calc(50% + 13px); transform: translateX(-50%); height: 16px; padding: 0 5px; font-size: 9px; letter-spacing: .5px; }
     .top .links { margin-left: auto; display: flex; gap: 4px; }
     .top .links a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 4px; font: 700 15px/24px var(--font-display); color: var(--text-primary); white-space: nowrap; transition: background-color var(--fast); }
     .top .links a:hover { background: #ffffff0d; }
@@ -353,8 +353,9 @@
       .top .links { order: 2; }
       .top .links a { padding: 0 10px; height: 40px; }
       .top .links a span { display: none; }
-      .apptabs { order: 3; width: calc(100% + 32px); margin: 4px -16px 0; height: 48px; padding: 0 6px; overflow-x: auto; scrollbar-width: none; }
+      .apptabs { order: 3; width: calc(100% + 32px); margin: 4px -16px 0; height: 60px; padding: 0 6px; overflow-x: auto; scrollbar-width: none; }
       .apptab { padding: 0 10px; font-size: 13px; white-space: nowrap; }
+      .apptab .badge { top: calc(50% + 10px); height: 14px; font-size: 8px; padding: 0 4px; }
       .apptab[aria-current="page"]::after { left: 10px; right: 10px; }
       .phero .container { min-height: 0; padding-top: 32px; padding-bottom: 40px; gap: 32px; }
       .mv { grid-template-columns: 1fr; }
