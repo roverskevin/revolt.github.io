@@ -85,17 +85,11 @@
     .top .container { display: flex; align-items: center; gap: 32px; height: 72px; }
     .top .logo img { height: 26px; }
     .apptabs { display: flex; align-items: stretch; gap: 4px; height: 100%; }
-    .apptab { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; padding: 0 22px; white-space: nowrap; color: var(--text-tertiary); transition: color var(--fast); }
-    .apptab .ti { display: grid; place-items: center; font-size: 22px; color: var(--text-muted); transition: color var(--fast); }
-    .apptab .tt { display: flex; flex-direction: column; align-items: center; }
-    .apptab b { font: 700 12px/16px var(--font-display); letter-spacing: .8px; text-transform: uppercase; }
-    .apptab small { margin-top: 1px; font-size: 11px; line-height: 13px; color: var(--text-muted); }
-    .apptab small.free { color: #69db7c; }
-    .apptab small.soon { color: #ff8787; }
+    .apptab { position: relative; display: flex; align-items: center; gap: 8px; padding: 0 14px; font: 500 15px/24px var(--font-display); letter-spacing: .8px; text-transform: uppercase; white-space: nowrap; color: var(--text-tertiary); transition: color var(--fast); }
     .apptab:hover { color: var(--text-primary); }
-    .apptab:hover .ti, .apptab[aria-current="page"] .ti { color: var(--c); }
-    .apptab[aria-current="page"] { color: var(--text-primary); background: radial-gradient(60% 70% at 50% 100%, color-mix(in srgb, var(--c) 28%, transparent), transparent 100%); }
-    .apptab[aria-current="page"]::after { content: ''; position: absolute; left: 18px; right: 18px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--c); box-shadow: 0 0 12px var(--c); }
+    .apptab[aria-current="page"] { color: var(--text-primary); font-weight: 700; }
+    .apptab[aria-current="page"]::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 0; height: 2px; background: var(--accent); }
+    .apptab .badge { position: absolute; left: 50%; top: calc(50% + 13px); transform: translateX(-50%); height: 16px; padding: 0 5px; font-size: 9px; letter-spacing: .5px; }
     .top .links { margin-left: auto; display: flex; gap: 4px; }
     .top .links a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 4px; font: 700 15px/24px var(--font-display); color: var(--text-primary); white-space: nowrap; transition: background-color var(--fast); }
     .top .links a:hover { background: #ffffff0d; }
@@ -360,10 +354,8 @@
       .top .links a { padding: 0 10px; height: 40px; }
       .top .links a span { display: none; }
       .apptabs { order: 3; width: calc(100% + 32px); margin: 4px -16px 0; height: 60px; padding: 0 6px; overflow-x: auto; scrollbar-width: none; }
-      .apptab { flex: 1; padding: 0 2px; }
-      .apptab .ti { font-size: 20px; }
-      .apptab b { font-size: 11px; line-height: 14px; letter-spacing: .3px; }
-      .apptab small { font-size: 9px; line-height: 11px; }
+      .apptab { padding: 0 10px; font-size: 13px; white-space: nowrap; }
+      .apptab .badge { top: calc(50% + 10px); height: 14px; font-size: 8px; padding: 0 4px; }
       .apptab[aria-current="page"]::after { left: 10px; right: 10px; }
       .phero .container { min-height: 0; padding-top: 32px; padding-bottom: 40px; gap: 32px; }
       .mv { grid-template-columns: 1fr; }
@@ -400,10 +392,10 @@
     <div class="container">
       <a class="logo" href="#revoltg" aria-label="RevoltG"><img src="./revoltglogo.png" alt="RevoltG" /></a>
       <nav class="apptabs" aria-label="Sản phẩm">
-        <a class="apptab" href="#revoltg" data-page="g" style="--c: #38d9a9"><span class="ti"><iconify-icon icon="lucide:gamepad-2"></iconify-icon></span><span class="tt"><b>RevoltG</b><small>Game bản quyền</small></span></a>
-        <a class="apptab" href="#revoltpc" data-page="pc" style="--c: #ffa94d"><span class="ti"><iconify-icon icon="lucide:monitor"></iconify-icon></span><span class="tt"><b>RevoltPC</b><small>Cloud gaming</small></span></a>
-        <a class="apptab" href="#revoltvh" data-page="vh" style="--c: #f06595"><span class="ti"><iconify-icon icon="lucide:languages"></iconify-icon></span><span class="tt"><b>Việt Hóa</b><small class="free">Miễn phí</small></span></a>
-        <a class="apptab" href="#revoltps5" data-page="ps" style="--c: #148eff"><span class="ti"><iconify-icon icon="mdi:sony-playstation"></iconify-icon></span><span class="tt"><b>RevoltPS5</b><small class="soon">Sắp ra mắt</small></span></a>
+        <a class="apptab" href="#revoltg" data-page="g">RevoltG</a>
+        <a class="apptab" href="#revoltpc" data-page="pc">RevoltPC</a>
+        <a class="apptab" href="#revoltvh" data-page="vh">Việt Hóa <span class="badge badge--new">Miễn phí</span></a>
+        <a class="apptab" href="#revoltps5" data-page="ps">RevoltPS5 <span class="badge badge--urgent">Sắp ra mắt</span></a>
       </nav>
       <div class="links">
         <a href="#" data-modal="guide"><iconify-icon icon="lucide:circle-help"></iconify-icon><span>Hỗ trợ</span></a>
