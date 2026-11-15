@@ -165,10 +165,14 @@
     .mv-card { position: relative; border-radius: 4px; overflow: hidden; background: var(--surface-raised); }
     .mv-card img { aspect-ratio: 460 / 215; }
     .mv-card .mbtn { position: absolute; right: 6px; bottom: 6px; height: 22px; padding: 0 10px; }
-    .ms { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 330px; padding: 24px; text-align: center; background: radial-gradient(260px 200px at 50% 40%, color-mix(in srgb, var(--accent-fill) 25%, transparent), transparent 70%); }
-    .ms > iconify-icon { font-size: 84px; color: var(--accent); margin-bottom: 6px; }
-    .ms b { font: 800 22px/28px var(--font-display); color: var(--text-primary); }
-    .ms small { font-size: 13px; margin-bottom: 8px; }
+    .ms { position: relative; aspect-ratio: 960 / 542; min-height: 260px; overflow: hidden; background: radial-gradient(260px 200px at 50% 40%, color-mix(in srgb, var(--accent-fill) 25%, transparent), transparent 70%), #0b0c10; }
+    .ms__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ms::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #0b0c10f2 0%, #0b0c1099 22%, transparent 48%); pointer-events: none; }
+    .ms__badge { position: absolute; top: 12px; right: 12px; z-index: 2; box-shadow: 0 4px 14px #00000080; }
+    .ms__info { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 2; display: flex; align-items: center; gap: 12px; text-align: left; }
+    .ms__info iconify-icon { flex: none; font-size: 36px; color: var(--accent); }
+    .ms__info b { display: block; font: 800 18px/22px var(--font-display); color: var(--text-primary); }
+    .ms__info small { display: block; font-size: 13px; line-height: 18px; color: var(--text-secondary); }
     .eyebrow { display: flex; align-items: center; gap: 8px; font: 700 12px/14px var(--font-display); letter-spacing: .6px; text-transform: uppercase; color: var(--text-secondary); }
     .phero h1 { margin-top: 18px; font: 800 56px/60px var(--font-display); color: var(--text-primary); letter-spacing: -.5px; }
     .phero h1 img { height: 72px; width: auto; }
@@ -826,10 +830,12 @@
         <div class="mock " aria-hidden="true">
           <div class="mock__bar"><span class="mock__title"><iconify-icon icon="mdi:sony-playstation"></iconify-icon>RevoltPS5</span><span class="mock__win"><iconify-icon icon="lucide:minus"></iconify-icon><iconify-icon icon="lucide:square"></iconify-icon><iconify-icon icon="lucide:x"></iconify-icon></span></div>
           <div class="ms">
-            <iconify-icon icon="mdi:sony-playstation"></iconify-icon>
-            <b>Cloud PS5</b>
-            <small>Chơi game PS5 ngay trên máy bạn đang có</small>
-            <span class="badge badge--urgent">Sắp ra mắt</span>
+            <video class="ms__video" src="./media/revoltps5.mp4" poster="./media/revoltps5-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+            <span class="badge badge--urgent ms__badge">Sắp ra mắt</span>
+            <div class="ms__info">
+              <iconify-icon icon="mdi:sony-playstation"></iconify-icon>
+              <div><b>Cloud PS5</b><small>Chơi game PS5 ngay trên máy bạn đang có</small></div>
+            </div>
           </div>
         </div>
       </div>
